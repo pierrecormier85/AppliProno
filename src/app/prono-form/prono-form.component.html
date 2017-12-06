@@ -1,0 +1,36 @@
+<div style="text-align:center">
+    <h1>
+      Journée {{matchday}}
+    </h1>
+    <br/>
+    <form [formGroup]="form" (ngSubmit)="saveProno()">
+      <div class="col-sm-12 container" *ngFor="let game of games">
+        <div class="left">
+          <h3>{{game.dom}} ({{game.rankingDom}})</h3>
+          <p>{{game.resultHomeTeamJ5}} {{game.resultHomeTeamJ4}} {{game.resultHomeTeamJ3}} {{game.resultHomeTeamJ2}} {{game.resultHomeTeamJ1}}</p>
+        </div>
+
+        <div class="center">
+          <div class="form-group">
+            <div >
+              <input type="radio" name="m{{game.id}}" value="1" formControlName="m{{game.id}}" checked>1
+              <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="N">N
+              <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="2">2
+            </div>
+          </div>
+        </div>
+
+        <div class="right">
+          <h3>{{game.ext}} ({{game.rankingExt}})</h3>
+          <p>{{game.resultAwayTeamJ5}} {{game.resultAwayTeamJ4}} {{game.resultAwayTeamJ3}} {{game.resultAwayTeamJ2}} {{game.resultAwayTeamJ1}}</p>
+        </div>
+      </div>
+
+      <div>
+        <label  for="pseudo">Pseudo</label>
+        <input type="text" name="pseudo" formControlName="pseudo" />
+      </div>
+
+      <button class="btn btn-primary"  type="submit">Valider</button>
+    </form>
+  </div>
