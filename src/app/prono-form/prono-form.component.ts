@@ -30,7 +30,8 @@ export class PronoFormComponent implements OnInit {
       m7: '',
       m8: '',
       m9: '',
-      pseudo: ''
+      pseudo: '',
+      matchday: this.matchday
     });
 
     this.http.get('https://pronorest.herokuapp.com/api/fixtures/'.concat(this.matchday.toString()))
@@ -64,7 +65,9 @@ export class PronoFormComponent implements OnInit {
   }
 
   saveProno() {
-    console.log(this.form.value.pseudo);
+
+    this.http.post('http://localhost:8080/PronoRest/api/pronostic', this.form.value)
+    .toPromise();
   }
 
 }
