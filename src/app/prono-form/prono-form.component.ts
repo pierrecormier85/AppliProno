@@ -12,7 +12,7 @@ import {Game} from './../game/game';
 export class PronoFormComponent implements OnInit {
 
   title = 'app';
-  matchday = 16;
+  matchday = 20;
   games: Game[];
   form: FormGroup;
 

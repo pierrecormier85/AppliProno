@@ -11,13 +11,27 @@
         </div>
 
         <div class="center">
-          <div class="form-group">
+        <!--  <div class="form-group">
             <div >
               <input type="radio" name="m{{game.id}}" value="1" formControlName="m{{game.id}}" checked>1
               <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="N">N
               <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="2">2
             </div>
+          </div>-->
+
+
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="m{{game.id}}" value=="1" formControlName="m{{game.id}}" autocomplete="off" checked> 1
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="m{{game.id}}" value="N" formControlName="m{{game.id}}" autocomplete="off"> N
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="m{{game.id}}" value="2" formControlName="m{{game.id}}" autocomplete="off"> 2
+            </label>
           </div>
+
         </div>
 
         <div class="right">
@@ -34,3 +48,6 @@
       <button class="btn btn-primary"  type="submit">Valider</button>
     </form>
   </div>
+
+
+
