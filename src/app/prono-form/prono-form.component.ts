@@ -20,7 +20,6 @@ export class PronoFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      m0: '',
       m1: '',
       m2: '',
       m3: '',
@@ -30,15 +29,16 @@ export class PronoFormComponent implements OnInit {
       m7: '',
       m8: '',
       m9: '',
+      m10: '',
       pseudo: '',
       matchday: this.matchday
     });
 
-    this.http.get('https://pronorest.herokuapp.com/api/fixtures/'.concat(this.matchday.toString()))
+    this.http.get('http://localhost:8080/api/fixtures/'.concat(this.matchday.toString()))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.games = [];
-        for (let i = 0; i < 10; i ++) {
+        for (let i = 1; i < 11; i ++) {
           const fixture = data[i];
           const game: Game = {
             dom: fixture['home'],
@@ -66,7 +66,7 @@ export class PronoFormComponent implements OnInit {
 
   saveProno() {
 
-    this.http.post('http://localhost:8080/PronoRest/api/pronostic', this.form.value)
+    this.http.post('http://localhost:8080/api/pronostic', this.form.value)
     .toPromise();
   }
 
