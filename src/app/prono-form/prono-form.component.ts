@@ -39,7 +39,7 @@ export class PronoFormComponent implements OnInit {
         // Read the result field from the JSON response.
         this.games = [];
         for (let i = 1; i < 11; i ++) {
-          const fixture = data[i];
+          const fixture = data[i-1];
           const game: Game = {
             dom: fixture['home'],
             ext: fixture['away'],
@@ -62,6 +62,17 @@ export class PronoFormComponent implements OnInit {
         }
       }
     );
+  }
+
+  getClassForResult(value){
+    if(value == 'V'){
+      return 'badge badge-pill badge-success';
+    } else if(value == 'N'){
+      return 'badge badge-pill badge-warning';
+    } else {
+      return 'badge badge-pill badge-danger';
+    }
+    
   }
 
   saveProno() {

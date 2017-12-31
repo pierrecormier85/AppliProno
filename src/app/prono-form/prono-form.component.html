@@ -5,39 +5,43 @@
     <br/>
     <form [formGroup]="form" (ngSubmit)="saveProno()">
       <div class="col-sm-12 container" *ngFor="let game of games">
-        <div class="left">
-          <h3>{{game.dom}} ({{game.rankingDom}})</h3>
-          <p>{{game.resultHomeTeamJ5}} {{game.resultHomeTeamJ4}} {{game.resultHomeTeamJ3}} {{game.resultHomeTeamJ2}} {{game.resultHomeTeamJ1}}</p>
-        </div>
-
-        <div class="center">
-        <!--  <div class="form-group">
-            <div >
-              <input type="radio" name="m{{game.id}}" value="1" formControlName="m{{game.id}}" checked>1
-              <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="N">N
-              <input type="radio" name="m{{game.id}}" formControlName="m{{game.id}}" value="2">2
+          <div class="form-group row">
+                <div class="col-5 col-form-label">
+                  <h3><label for="fc-m{{game.id}}">{{game.dom}} ({{game.rankingDom}})</label></h3>
+                  <span class="{{getClassForResult(game.resultHomeTeamJ5)}}">{{game.resultHomeTeamJ5}}</span>
+                  <span class="{{getClassForResult(game.resultHomeTeamJ4)}}">{{game.resultHomeTeamJ4}}</span>
+                  <span class="{{getClassForResult(game.resultHomeTeamJ3)}}">{{game.resultHomeTeamJ3}}</span>
+                  <span class="{{getClassForResult(game.resultHomeTeamJ2)}}">{{game.resultHomeTeamJ2}}</span>
+                  <span class="{{getClassForResult(game.resultHomeTeamJ1)}}">{{game.resultHomeTeamJ1}}</span>
+                </div>
+                <div class="col-2">
+                    <div id="fc-m{{game.id}}">
+                      <label class="custom-control custom-radio">
+                        <input name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">1</span>
+                      </label>
+                      <label class="custom-control custom-radio">
+                        <input name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">N</span>
+                      </label>
+                      <label class="custom-control custom-radio">
+                        <input name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}" class="custom-control-input">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">2</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-5 col-form-label">
+                      <h3><label for="fc-m{{game.id}}">{{game.ext}} ({{game.rankingExt}})</label></h3>
+                      <span class="{{getClassForResult(game.resultAwayTeamJ5)}}">{{game.resultAwayTeamJ5}}</span>
+                      <span class="{{getClassForResult(game.resultAwayTeamJ4)}}">{{game.resultAwayTeamJ4}}</span>
+                      <span class="{{getClassForResult(game.resultAwayTeamJ3)}}">{{game.resultAwayTeamJ3}}</span>
+                      <span class="{{getClassForResult(game.resultAwayTeamJ2)}}">{{game.resultAwayTeamJ2}}</span>
+                      <span class="{{getClassForResult(game.resultAwayTeamJ1)}}">{{game.resultAwayTeamJ1}}</span>
+                    </div>
             </div>
-          </div>-->
-
-
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="m{{game.id}}" value=="1" formControlName="m{{game.id}}" autocomplete="off" checked> 1
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="m{{game.id}}" value="N" formControlName="m{{game.id}}" autocomplete="off"> N
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="m{{game.id}}" value="2" formControlName="m{{game.id}}" autocomplete="off"> 2
-            </label>
-          </div>
-
-        </div>
-
-        <div class="right">
-          <h3>{{game.ext}} ({{game.rankingExt}})</h3>
-          <p>{{game.resultAwayTeamJ5}} {{game.resultAwayTeamJ4}} {{game.resultAwayTeamJ3}} {{game.resultAwayTeamJ2}} {{game.resultAwayTeamJ1}}</p>
-        </div>
       </div>
 
       <div>
@@ -49,5 +53,6 @@
     </form>
   </div>
 
-
-
+  <script>
+    $().button('toggle');
+  </script>
