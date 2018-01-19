@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import {Game} from './../game/game';
 
@@ -15,60 +15,35 @@ export class PronoFormComponent implements OnInit {
   matchday = 20;
   games: Game[];
   form: FormGroup;
+  url = 'https://pronorest.herokuapp.com/api/';
+ // url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8080/api/fixtures/current/')
+    this.form = this.formBuilder.group({
+      m1: '',
+      m2: '',
+      m3: '',
+      m4: '',
+      m5: '',
+      m6: '',
+      m7: '',
+      m8: '',
+      m9: '',
+      m10: '',
+      pseudo: ['', Validators.required],
+      matchday: 0
+    });
+
+    this.http.get(this.url.concat('fixtures/current/'))
     .toPromise().then(data => {
         this.matchday = Number(data);
-        this.form = this.formBuilder.group({
-          m1: '',
-          m2: '',
-          m3: '',
-          m4: '',
-          m5: '',
-          m6: '',
-          m7: '',
-          m8: '',
-          m9: '',
-          m10: '',
-          pseudo: '',
-          matchday: this.matchday
-        });
+        this.form.controls['matchday'].setValue(this.matchday);
       }
     );
 
-this.http.get('http://localhost:8080/api/fixtures/')
-    .toPromise().then(data => {
-        // Read the result field from the JSON response.
-        this.games = [];
-        for (let i = 1; i < 11; i ++) {
-          const fixture = data[i-1];
-          const game: Game = {
-            dom: fixture['home'],
-            ext: fixture['away'],
-            id: i,
-            result: '',
-            rankingDom: fixture['rankingHome'],
-            rankingExt: fixture['rankingAway'],
-            resultHomeTeamJ1: fixture['previousResultHome'][0],
-            resultAwayTeamJ1: fixture['previousResultAway'][0],
-            resultHomeTeamJ2: fixture['previousResultHome'][1],
-            resultAwayTeamJ2: fixture['previousResultAway'][1],
-            resultHomeTeamJ3: fixture['previousResultHome'][2],
-            resultAwayTeamJ3: fixture['previousResultAway'][2],
-            resultHomeTeamJ4: fixture['previousResultHome'][3],
-            resultAwayTeamJ4: fixture['previousResultAway'][3],
-            resultHomeTeamJ5: fixture['previousResultHome'][4],
-            resultAwayTeamJ5: fixture['previousResultAway'][4],
-          };
-          this.games.push(game);
-        }
-      }
-    );
-
-    this.http.get('http://localhost:8080/api/fixtures/')
+    this.http.get(this.url.concat('fixtures/'))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.games = [];
@@ -110,8 +85,8 @@ this.http.get('http://localhost:8080/api/fixtures/')
   }
 
   saveProno() {
-
-    this.http.post('http://localhost:8080/api/pronostic', this.form.value)
+    this.form.setValue
+    this.http.post(this.url.concat('pronostic'), this.form.value)
     .toPromise();
   }
 
