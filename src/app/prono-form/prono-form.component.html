@@ -44,9 +44,11 @@
             </div>
       </div>
 
-      <div>
-        <label  for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" formControlName="pseudo" />
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Pseudo</span>
+        </div>
+        <input type="text" name="pseudo" formControlName="pseudo" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
       </div>
 
       <button class="btn btn-primary"  type="submit">Valider</button>
