@@ -7,16 +7,7 @@
 <table class="table table-striped table-bordered table-hover table-responsive-sm">
   <thead>
     <tr>
-      <th scope="col">M1</th>
-      <th scope="col">M2</th>
-      <th scope="col">M3</th>
-      <th scope="col">M4</th>
-      <th scope="col">M5</th>
-      <th scope="col">M6</th>
-      <th scope="col">M7</th>
-      <th scope="col">M8</th>
-      <th scope="col">M9</th>
-      <th scope="col">M10</th>
+      <th scope="col" *ngFor="let m of this.journey.matchday">{{m}}</th>
       <th scope="col">Pseudo</th>
     </tr>
   </thead>

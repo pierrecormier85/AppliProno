@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { Pronostic } from '../pronostic/pronostic';
+import { Pronostic } from '../models/pronostic';
+import { Matchday } from '../models/matchday';
 
 @Component({
   selector: 'app-prono-list',
@@ -10,6 +11,7 @@ import { Pronostic } from '../pronostic/pronostic';
 export class PronoListComponent implements OnInit {
   pronostics: Pronostic[];
   matchday;
+  journey: Matchday;
   url = 'https://pronorest.herokuapp.com/api/';
   // url = 'http://localhost:8080/api/';
 
@@ -28,6 +30,18 @@ export class PronoListComponent implements OnInit {
         }
       );
     }
+    );
+
+    this.http.get(this.url.concat('fixtures/'))
+    .toPromise().then(data => {
+        // Read the result field from the JSON response.
+        this.journey = new Matchday();
+        for (let i = 1; i < 11; i ++) {
+          const fixture = data[i-1];
+          const j = fixture['home'] + ' - ' + fixture['away'];
+          this.journey.matchday.push(j);
+        }
+      }
     );
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
-import {Game} from './../game/game';
+import {Game} from './../models/game';
 
 @Component({
   selector: 'app-prono-form',
