@@ -1,30 +1,39 @@
+<h1 style="text-align:center">
+  Participations à la journée {{matchday}}
+</h1>
+
+<br/>
+
 <table class="table table-striped table-bordered table-hover table-responsive-sm">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">M1</th>
+      <th scope="col">M2</th>
+      <th scope="col">M3</th>
+      <th scope="col">M4</th>
+      <th scope="col">M5</th>
+      <th scope="col">M6</th>
+      <th scope="col">M7</th>
+      <th scope="col">M8</th>
+      <th scope="col">M9</th>
+      <th scope="col">M10</th>
+      <th scope="col">Pseudo</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let prono of pronostics">
+      <!--<th scope="row">1</th>-->
+      <td scope="row">{{prono.m1}}</td>
+      <td>{{prono.m2}}</td>
+      <td>{{prono.m3}}</td>
+      <td>{{prono.m4}}</td>
+      <td>{{prono.m5}}</td>
+      <td>{{prono.m6}}</td>
+      <td>{{prono.m7}}</td>
+      <td>{{prono.m8}}</td>
+      <td>{{prono.m9}}</td>
+      <td>{{prono.m10}}</td>
+      <td>{{prono.pseudo}}</td>
     </tr>
   </tbody>
 </table>
