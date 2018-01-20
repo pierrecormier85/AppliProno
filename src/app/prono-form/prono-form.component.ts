@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import {Game} from './../game/game';
 
@@ -12,7 +12,7 @@ import {Game} from './../game/game';
 export class PronoFormComponent implements OnInit {
 
   title = 'app';
-  matchday = 20;
+  matchday;
   games: Game[];
   form: FormGroup;
   url = 'https://pronorest.herokuapp.com/api/';
@@ -22,17 +22,17 @@ export class PronoFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      m1: '',
-      m2: '',
-      m3: '',
-      m4: '',
-      m5: '',
-      m6: '',
-      m7: '',
-      m8: '',
-      m9: '',
-      m10: '',
-      pseudo: ['', Validators.required],
+      m1: new FormControl('', Validators.required),
+      m2: new FormControl('', Validators.required),
+      m3: new FormControl('', Validators.required),
+      m4: new FormControl('', Validators.required),
+      m5: new FormControl('', Validators.required),
+      m6: new FormControl('', Validators.required),
+      m7: new FormControl('', Validators.required),
+      m8: new FormControl('', Validators.required),
+      m9: new FormControl('', Validators.required),
+      m10: new FormControl('', Validators.required),
+      pseudo: new FormControl('', Validators.required),
       matchday: 0
     });
 
@@ -72,6 +72,9 @@ export class PronoFormComponent implements OnInit {
       }
     );
   }
+
+  get pseudo() { return this.form.get('pseudo'); }
+
 
   getClassForResult(value){
     if(value == 'V'){

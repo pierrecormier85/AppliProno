@@ -3,6 +3,7 @@
       Journée {{matchday}}
     </h1>
     <br/>
+    
     <form [formGroup]="form" (ngSubmit)="saveProno()">
       <div class="col-sm-12 container" *ngFor="let game of games">
           <div class="form-group row">
@@ -44,14 +45,22 @@
             </div>
       </div>
 
-      <div class="input-group input-group-lg">
+      <div class="input-group mb-3 col-sm-12">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-lg">Pseudo</span>
+          <span class="input-group-text" id="basic-addon1">Pseudo</span>
         </div>
-        <input type="text" name="pseudo" formControlName="pseudo" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" required />
+      </div> 
+
+     <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
+        Tous les champs sont obligatoire !
       </div>
 
-      <button class="btn btn-primary"  type="submit">Valider</button>
+      <div class="col-sm-12">
+          <button class="btn btn-primary"  [disabled]="form.invalid" type="submit">Valider</button>
+      </div>
+      
+      <br/>
     </form>
   </div>
 
