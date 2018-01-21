@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
@@ -18,7 +19,7 @@ export class PronoFormComponent implements OnInit {
   url = 'https://pronorest.herokuapp.com/api/';
  // url = 'http://localhost:8080/api/';
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -90,7 +91,11 @@ export class PronoFormComponent implements OnInit {
   saveProno() {
     this.form.setValue
     this.http.post(this.url.concat('pronostic'), this.form.value)
-    .toPromise();
+    .toPromise().then(
+      d => {
+        this.router.navigate(['/pronostics']); 
+      }
+    );
   }
 
 }
