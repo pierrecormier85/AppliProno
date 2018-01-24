@@ -12,8 +12,8 @@ export class PronoListComponent implements OnInit {
   pronostics: Pronostic[];
   matchday;
   journey: Matchday;
-  url = 'https://pronorest.herokuapp.com/api/';
-  // url = 'http://localhost:8080/api/';
+  //url = 'https://pronorest.herokuapp.com/api/';
+   url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { }
 

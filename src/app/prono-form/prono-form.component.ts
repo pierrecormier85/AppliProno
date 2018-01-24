@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
+
 import {Game} from './../models/game';
 
 @Component({
@@ -16,8 +17,8 @@ export class PronoFormComponent implements OnInit {
   matchday;
   games: Game[];
   form: FormGroup;
-  url = 'https://pronorest.herokuapp.com/api/';
- // url = 'http://localhost:8080/api/';
+  //url = 'https://pronorest.herokuapp.com/api/';
+  url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router) {}
 
