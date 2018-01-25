@@ -4,7 +4,78 @@
 
 <br/>
 
-<table class="table table-striped table-bordered table-hover table-responsive-sm">
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="m1">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[0]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m1}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m2">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[1]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m2}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m3">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[2]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m3}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m4">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[3]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m4}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m5">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[4]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m5}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m6">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[5]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m6}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m7">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[6]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m7}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m8">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[7]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m8}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m9">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[8]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m9}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="m10">
+      <mat-header-cell *matHeaderCellDef> {{journey.matchday[9]}} </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.m10}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pseudo">
+      <mat-header-cell *matHeaderCellDef> Pseudo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pseudo}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+
+<!--<table class="table table-striped table-bordered table-hover table-responsive-sm">
   <thead>
     <tr>
       <th scope="col" *ngFor="let m of this.journey.matchday">{{m}}</th>
@@ -13,7 +84,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let prono of pronostics">
-      <!--<th scope="row">1</th>-->
       <td scope="row">{{prono.m1}}</td>
       <td>{{prono.m2}}</td>
       <td>{{prono.m3}}</td>
@@ -27,4 +97,4 @@
       <td>{{prono.pseudo}}</td>
     </tr>
   </tbody>
-</table>
+</table>-->

@@ -16,3 +16,14 @@ nav a {
   nav a.active {
     color: #039be5;
   }
+
+  .icon {
+    padding: 0 14px;
+    width: 125px;
+    height: 75px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

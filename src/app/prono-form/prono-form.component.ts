@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
 
 
 import {Game} from './../models/game';
@@ -17,10 +19,10 @@ export class PronoFormComponent implements OnInit {
   matchday;
   games: Game[];
   form: FormGroup;
-  //url = 'https://pronorest.herokuapp.com/api/';
-  url = 'http://localhost:8080/api/';
+  url = 'https://pronorest.herokuapp.com/api/';
+  //url = 'http://localhost:8080/api/';
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -95,8 +97,16 @@ export class PronoFormComponent implements OnInit {
     .toPromise().then(
       d => {
         this.router.navigate(['/pronostics']); 
+        this.openDialog();
       }
     );
   }
 
+  openDialog(): void {
+    let dialogRef = this.dialog.open(PronoDialogComponent, {
+      width: '250px'
+    });
+  }
+
 }
+

@@ -1,9 +1,27 @@
-<nav>
-    <a routerLink="/" routerLinkActive="active">Pronos</a>
-    <a routerLink="/pronostics" routerLinkActive="active">Participations</a>
-    <a routerLink="/stats" routerLinkActive="active">Stats</a>
-</nav>
 
+<mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="btnPronosClick()">
+            <mat-icon>home</mat-icon>
+            <span>Pronos</span>
+        </button>
+        <button mat-menu-item (click)="btnParticipationsClick()">
+            <mat-icon>list</mat-icon>
+            <span>Participations</span>
+        </button>
+        <!--<button mat-menu-item (click)="btnStatsClick()">
+            <mat-icon>donut_large</mat-icon>
+            <span>Stats</span>
+        </button>-->
+    </mat-menu>
+    <span class="spacer"></span>
+    <span>Prono DV</span>
+    <span class="spacer"></span>
+    <mat-icon svgIcon="logodv" class="icon"></mat-icon>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
 <!--<app-prono-form></app-prono-form>-->

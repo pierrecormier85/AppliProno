@@ -14,8 +14,8 @@ export class PronoStatsComponent implements OnInit {
   elementId1: String;
 
   statistique: Statistique;
-  //url = 'https://pronorest.herokuapp.com/api/';
-  url = 'http://localhost:8080/api/';
+  url = 'https://pronorest.herokuapp.com/api/';
+//  url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { }
 
