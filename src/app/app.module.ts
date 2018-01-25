@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
 
@@ -53,7 +55,9 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,  
+    MatPaginatorModule,
     BrowserAnimationsModule,
+    MatSortModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -12,7 +12,7 @@
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="m1">
       <mat-header-cell *matHeaderCellDef> {{journey.matchday[0]}} </mat-header-cell>
@@ -65,13 +65,18 @@
     </ng-container>
 
     <ng-container matColumnDef="pseudo">
-      <mat-header-cell *matHeaderCellDef> Pseudo </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pseudo </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.pseudo}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
 </div>
 
 

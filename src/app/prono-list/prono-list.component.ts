@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Pronostic } from '../models/pronostic';
 import { Matchday } from '../models/matchday';
 
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 
 @Component({
   selector: 'app-prono-list',
@@ -17,6 +17,9 @@ export class PronoListComponent implements OnInit {
 
   displayedColumns = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9','m10', 'pseudo'];
   dataSource = new MatTableDataSource(this.pronostics);
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   url = 'https://pronorest.herokuapp.com/api/';
    //url = 'http://localhost:8080/api/';
@@ -53,6 +56,11 @@ export class PronoListComponent implements OnInit {
         }
       }
     );
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
