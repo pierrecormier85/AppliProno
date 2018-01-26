@@ -30,6 +30,7 @@ import { GooglePieChartService } from './chart/google-pie-chart.service';
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
   { path: 'pronostics', component: PronoListComponent },
+  { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent }
 ];
 

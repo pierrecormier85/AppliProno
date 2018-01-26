@@ -5,11 +5,11 @@
     </button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="btnPronosClick()">
-            <mat-icon>home</mat-icon>
+            <mat-icon svgIcon="results"></mat-icon>
             <span>Pronos</span>
         </button>
-        <button mat-menu-item (click)="btnParticipationsClick()">
-            <mat-icon>list</mat-icon>
+        <button mat-menu-item [matMenuTriggerFor]="participations"> 
+            <mat-icon svgIcon="list"></mat-icon>
             <span>Participations</span>
         </button>
         <!--<button mat-menu-item (click)="btnStatsClick()">
@@ -17,6 +17,17 @@
             <span>Stats</span>
         </button>-->
     </mat-menu>
+    <mat-menu #participations="matMenu">
+        <button mat-menu-item (click)="btnParticipationsClick()">
+            <mat-icon svgIcon="list"></mat-icon>
+            <span>Actuel</span>
+        </button>
+        <button mat-menu-item (click)="btnPreviousParticipationsClick()">
+            <mat-icon svgIcon="list"></mat-icon>
+            <span>Précédente</span>
+        </button>
+      </mat-menu>
+
     <span class="spacer"></span>
     <span>Prono DV</span>
     <span class="spacer"></span>

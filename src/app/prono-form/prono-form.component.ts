@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
 
+import { API_URL } from './../const/constants';
 
 import {Game} from './../models/game';
 
@@ -19,8 +20,6 @@ export class PronoFormComponent implements OnInit {
   matchday;
   games: Game[];
   form: FormGroup;
-  url = 'https://pronorest.herokuapp.com/api/';
-  //url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router, public dialog: MatDialog) {}
 
@@ -40,14 +39,14 @@ export class PronoFormComponent implements OnInit {
       matchday: 0
     });
 
-    this.http.get(this.url.concat('fixtures/current/'))
+    this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(data => {
         this.matchday = Number(data);
         this.form.controls['matchday'].setValue(this.matchday);
       }
     );
 
-    this.http.get(this.url.concat('fixtures/'))
+    this.http.get(API_URL.concat('fixtures/'))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.games = [];
@@ -93,7 +92,7 @@ export class PronoFormComponent implements OnInit {
 
   saveProno() {
     this.form.setValue
-    this.http.post(this.url.concat('pronostic'), this.form.value)
+    this.http.post(API_URL.concat('pronostic'), this.form.value)
     .toPromise().then(
       d => {
         this.router.navigate(['/pronostics']); 

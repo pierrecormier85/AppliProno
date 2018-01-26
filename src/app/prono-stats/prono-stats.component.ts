@@ -3,6 +3,8 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { PieChartConfig } from '../chart/PieChartConfig';
 import { Statistique } from '../models/statistique';
 
+import { API_URL } from './../const/constants';
+
 @Component({
   selector: 'app-prono-stats',
   templateUrl: './prono-stats.component.html',
@@ -14,8 +16,6 @@ export class PronoStatsComponent implements OnInit {
   elementId1: String;
 
   statistique: Statistique;
-  url = 'https://pronorest.herokuapp.com/api/';
-//  url = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +28,7 @@ export class PronoStatsComponent implements OnInit {
     this.elementId1 = 'myPieChart1';
 
 
-    this.http.get(this.url.concat('statistique'))
+    this.http.get(API_URL.concat('statistique'))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.statistique = new Statistique();
