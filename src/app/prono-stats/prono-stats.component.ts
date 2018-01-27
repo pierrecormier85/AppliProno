@@ -109,74 +109,44 @@ export class PronoStatsComponent implements OnInit {
   }
 
   init() {
-    this.data1 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config1 = new PieChartConfig('Test', 0.4);
+    this.data1 = [];
+    this.config1 = new PieChartConfig('', 0.4);
     this.elementId1 = 'myPieChart1';
 
-    this.data2 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config2 = new PieChartConfig('Test', 0.4);
+    this.data2 = [];
+    this.config2 = new PieChartConfig('', 0.4);
     this.elementId2 = 'myPieChart2';
 
-    this.data3 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config3 = new PieChartConfig('Test', 0.4);
+    this.data3 = [];
+    this.config3 = new PieChartConfig('', 0.4);
     this.elementId3 = 'myPieChart3';
 
-    this.data4 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config4 = new PieChartConfig('Test', 0.4);
+    this.data4 = [];
+    this.config4 = new PieChartConfig('', 0.4);
     this.elementId4 = 'myPieChart4';
 
-    this.data5 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config5 = new PieChartConfig('Test', 0.4);
+    this.data5 = [];
+    this.config5 = new PieChartConfig('', 0.4);
     this.elementId5 = 'myPieChart5';
 
-    this.data6 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config6 = new PieChartConfig('Test', 0.4);
+    this.data6 = [];
+    this.config6 = new PieChartConfig('', 0.4);
     this.elementId6 = 'myPieChart6';
 
-    this.data7 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config7 = new PieChartConfig('Test', 0.4);
+    this.data7 = [];
+    this.config7 = new PieChartConfig('', 0.4);
     this.elementId7 = 'myPieChart7';
 
-    this.data8 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config8 = new PieChartConfig('Test', 0.4);
+    this.data8 = [];
+    this.config8 = new PieChartConfig('', 0.4);
     this.elementId8 = 'myPieChart8';
 
-    this.data9 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config9 = new PieChartConfig('Test', 0.4);
+    this.data9 = [];
+    this.config9 = new PieChartConfig('', 0.4);
     this.elementId9 = 'myPieChart9';
 
-    this.data10 = [['Prono', 'Nb'],
-        ['1', 1],
-        ['N',  1],
-        ['2', 1]];
-    this.config10 = new PieChartConfig('Test', 0.4);
+    this.data10 = [];
+    this.config10 = new PieChartConfig('', 0.4);
     this.elementId10 = 'myPieChart10';
   }
 
