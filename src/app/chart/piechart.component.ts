@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 
 import { GooglePieChartService } from './google-pie-chart.service';
 import { PieChartConfig } from './PieChartConfig';
@@ -10,7 +10,7 @@ declare var google: any;
   selector: 'pie-chart',
   templateUrl: './piechart.component.html'
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent implements OnChanges, OnInit {
 
     @Input() data: any[];
     @Input() config: PieChartConfig;
@@ -21,4 +21,18 @@ export class PieChartComponent implements OnInit {
     ngOnInit(): void {
         this._pieChartService.BuildPieChart(this.elementId, this.data, this.config); 
     }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.data){
+            const data: SimpleChange = changes.data;
+            this.data = data.currentValue;
+        }
+       
+        if(changes.config){
+            const config: SimpleChange = changes.config;
+            this.config = config.currentValue;
+        }
+
+        this._pieChartService.BuildPieChart(this.elementId, this.data, this.config); 
+      }
 }

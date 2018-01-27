@@ -26,6 +26,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
+import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     PronoListComponent,
     PronoStatsComponent,
     PieChartComponent,
-    PronoDialogComponent
+    PronoDialogComponent,
+    PronoRankingComponent
   ],
   imports: [
     BrowserModule,
