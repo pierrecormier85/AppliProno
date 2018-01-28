@@ -45,4 +45,8 @@ export class AppComponent implements OnInit {
   btnStatsClick() {
     this.router.navigate(['/stats']);
   }
+
+  btnInfosClick() {
+    this.router.navigate(['/infos']);
+  }
 }

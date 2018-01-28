@@ -16,6 +16,10 @@
             <mat-icon svgIcon="stats"></mat-icon>
             <span>Stats</span>
         </button>
+        <button mat-menu-item (click)="btnInfosClick()">
+            <mat-icon>info</mat-icon>
+            <span>Infos</span>
+        </button>
     </mat-menu>
     <mat-menu #participations="matMenu">
         <button mat-menu-item (click)="btnParticipationsClick()">
