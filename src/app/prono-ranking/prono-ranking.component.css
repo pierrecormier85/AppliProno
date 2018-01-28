@@ -26,7 +26,6 @@
 
   .mat-row, .mat-header-row {
     background: white;
-    min-width: 1200px;
 
     position: sticky;
     top: 0;

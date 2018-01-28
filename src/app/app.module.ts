@@ -70,7 +70,7 @@ const appRoutes: Routes = [
     MatSortModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   entryComponents: [
