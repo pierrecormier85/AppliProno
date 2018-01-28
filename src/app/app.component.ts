@@ -4,7 +4,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
-import { API_URL } from './const/constants';
+import { API_URL, GENERAL, MONTH, JOURNEY } from './const/constants';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,10 @@ export class AppComponent implements OnInit {
     iconRegistry.addSvgIcon('list', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/list.svg'));
     iconRegistry.addSvgIcon('results', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/results.svg'));
     iconRegistry.addSvgIcon('stats', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/stats.svg'));
+    iconRegistry.addSvgIcon('ranking', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/ranking.svg'));
+    iconRegistry.addSvgIcon('general', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/general.svg'));
+    iconRegistry.addSvgIcon('month', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/month.svg'));
+    iconRegistry.addSvgIcon('journey', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/journey.svg'));
   }
 
   ngOnInit(): void {
@@ -48,5 +52,17 @@ export class AppComponent implements OnInit {
 
   btnInfosClick() {
     this.router.navigate(['/infos']);
+  }
+
+  btnGeneralRankingClick() {
+    this.router.navigate(['/' + GENERAL]);
+  }
+
+  btnMonthRankingClick() {
+    this.router.navigate(['/' + MONTH]);
+  }
+
+  btnJourneyRankingClick() {
+    this.router.navigate(['/' + JOURNEY]);
   }
 }

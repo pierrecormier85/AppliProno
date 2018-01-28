@@ -28,13 +28,17 @@ import {MatSortModule} from '@angular/material/sort';
 import { GooglePieChartService } from './chart/google-pie-chart.service';
 import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './prono-info/prono-info.component';
+import { GENERAL, MONTH, JOURNEY } from './const/constants';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },
-  { path: 'infos', component: PronoInfoComponent }
+  { path: 'infos', component: PronoInfoComponent },
+  { path: GENERAL, component: PronoRankingComponent },
+  { path: MONTH, component: PronoRankingComponent },
+  { path: JOURNEY, component: PronoRankingComponent }
 ];
 
 @NgModule({

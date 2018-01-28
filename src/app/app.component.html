@@ -12,6 +12,10 @@
             <mat-icon svgIcon="list"></mat-icon>
             <span>Participations</span>
         </button>
+        <button mat-menu-item [matMenuTriggerFor]="ranking"> 
+            <mat-icon svgIcon="ranking"></mat-icon>
+            <span>Classement</span>
+        </button>
         <button mat-menu-item (click)="btnStatsClick()">
             <mat-icon svgIcon="stats"></mat-icon>
             <span>Stats</span>
@@ -30,7 +34,21 @@
             <mat-icon svgIcon="list"></mat-icon>
             <span>Précédente</span>
         </button>
-      </mat-menu>
+    </mat-menu>
+    <mat-menu #ranking="matMenu">
+        <button mat-menu-item (click)="btnGeneralRankingClick()">
+            <mat-icon svgIcon="general"></mat-icon>
+            <span>General</span>
+        </button>
+        <button mat-menu-item (click)="btnMonthRankingClick()">
+            <mat-icon svgIcon="month"></mat-icon>
+            <span>Mois</span>
+        </button>
+        <button mat-menu-item (click)="btnJourneyRankingClick()">
+            <mat-icon svgIcon="journey"></mat-icon>
+            <span>Journee</span>
+        </button>
+    </mat-menu>
 
     <span class="spacer"></span>
     <span>Prono DV</span>
