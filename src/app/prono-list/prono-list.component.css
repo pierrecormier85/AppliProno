@@ -27,8 +27,12 @@
   .mat-row, .mat-header-row {
     background: white;
     min-width: 1200px;
+  }
 
-    position: sticky;
+  .mat-header-row {
+     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     z-index: 5;
+    background-color: inherit;
   }
