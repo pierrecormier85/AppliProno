@@ -47,20 +47,22 @@ export class PronoListComponent implements OnInit {
           this.dataSource.data = this.pronostics;
         }
       );
+
+      this.http.get(API_URL.concat('fixtures/').concat(this.matchday))
+        .toPromise().then(data => {
+            // Read the result field from the JSON response.
+            this.journey.matchday = [];
+            for (let i = 1; i < 11; i ++) {
+              const fixture = data[i-1];
+              const j = fixture['home'] + ' - ' + fixture['away'];
+              this.journey.matchday.push(j);
+            }
+          }
+        );
     }
     );
 
-    this.http.get(API_URL.concat('fixtures/'))
-    .toPromise().then(data => {
-        // Read the result field from the JSON response.
-        this.journey.matchday = [];
-        for (let i = 1; i < 11; i ++) {
-          const fixture = data[i-1];
-          const j = fixture['home'] + ' - ' + fixture['away'];
-          this.journey.matchday.push(j);
-        }
-      }
-    );
+    
   }
 
   ngAfterViewInit() {
