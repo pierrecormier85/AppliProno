@@ -12,6 +12,7 @@ import { PronoListComponent } from './prono-list/prono-list.component';
 import { PronoStatsComponent } from './prono-stats/prono-stats.component';
 import { PieChartComponent } from './chart/piechart.component';
 import { PronoDialogComponent } from './prono-dialog/prono-dialog.component';
+import { LoginComponent } from './login/login.component';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,16 +20,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, MatCardModule, MatSnackBarModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './prono-info/prono-info.component';
 import { GENERAL, MONTH, JOURNEY } from './const/constants';
+import { RegisterComponent } from './register/register.component';
+import { NavComponent } from './nav/nav.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -38,7 +43,9 @@ const appRoutes: Routes = [
   { path: 'infos', component: PronoInfoComponent },
   { path: GENERAL, component: PronoRankingComponent },
   { path: MONTH, component: PronoRankingComponent },
-  { path: JOURNEY, component: PronoRankingComponent }
+  { path: JOURNEY, component: PronoRankingComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
@@ -50,7 +57,10 @@ const appRoutes: Routes = [
     PieChartComponent,
     PronoDialogComponent,
     PronoRankingComponent,
-    PronoInfoComponent
+    PronoInfoComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +78,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatSortModule,
+    MatCardModule,
+    MatSnackBarModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
@@ -77,7 +89,7 @@ const appRoutes: Routes = [
     PronoDialogComponent
   ],
   exports: [],
-  providers: [GooglePieChartService],
+  providers: [GooglePieChartService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

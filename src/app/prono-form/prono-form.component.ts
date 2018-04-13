@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
+import { AuthService } from '../auth.service';
 
 import { API_URL } from './../const/constants';
 
@@ -21,9 +22,15 @@ export class PronoFormComponent implements OnInit {
   games: Game[];
   form: FormGroup;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,  private router: Router, public dialog: MatDialog) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,
+     private router: Router, public dialog: MatDialog,private auth: AuthService) {}
 
   ngOnInit(): void {
+    let pseudo = '';
+    if(this.auth.isLoggednIn){
+      pseudo = this.auth.getToken();
+    }
+
     this.form = this.formBuilder.group({
       m1: new FormControl('', Validators.required),
       m2: new FormControl('', Validators.required),
@@ -35,9 +42,11 @@ export class PronoFormComponent implements OnInit {
       m8: new FormControl('', Validators.required),
       m9: new FormControl('', Validators.required),
       m10: new FormControl('', Validators.required),
-      pseudo: new FormControl('', Validators.required),
+      pseudo: new FormControl(pseudo, Validators.required),
       matchday: 0
     });
+
+    
 
     this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(data => {

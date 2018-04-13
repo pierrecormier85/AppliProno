@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/">
+          <mat-icon svgIcon="results"></mat-icon>
+          <span>Pronos</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="participations"> 
+          <mat-icon svgIcon="list"></mat-icon>
+          <span>Participations</span>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="ranking"> 
+          <mat-icon svgIcon="ranking"></mat-icon>
+          <span>Classement</span>
+      </button>
+      <button mat-menu-item routerLink="/stats">
+          <mat-icon svgIcon="stats"></mat-icon>
+          <span>Stats</span>
+      </button>
+      <button mat-menu-item routerLink="/infos">
+          <mat-icon>info</mat-icon>
+          <span>Infos</span>
+      </button>
+      <button mat-menu-item *ngIf="!auth.isLoggednIn()" routerLink="/login">
+        <mat-icon>person</mat-icon>
+        <span>Login</span>
+      </button>
+      <!--<button mat-menu-item *ngIf="!auth.isLoggednIn()" routerLink="/register">
+        <span>Register</span>
+      </button>-->
+      <button mat-menu-item *ngIf="auth.isLoggednIn()" (click)="auth.logout()">
+        <mat-icon>person_outline</mat-icon>
+        <span>Logout</span>
+      </button>
+  </mat-menu>
+  <mat-menu #participations="matMenu">
+      <button mat-menu-item routerLink="/pronostics">
+          <mat-icon svgIcon="list"></mat-icon>
+          <span>Actuel</span>
+      </button>
+      <button mat-menu-item (click)="btnPreviousParticipationsClick()">
+          <mat-icon svgIcon="list"></mat-icon>
+          <span>Précédente</span>
+      </button>
+  </mat-menu>
+  <mat-menu #ranking="matMenu">
+      <button mat-menu-item (click)="btnGeneralRankingClick()">
+          <mat-icon svgIcon="general"></mat-icon>
+          <span>General</span>
+      </button>
+      <button mat-menu-item (click)="btnMonthRankingClick()">
+          <mat-icon svgIcon="month"></mat-icon>
+          <span>Mois</span>
+      </button>
+      <button mat-menu-item (click)="btnJourneyRankingClick()">
+          <mat-icon svgIcon="journey"></mat-icon>
+          <span>Journee</span>
+      </button>
+  </mat-menu>
+
+  <span class="spacer"></span>
+  <span>Prono DV</span>
+  <span class="spacer"></span>
+  <mat-icon svgIcon="logodv" class="icon"></mat-icon>
+</mat-toolbar>

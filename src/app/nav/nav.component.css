@@ -1,0 +1,14 @@
+.icon {
+    padding: 0 14px;
+    width: 125px;
+    height: 75px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-menu button{
+    z-index: 9999;
+  }
+  
