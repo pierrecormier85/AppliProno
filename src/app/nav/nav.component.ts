@@ -3,7 +3,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
-import { API_URL, GENERAL, MONTH, JOURNEY } from '../const/constants';
+import { API_URL, GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION } from '../const/constants';
 
 
 @Component({

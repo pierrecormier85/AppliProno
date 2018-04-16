@@ -31,9 +31,12 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './prono-info/prono-info.component';
-import { GENERAL, MONTH, JOURNEY } from './const/constants';
+import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION } from './const/constants';
 import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
+import { PronoListParticipationDirective } from './prono-list-participation.directive';
+import { PronoRankingMoyenneComponent } from './prono-ranking-moyenne/prono-ranking-moyenne.component';
+import { PronoRankingParticipationComponent } from './prono-ranking-participation/prono-ranking-participation.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -44,6 +47,8 @@ const appRoutes: Routes = [
   { path: GENERAL, component: PronoRankingComponent },
   { path: MONTH, component: PronoRankingComponent },
   { path: JOURNEY, component: PronoRankingComponent },
+  { path: 'moyenne', component: PronoRankingMoyenneComponent },
+  { path: 'participation', component: PronoRankingParticipationComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent}
 ];
@@ -60,7 +65,10 @@ const appRoutes: Routes = [
     PronoInfoComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
+    PronoListParticipationDirective,
+    PronoRankingMoyenneComponent,
+    PronoRankingParticipationComponent
   ],
   imports: [
     BrowserModule,
