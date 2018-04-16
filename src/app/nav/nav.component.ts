@@ -13,7 +13,7 @@ import { API_URL, GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION } from '../con
 })
 export class NavComponent implements OnInit {
 
-  constructor( private auth: AuthService, private router: Router, private http: HttpClient) { }
+  constructor( public auth: AuthService, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
