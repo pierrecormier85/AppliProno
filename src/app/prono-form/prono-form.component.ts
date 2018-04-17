@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 import { API_URL } from './../const/constants';
 
 import {Game} from './../models/game';
+import { Pronostic } from '../models/pronostic';
 
 @Component({
   selector: 'app-prono-form',
@@ -26,11 +27,6 @@ export class PronoFormComponent implements OnInit {
      private router: Router, public dialog: MatDialog,private auth: AuthService) {}
 
   ngOnInit(): void {
-    let pseudo = '';
-    if(this.auth.isLoggednIn){
-      pseudo = this.auth.getToken();
-    }
-
     this.form = this.formBuilder.group({
       m1: new FormControl('', Validators.required),
       m2: new FormControl('', Validators.required),
@@ -42,16 +38,35 @@ export class PronoFormComponent implements OnInit {
       m8: new FormControl('', Validators.required),
       m9: new FormControl('', Validators.required),
       m10: new FormControl('', Validators.required),
-      pseudo: new FormControl(pseudo, Validators.required),
+      pseudo: new FormControl('', Validators.required),
       matchday: 0
     });
-
-    
 
     this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(data => {
         this.matchday = Number(data);
         this.form.controls['matchday'].setValue(this.matchday);
+
+        if(this.auth.isLoggednIn){
+          let pseudo = this.auth.getToken();
+          this.form.controls['pseudo'].setValue(pseudo);
+          //get prono if already done
+          /*this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
+          .toPromise().then(data => {
+              // Read the result field from the JSON response.
+              this.form.controls['m1'].setValue(data.m1);
+              this.form.controls['m2'].setValue(data.m2);
+              this.form.controls['m3'].setValue(data.m3);
+              this.form.controls['m4'].setValue(data.m4);
+              this.form.controls['m5'].setValue(data.m5);
+              this.form.controls['m6'].setValue(data.m6);
+              this.form.controls['m7'].setValue(data.m7);
+              this.form.controls['m8'].setValue(data.m8);
+              this.form.controls['m9'].setValue(data.m9);
+              this.form.controls['m10'].setValue(data.m10);
+            }
+          );*/
+        }
       }
     );
 

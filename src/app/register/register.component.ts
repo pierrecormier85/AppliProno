@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { API_URL } from '../const/constants';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,29 +13,23 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   form;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient,private myRoute: Router, private auth: AuthService,) {
     this.form = fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, isEmailValid('email')]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      pseudo: ['', Validators.required]
     });
   }
 
   register() {
     console.log(this.form.value);
+    this.http.get<Boolean>(API_URL.concat('user/new/').concat((this.form.value.pseudo)))
+       .toPromise().then(response => {
+          this.auth.sendToken(this.form.value.pseudo)
+          this.myRoute.navigate([""]);
+        }
+      );
   }
 
   ngOnInit() {
-  }
-
-}
-
-function isEmailValid(control) {
-  return control => {
-    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return regex.test(control.value) ? null : { invalidEmail: true };
   }
 
 }
