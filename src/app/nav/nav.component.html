@@ -15,6 +15,9 @@
           <mat-icon svgIcon="ranking"></mat-icon>
           <span>Classement</span>
       </button>
+      <button mat-menu-item [matMenuTriggerFor]="historique"> 
+        <span>Historique</span>
+      </button>
       <button mat-menu-item routerLink="/stats">
           <mat-icon svgIcon="stats"></mat-icon>
           <span>Stats</span>
@@ -66,6 +69,21 @@
         <mat-icon svgIcon="participation"></mat-icon>
         <span>Participations</span>
       </button>
+  </mat-menu>
+
+  <mat-menu #historique="matMenu">
+    <button mat-menu-item routerLink="/history/month">
+        <mat-icon svgIcon="month"></mat-icon>
+        <span>Mois</span>
+    </button>
+    <button mat-menu-item routerLink="/history/week">
+        <mat-icon svgIcon="journey"></mat-icon>
+        <span>Journee</span>
+    </button>
+    <button mat-menu-item routerLink="/history/stats">
+        <mat-icon svgIcon="stats"></mat-icon>
+        <span>Stats</span>
+    </button>
   </mat-menu>
 
   <span class="spacer"></span>
