@@ -51,7 +51,7 @@ export class PronoFormComponent implements OnInit {
           let pseudo = this.auth.getToken();
           this.form.controls['pseudo'].setValue(pseudo);
           //get prono if already done
-          /*this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
+          this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
           .toPromise().then(data => {
               // Read the result field from the JSON response.
               this.form.controls['m1'].setValue(data.m1);
@@ -64,8 +64,10 @@ export class PronoFormComponent implements OnInit {
               this.form.controls['m8'].setValue(data.m8);
               this.form.controls['m9'].setValue(data.m9);
               this.form.controls['m10'].setValue(data.m10);
+            }, error => {
+              //pas de prono enregistré donc on fais rien
             }
-          );*/
+          );
         }
       }
     );

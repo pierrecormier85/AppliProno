@@ -12,6 +12,8 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   form;
+  authenticationFlag: boolean = true;
+
   constructor(private fb: FormBuilder,
     private myRoute: Router,
     private auth: AuthService,
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
             this.auth.sendToken(this.form.value.pseudo)
             this.myRoute.navigate([""]);
           } else {
-            
+            this.authenticationFlag = false;
           }
         }
       );

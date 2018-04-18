@@ -8,7 +8,7 @@ import { API_URL, GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from '.
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 
 @Component({
-  selector: 'app-prono-ranking',
+  selector: 'app-prono-ranking-history',
   templateUrl: './prono-ranking-history.component.html',
   styleUrls: ['./prono-ranking-history.component.css']
 })
@@ -86,7 +86,14 @@ export class PronoRankingHistoryComponent implements OnInit {
     } else if(this.type == HISTORY_WEEK){
       return 'Classement de la journée '.concat(this.selectedItem.toString());
     }
-    
+  }
+
+  getOptionName(){
+    if(this.type == HISTORY_MONTH){
+      return 'Mois';
+    } else if(this.type == HISTORY_WEEK){
+      return 'Journée';
+    }
   }
 
   ngAfterViewInit() {

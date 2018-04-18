@@ -13,6 +13,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
 
   form;
+  
   constructor(private fb: FormBuilder, private http: HttpClient,private myRoute: Router, private auth: AuthService,) {
     this.form = fb.group({
       pseudo: ['', Validators.required]

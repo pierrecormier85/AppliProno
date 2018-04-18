@@ -31,7 +31,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './prono-info/prono-info.component';
-import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION, HISTORY_WEEK, HISTORY_MONTH, HISTORY_STATS } from './const/constants';
+import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION, HISTORY_WEEK, HISTORY_MONTH, HISTORY_STATS, HISTORY_PRONO } from './const/constants';
 import { RegisterComponent } from './register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { PronoListParticipationDirective } from './prono-list-participation.directive';
@@ -39,6 +39,7 @@ import { PronoRankingMoyenneComponent } from './prono-ranking-moyenne/prono-rank
 import { PronoRankingParticipationComponent } from './prono-ranking-participation/prono-ranking-participation.component';
 import { PronoRankingHistoryComponent } from './prono-ranking-history/prono-ranking-history.component';
 import { PronoStatsHistoryComponent } from './prono-stats-history/prono-stats-history.component';
+import { PronoListHistoryComponent } from './prono-list-history/prono-list-history.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
   { path: HISTORY_MONTH, component: PronoRankingHistoryComponent},
   { path: HISTORY_WEEK, component: PronoRankingHistoryComponent},
   { path: HISTORY_STATS, component: PronoStatsHistoryComponent},
+  { path: HISTORY_PRONO, component: PronoListHistoryComponent}
 ];
 
 @NgModule({
@@ -75,7 +77,8 @@ const appRoutes: Routes = [
     PronoRankingMoyenneComponent,
     PronoRankingParticipationComponent,
     PronoRankingHistoryComponent,
-    PronoStatsHistoryComponent
+    PronoStatsHistoryComponent,
+    PronoListHistoryComponent
   ],
   imports: [
     BrowserModule,
