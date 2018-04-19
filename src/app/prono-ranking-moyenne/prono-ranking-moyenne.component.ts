@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../const/constants';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-prono-ranking-moyenne',
@@ -12,6 +13,7 @@ import { API_URL } from '../const/constants';
 })
 export class PronoRankingMoyenneComponent implements OnInit {
   moyennes: Moyenne[];
+  search: String;
 
   displayedColumns = ['rank', 'pseudo', 'moyenne', 'participation'];
   dataSource = new MatTableDataSource(this.moyennes);
@@ -19,7 +21,7 @@ export class PronoRankingMoyenneComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
     this.http.get<Moyenne[]>(API_URL.concat('participations/moyennes'))
@@ -49,4 +51,8 @@ export class PronoRankingMoyenneComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+  findMe(){
+    this.applyFilter(this.auth.getToken());
+    this.search = this.auth.getToken();
+  }
 }

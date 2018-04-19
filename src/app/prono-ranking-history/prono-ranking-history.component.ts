@@ -6,6 +6,7 @@ import { Ranking } from '../models/ranking';
 import { API_URL, GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from './../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-prono-ranking-history',
@@ -17,6 +18,7 @@ export class PronoRankingHistoryComponent implements OnInit {
    type: String;
    selectedItem: number;
    public values = [];
+   search: String;
 
   displayedColumns = ['rank', 'pseudo', 'score'];
   dataSource = new MatTableDataSource(this.rankings);
@@ -24,7 +26,7 @@ export class PronoRankingHistoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-   constructor(private route: ActivatedRoute, private http: HttpClient) { 
+   constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { 
      this.selectedItem=1;
    }
 
@@ -105,6 +107,11 @@ export class PronoRankingHistoryComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  findMe(){
+    this.applyFilter(this.auth.getToken());
+    this.search = this.auth.getToken();
   }
 
 }

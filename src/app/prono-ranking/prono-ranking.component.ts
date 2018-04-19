@@ -6,6 +6,7 @@ import { Ranking } from '../models/ranking';
 import { API_URL, GENERAL, MONTH, JOURNEY } from './../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-prono-ranking',
@@ -15,6 +16,7 @@ import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 export class PronoRankingComponent implements OnInit {
   rankings: Ranking[];
   url: string;
+  search: String;
 
   displayedColumns = ['rank', 'pseudo', 'score'];
   dataSource = new MatTableDataSource(this.rankings);
@@ -22,7 +24,7 @@ export class PronoRankingComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
     this.url = this.route.routeConfig.path;
@@ -52,6 +54,11 @@ export class PronoRankingComponent implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  findMe(){
+    this.applyFilter(this.auth.getToken());
+    this.search = this.auth.getToken();
   }
 
   getTitle(){

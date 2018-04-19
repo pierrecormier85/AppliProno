@@ -20,10 +20,10 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" [ngModel]="search">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre" [ngModel]="search">
     </mat-form-field>
     <div class="button-row" *ngIf="auth.isLoggednIn()">
-      <button mat-button (click)="findMe()">Find me</button>
+      <button mat-button (click)="findMe()">Ma position</button>
     </div>
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
