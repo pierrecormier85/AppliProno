@@ -11,7 +11,7 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre" [ngModel]="search">
     </mat-form-field>
     <div class="button-row" *ngIf="auth.isLoggednIn()">
-      <button mat-button (click)="findMe()">Ma position</button>
+      <button mat-button (click)="findMe()">Mon prono</button>
     </div>
   </div>
 
