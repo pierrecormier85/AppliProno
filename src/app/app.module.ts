@@ -25,6 +25,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorIntl} from '@angular/material';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
 import { AuthService } from './auth.service';
@@ -40,6 +41,7 @@ import { PronoRankingParticipationComponent } from './prono-ranking-participatio
 import { PronoRankingHistoryComponent } from './prono-ranking-history/prono-ranking-history.component';
 import { PronoStatsHistoryComponent } from './prono-stats-history/prono-stats-history.component';
 import { PronoListHistoryComponent } from './prono-list-history/prono-list-history.component';
+import { getFrenchPaginatorIntl } from './french-paginator-intl';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -107,7 +109,8 @@ const appRoutes: Routes = [
     PronoDialogComponent
   ],
   exports: [],
-  providers: [GooglePieChartService, AuthService, AuthGuard],
+  providers: [GooglePieChartService, AuthService, AuthGuard,
+              { provide: MatPaginatorIntl, useValue: getFrenchPaginatorIntl() }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
