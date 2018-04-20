@@ -26,7 +26,7 @@ export class PronoRankingHistoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-   constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { 
+   constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { 
      this.selectedItem=1;
    }
 

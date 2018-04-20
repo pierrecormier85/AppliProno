@@ -24,7 +24,7 @@ export class PronoRankingComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
     this.url = this.route.routeConfig.path;

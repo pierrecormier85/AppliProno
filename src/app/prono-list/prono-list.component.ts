@@ -26,7 +26,7 @@ export class PronoListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthService) { 
+  constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { 
     this.journey = new Matchday();
     this.journey.matchday = ['','','','','','','','','',''];
   }
