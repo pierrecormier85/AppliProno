@@ -42,6 +42,8 @@ import { PronoRankingHistoryComponent } from './prono-ranking-history/prono-rank
 import { PronoStatsHistoryComponent } from './prono-stats-history/prono-stats-history.component';
 import { PronoListHistoryComponent } from './prono-list-history/prono-list-history.component';
 import { getFrenchPaginatorIntl } from './french-paginator-intl';
+import { PronoCdmGroupComponent } from './prono-cdm-group/prono-cdm-group.component';
+import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -59,7 +61,9 @@ const appRoutes: Routes = [
   { path: HISTORY_MONTH, component: PronoRankingHistoryComponent},
   { path: HISTORY_WEEK, component: PronoRankingHistoryComponent},
   { path: HISTORY_STATS, component: PronoStatsHistoryComponent},
-  { path: HISTORY_PRONO, component: PronoListHistoryComponent}
+  { path: HISTORY_PRONO, component: PronoListHistoryComponent},
+  { path: 'cdm', component: PronoCdmGroupComponent},
+  { path: 'complet', component: PronoCdmCompletComponent}
 ];
 
 @NgModule({
@@ -80,7 +84,9 @@ const appRoutes: Routes = [
     PronoRankingParticipationComponent,
     PronoRankingHistoryComponent,
     PronoStatsHistoryComponent,
-    PronoListHistoryComponent
+    PronoListHistoryComponent,
+    PronoCdmGroupComponent,
+    PronoCdmCompletComponent
   ],
   imports: [
     BrowserModule,

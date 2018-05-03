@@ -7,6 +7,10 @@
           <mat-icon svgIcon="results"></mat-icon>
           <span>Pronos</span>
       </button>
+      <button mat-menu-item [matMenuTriggerFor]="cdm"> 
+        <mat-icon svgIcon="general"></mat-icon>
+        <span>CDM</span>
+      </button>
       <button mat-menu-item [matMenuTriggerFor]="participations"> 
           <mat-icon svgIcon="list"></mat-icon>
           <span>Participations</span>
@@ -77,6 +81,17 @@
     <button mat-menu-item routerLink="/history/stats">
         <mat-icon svgIcon="stats"></mat-icon>
         <span>Stats</span>
+    </button>
+  </mat-menu>
+
+  <mat-menu #cdm="matMenu">
+    <button mat-menu-item routerLink="cdm">
+        <mat-icon svgIcon="general"></mat-icon>
+        <span>Pronos CDM</span>
+    </button>
+    <button mat-menu-item routerLink="complet">
+        <mat-icon svgIcon="general"></mat-icon>
+        <span>Pronos CDM Complet</span>
     </button>
   </mat-menu>
   

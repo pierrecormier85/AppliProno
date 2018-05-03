@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form" class="form">
+  <div class="row">
+    <div class="col-sm-6 col-md-3 example-card" *ngFor="let group of groups">
+      <div class="card">
+        <h5 class="card-header text-center">Groupe {{group.letter.toUpperCase()}}</h5>
+        <div class="card-body">
+          <div *ngIf="groupPb[mapLetterNumber(group.letter)] != ''" class="alert alert-warning col-sm-12">
+            {{groupPb[mapLetterNumber(group.letter)]}}
+          </div>
+          <div *ngFor="let rank of ranks" class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="{{group.letter}}{{rank}}">Place {{rank}}</label>
+            </div>
+            <select class="custom-select"  formControlName="{{group.letter}}{{rank}}" id="{{group.letter}}{{rank}}" (change)="optionSelected($event)">
+              <option selected></option>
+              <option *ngFor="let team of group.members" value="{{team}}">{{team}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3 col-sm-12">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Pseudo</span>
+        </div>
+        <input type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" required />
+      </div> 
+
+      <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
+          Tous les champs sont obligatoire et dois être différents!
+      </div>
+
+      <div class="col-sm-12 boutton">
+          <button [disabled]="form.invalid" class="btn btn-primary" type="submit">Valider</button>
+      </div>
+  </div>
+  
+</form>
