@@ -9,7 +9,7 @@
       </button>
       <button mat-menu-item [matMenuTriggerFor]="cdm"> 
         <mat-icon svgIcon="general"></mat-icon>
-        <span>CDM</span>
+        <span>Pronos CDM</span>
       </button>
       <button mat-menu-item [matMenuTriggerFor]="participations"> 
           <mat-icon svgIcon="list"></mat-icon>
@@ -87,16 +87,16 @@
   <mat-menu #cdm="matMenu">
     <button mat-menu-item routerLink="cdm">
         <mat-icon svgIcon="general"></mat-icon>
-        <span>Pronos CDM</span>
+        <span>Pronos des groupes</span>
     </button>
     <button mat-menu-item routerLink="cdm/list">
-        <mat-icon svgIcon="general"></mat-icon>
-        <span>Pronos CDM Participations</span>
+        <mat-icon svgIcon="list"></mat-icon>
+        <span>Participations (Pronos des groupes)</span>
     </button>
-    <button mat-menu-item routerLink="complet">
+    <!--<button mat-menu-item routerLink="complet">
         <mat-icon svgIcon="general"></mat-icon>
         <span>Pronos CDM Complet</span>
-    </button>
+    </button>-->
   </mat-menu>
   
   <span class="spacer"></span>
