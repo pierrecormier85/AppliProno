@@ -1,0 +1,33 @@
+<h1 style="text-align:center">
+  Participations cdm group
+</h1>
+
+<br/>
+
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre" [ngModel]="search">
+    </mat-form-field>
+    <div class="button-row" *ngIf="auth.isLoggednIn()">
+      <button mat-button (click)="findMe()">Mon prono</button>
+    </div>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="pseudo">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pseudo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

@@ -44,6 +44,7 @@ import { PronoListHistoryComponent } from './prono-list-history/prono-list-histo
 import { getFrenchPaginatorIntl } from './french-paginator-intl';
 import { PronoCdmGroupComponent } from './prono-cdm-group/prono-cdm-group.component';
 import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.component';
+import { PronoCdmGroupListComponent } from './prono-cdm-group-list/prono-cdm-group-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
   { path: HISTORY_STATS, component: PronoStatsHistoryComponent},
   { path: HISTORY_PRONO, component: PronoListHistoryComponent},
   { path: 'cdm', component: PronoCdmGroupComponent},
+  { path: 'cdm/list', component: PronoCdmGroupListComponent},
   { path: 'complet', component: PronoCdmCompletComponent}
 ];
 
@@ -86,7 +88,8 @@ const appRoutes: Routes = [
     PronoStatsHistoryComponent,
     PronoListHistoryComponent,
     PronoCdmGroupComponent,
-    PronoCdmCompletComponent
+    PronoCdmCompletComponent,
+    PronoCdmGroupListComponent
   ],
   imports: [
     BrowserModule,

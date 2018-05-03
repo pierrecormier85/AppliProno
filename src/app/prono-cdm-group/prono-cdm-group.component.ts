@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Group } from '../models/group';
 import { API_URL } from '../const/constants';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prono-cdm-group',
@@ -15,7 +16,7 @@ export class PronoCdmGroupComponent implements OnInit {
   ranks: number[];
   groupPb: String[];
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { 
+  constructor(private http: HttpClient, private fb: FormBuilder, private router: Router) { 
     this.ranks = [1,2,3,4];
     this.groups = [];
     this.groups.push(new Group("a",  ["Russie","Arabie Saoudite","Egypte","Uruguay"]));
@@ -83,7 +84,8 @@ export class PronoCdmGroupComponent implements OnInit {
       this.http.post(API_URL.concat('prono/cdm/group'), this.form.value)
     .toPromise().then(
       d => {
-        console.log("ok");
+        //TODO redirection mais d'abord liste des participations
+        this.router.navigate(['/cdm/list']); 
       }
     );
     }
