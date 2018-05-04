@@ -7,6 +7,7 @@ import { Matchday } from '../models/matchday';
 import { API_URL } from './../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-prono-list',
@@ -17,6 +18,7 @@ export class PronoListComponent implements OnInit {
   pronostics: Pronostic[];
   matchday;
   journey: Matchday;
+  search: String;
 
   displayedColumns = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9','m10', 'pseudo'];
   dataSource = new MatTableDataSource(this.pronostics);
@@ -24,7 +26,7 @@ export class PronoListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { 
+  constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { 
     this.journey = new Matchday();
     this.journey.matchday = ['','','','','','','','','',''];
   }
@@ -63,6 +65,11 @@ export class PronoListComponent implements OnInit {
     );
 
     
+  }
+
+  findMe(){
+    this.applyFilter(this.auth.getToken());
+    this.search = this.auth.getToken();
   }
 
   ngAfterViewInit() {

@@ -12,6 +12,7 @@ import { PronoListComponent } from './prono-list/prono-list.component';
 import { PronoStatsComponent } from './prono-stats/prono-stats.component';
 import { PieChartComponent } from './chart/piechart.component';
 import { PronoDialogComponent } from './prono-dialog/prono-dialog.component';
+import { LoginComponent } from './login/login.component';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,16 +20,31 @@ import {MatIconModule} from '@angular/material/icon';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, MatCardModule, MatSnackBarModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorIntl} from '@angular/material';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 import { PronoRankingComponent } from './prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './prono-info/prono-info.component';
-import { GENERAL, MONTH, JOURNEY } from './const/constants';
+import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION, HISTORY_WEEK, HISTORY_MONTH, HISTORY_STATS, HISTORY_PRONO } from './const/constants';
+import { RegisterComponent } from './register/register.component';
+import { NavComponent } from './nav/nav.component';
+import { PronoListParticipationDirective } from './prono-list-participation.directive';
+import { PronoRankingMoyenneComponent } from './prono-ranking-moyenne/prono-ranking-moyenne.component';
+import { PronoRankingParticipationComponent } from './prono-ranking-participation/prono-ranking-participation.component';
+import { PronoRankingHistoryComponent } from './prono-ranking-history/prono-ranking-history.component';
+import { PronoStatsHistoryComponent } from './prono-stats-history/prono-stats-history.component';
+import { PronoListHistoryComponent } from './prono-list-history/prono-list-history.component';
+import { getFrenchPaginatorIntl } from './french-paginator-intl';
+import { PronoCdmGroupComponent } from './prono-cdm-group/prono-cdm-group.component';
+import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.component';
+import { PronoCdmGroupListComponent } from './prono-cdm-group-list/prono-cdm-group-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: PronoFormComponent },
@@ -38,7 +54,18 @@ const appRoutes: Routes = [
   { path: 'infos', component: PronoInfoComponent },
   { path: GENERAL, component: PronoRankingComponent },
   { path: MONTH, component: PronoRankingComponent },
-  { path: JOURNEY, component: PronoRankingComponent }
+  { path: JOURNEY, component: PronoRankingComponent },
+  { path: 'moyenne', component: PronoRankingMoyenneComponent },
+  { path: 'participation', component: PronoRankingParticipationComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: HISTORY_MONTH, component: PronoRankingHistoryComponent},
+  { path: HISTORY_WEEK, component: PronoRankingHistoryComponent},
+  { path: HISTORY_STATS, component: PronoStatsHistoryComponent},
+  { path: HISTORY_PRONO, component: PronoListHistoryComponent},
+  { path: 'cdm', component: PronoCdmGroupComponent},
+  { path: 'cdm/list', component: PronoCdmGroupListComponent},
+  { path: 'complet', component: PronoCdmCompletComponent}
 ];
 
 @NgModule({
@@ -50,7 +77,19 @@ const appRoutes: Routes = [
     PieChartComponent,
     PronoDialogComponent,
     PronoRankingComponent,
-    PronoInfoComponent
+    PronoInfoComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavComponent,
+    PronoListParticipationDirective,
+    PronoRankingMoyenneComponent,
+    PronoRankingParticipationComponent,
+    PronoRankingHistoryComponent,
+    PronoStatsHistoryComponent,
+    PronoListHistoryComponent,
+    PronoCdmGroupComponent,
+    PronoCdmCompletComponent,
+    PronoCdmGroupListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +107,8 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatSortModule,
+    MatCardModule,
+    MatSnackBarModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
@@ -77,7 +118,8 @@ const appRoutes: Routes = [
     PronoDialogComponent
   ],
   exports: [],
-  providers: [GooglePieChartService],
+  providers: [GooglePieChartService, AuthService, AuthGuard,
+              { provide: MatPaginatorIntl, useValue: getFrenchPaginatorIntl() }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
