@@ -47,7 +47,8 @@ import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.
 import { PronoCdmGroupListComponent } from './prono-cdm-group-list/prono-cdm-group-list.component';
 
 const appRoutes: Routes = [
-  { path: '', component: PronoFormComponent },
+  //{ path: '', component: PronoFormComponent },
+  { path: '', redirectTo: '/cdm', pathMatch: 'full' },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },

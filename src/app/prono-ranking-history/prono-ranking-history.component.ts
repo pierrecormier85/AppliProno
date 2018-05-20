@@ -40,7 +40,9 @@ export class PronoRankingHistoryComponent implements OnInit {
       this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(m => {
         for(let i = 1; i <= Number(m); i++){
-          this.values.push(i);
+          if(i < 39){
+            this.values.push(i);
+          }
         }
       });
     }
