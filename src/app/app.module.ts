@@ -45,6 +45,8 @@ import { getFrenchPaginatorIntl } from './french-paginator-intl';
 import { PronoCdmGroupComponent } from './prono-cdm-group/prono-cdm-group.component';
 import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.component';
 import { PronoCdmGroupListComponent } from './prono-cdm-group-list/prono-cdm-group-list.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   //{ path: '', component: PronoFormComponent },
@@ -113,7 +115,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
-    )
+    ),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     PronoDialogComponent
