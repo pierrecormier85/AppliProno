@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PronoCdmCompletComponent } from './prono-cdm-complet.component';
+import { PronoFormResultComponent } from './prono-form-result.component';
 
-describe('PronoCdmCompletComponent', () => {
-  let component: PronoCdmCompletComponent;
-  let fixture: ComponentFixture<PronoCdmCompletComponent>;
+describe('PronoFormResultComponent', () => {
+  let component: PronoFormResultComponent;
+  let fixture: ComponentFixture<PronoFormResultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PronoCdmCompletComponent ]
+      declarations: [ PronoFormResultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PronoCdmCompletComponent);
+    fixture = TestBed.createComponent(PronoFormResultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

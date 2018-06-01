@@ -43,10 +43,11 @@ import { PronoStatsHistoryComponent } from './prono-stats-history/prono-stats-hi
 import { PronoListHistoryComponent } from './prono-list-history/prono-list-history.component';
 import { getFrenchPaginatorIntl } from './french-paginator-intl';
 import { PronoCdmGroupComponent } from './prono-cdm-group/prono-cdm-group.component';
-import { PronoCdmCompletComponent } from './prono-cdm-complet/prono-cdm-complet.component';
 import { PronoCdmGroupListComponent } from './prono-cdm-group-list/prono-cdm-group-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PronoCdmKnockoutComponent } from './prono-cdm-knockout/prono-cdm-knockout.component';
+import { PronoFormResultComponent } from './prono-form-result/prono-form-result.component';
 
 const appRoutes: Routes = [
   //{ path: '', component: PronoFormComponent },
@@ -68,7 +69,8 @@ const appRoutes: Routes = [
   { path: HISTORY_PRONO, component: PronoListHistoryComponent},
   { path: 'cdm', component: PronoCdmGroupComponent},
   { path: 'cdm/list', component: PronoCdmGroupListComponent},
-  { path: 'complet', component: PronoCdmCompletComponent}
+  { path: 'cdm/knockout', component: PronoCdmKnockoutComponent},
+  { path: 'result', component: PronoFormResultComponent}
 ];
 
 @NgModule({
@@ -91,8 +93,9 @@ const appRoutes: Routes = [
     PronoStatsHistoryComponent,
     PronoListHistoryComponent,
     PronoCdmGroupComponent,
-    PronoCdmCompletComponent,
-    PronoCdmGroupListComponent
+    PronoCdmGroupListComponent,
+    PronoCdmKnockoutComponent,
+    PronoFormResultComponent
   ],
   imports: [
     BrowserModule,

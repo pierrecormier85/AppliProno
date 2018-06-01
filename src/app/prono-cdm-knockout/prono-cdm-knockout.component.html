@@ -1,0 +1,65 @@
+<h1 style="text-align:center">
+  Pronostics des phases finales de la CDM
+</h1>
+<br/>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row marge center">
+    
+    <div class="col-md-6 example-card" *ngFor="let match of matchs">
+      <div class="card bg-light">
+        <h5 class="card-header text-center">{{match.group.toUpperCase()}}</h5>
+        <div class="card-body">
+          <div class="row">
+              <div class="col-sm-3">
+                <div>
+                  <span class="flag-icon flag-icon-{{match.home.flag}} flag-icon-squared "></span>
+                  <p>{{match.home.name}}</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="custom-control custom-radio">
+                  <input name="m{{match.id}}" type="radio" value="1" formControlName="m{{match.id}}" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">1</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input name="m{{match.id}}" type="radio" value="N" formControlName="m{{match.id}}" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">N</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input name="m{{match.id}}" type="radio" value="2" formControlName="m{{match.id}}" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">2</span>
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <div>
+                  <span class="flag-icon flag-icon-{{match.away.flag}} flag-icon-squared "></span>
+                  <p>{{match.away.name}}</p>
+                </div>
+              </div>
+          </div>      
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3 col-sm-12">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Pseudo</span>
+      </div>
+      <input type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" required />
+    </div> 
+
+    <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
+      Tous les champs sont obligatoire !
+    </div>
+
+    <div class="col-sm-12 boutton">
+      <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Valider</button>
+    </div>
+  
+  </div>
+
+</form>
