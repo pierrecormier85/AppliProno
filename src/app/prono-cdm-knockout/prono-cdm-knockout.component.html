@@ -18,21 +18,18 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <label class="custom-control custom-radio">
-                  <input name="m{{match.id}}" type="radio" value="1" formControlName="m{{match.id}}" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">1</span>
-                </label>
-                <label class="custom-control custom-radio">
-                  <input name="m{{match.id}}" type="radio" value="N" formControlName="m{{match.id}}" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">N</span>
-                </label>
-                <label class="custom-control custom-radio">
-                  <input name="m{{match.id}}" type="radio" value="2" formControlName="m{{match.id}}" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">2</span>
-                </label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="1" formControlName="m{{match.id}}">
+                    <label class="form-check-label" for="m{{match.id}}">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="N" formControlName="m{{match.id}}">
+                    <label class="form-check-label" for="m{{match.id}}">N</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="2" formControlName="m{{match.id}}">
+                    <label class="form-check-label" for="m{{match.id}}">2</label>
+                  </div>
               </div>
               <div class="col-sm-3">
                 <div>

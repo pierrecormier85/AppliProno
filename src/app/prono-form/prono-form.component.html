@@ -17,21 +17,18 @@
                 </div>
                 <div class="col-2">
                     <div id="fc-m{{game.id}}">
-                      <label class="custom-control custom-radio">
-                        <input name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}" class="custom-control-input">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">1</span>
-                      </label>
-                      <label class="custom-control custom-radio">
-                        <input name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}" class="custom-control-input">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">N</span>
-                      </label>
-                      <label class="custom-control custom-radio">
-                        <input name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}" class="custom-control-input">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">2</span>
-                      </label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
+                        <label class="form-check-label" for="m{{game.id}}">1</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
+                        <label class="form-check-label" for="m{{game.id}}">N</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
+                        <label class="form-check-label" for="m{{game.id}}">2</label>
+                      </div>
                     </div>
                   </div>
                   <div class="col-5 col-form-label">

@@ -25,7 +25,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {MatPaginatorIntl} from '@angular/material';
+import {MatPaginatorIntl, MatSidenavModule, MatListModule} from '@angular/material';
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
 import { AuthService } from './auth.service';
@@ -48,6 +48,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PronoCdmKnockoutComponent } from './prono-cdm-knockout/prono-cdm-knockout.component';
 import { PronoFormResultComponent } from './prono-form-result/prono-form-result.component';
+import { MyNavComponent } from './my-nav/my-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const appRoutes: Routes = [
   //{ path: '', component: PronoFormComponent },
@@ -95,7 +97,8 @@ const appRoutes: Routes = [
     PronoCdmGroupComponent,
     PronoCdmGroupListComponent,
     PronoCdmKnockoutComponent,
-    PronoFormResultComponent
+    PronoFormResultComponent,
+    MyNavComponent
   ],
   imports: [
     BrowserModule,
@@ -119,7 +122,10 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   entryComponents: [
     PronoDialogComponent
