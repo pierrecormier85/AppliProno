@@ -23,5 +23,9 @@ export class AuthService {
     this.myRoute.navigate([""]);
   }
 
+  isAdmin(){
+    return this.getToken() !== null && this.getToken() == "ol44470";
+  }
+
 
 }

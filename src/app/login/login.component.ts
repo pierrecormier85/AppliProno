@@ -20,21 +20,19 @@ export class LoginComponent implements OnInit {
     private http: HttpClient) {
     this.form = fb.group({
       pseudo: ['', [Validators.required]],
-     // password: ['', Validators.required]
+      password: ['', Validators.required]
     });
   }
   ngOnInit() {
   }
   login() {
     if (this.form.valid) {
-      this.http.get<Boolean>(API_URL.concat('user/').concat((this.form.value.pseudo)))
+      this.http.post(API_URL.concat('user/'),this.form.value)
        .toPromise().then(response => {
-          if(response){
-            this.auth.sendToken(this.form.value.pseudo)
-            this.myRoute.navigate([""]);
-          } else {
-            this.authenticationFlag = false;
-          }
+          this.auth.sendToken(this.form.value.pseudo)
+          this.myRoute.navigate([""]);
+        }, error => {
+          this.authenticationFlag = false;
         }
       );
     }

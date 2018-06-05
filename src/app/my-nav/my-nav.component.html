@@ -1,24 +1,17 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" (backdropClick)="close()">
   <mat-sidenav
     #drawer
     class="sidenav"
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [mode]="'over'"
     [opened]="false">
     <mat-toolbar color="primary">Menu</mat-toolbar>
-      <!--<button mat-menu-item routerLink="/">
-      <mat-icon svgIcon="results"></mat-icon>
-      <span>Pronos</span>
-    </button>-->
+      <!--
     <button mat-menu-item [matMenuTriggerFor]="cdm"> 
       <mat-icon svgIcon="general"></mat-icon>
       <span>Pronos CDM</span>
       </button>
-    <!-- <button mat-menu-item [matMenuTriggerFor]="participations"> 
-        <mat-icon svgIcon="list"></mat-icon>
-        <span>Participations</span>
-      </button>-->
       <button mat-menu-item [matMenuTriggerFor]="ranking"> 
         <mat-icon svgIcon="ranking"></mat-icon>
         <span>Classement</span>
@@ -96,11 +89,7 @@
             <mat-icon svgIcon="list"></mat-icon>
             <span>Participations (Pronos des groupes)</span>
         </button>
-        <!--<button mat-menu-item routerLink="complet">
-            <mat-icon svgIcon="general"></mat-icon>
-            <span>Pronos CDM Complet</span>
-        </button>-->
-      </mat-menu>
+      </mat-menu>-->
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

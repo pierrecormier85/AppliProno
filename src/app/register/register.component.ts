@@ -16,13 +16,15 @@ export class RegisterComponent implements OnInit {
   
   constructor(private fb: FormBuilder, private http: HttpClient,private myRoute: Router, private auth: AuthService,) {
     this.form = fb.group({
-      pseudo: ['', Validators.required]
+      pseudo: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   register() {
     console.log(this.form.value);
-    this.http.get<Boolean>(API_URL.concat('user/new/').concat((this.form.value.pseudo)))
+    this.http.post(API_URL.concat('user/new/'),this.form.value)
        .toPromise().then(response => {
           this.auth.sendToken(this.form.value.pseudo)
           this.myRoute.navigate([""]);

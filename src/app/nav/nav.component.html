@@ -27,6 +27,10 @@
           <mat-icon svgIcon="stats"></mat-icon>
           <span>Stats</span>
       </button>
+      <button mat-menu-item *ngIf="auth.isAdmin()" routerLink="/result">
+        <mat-icon svgIcon="results"></mat-icon>
+        <span>Admin Result</span>
+      </button>
       <button mat-menu-item routerLink="/infos">
           <mat-icon>info</mat-icon>
           <span>Infos</span>
