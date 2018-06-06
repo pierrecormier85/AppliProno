@@ -1,6 +1,8 @@
 export class Game {
     dom: string;
+    logoDom: String;
     ext: string;
+    logoExt: String;
     id: number;
     result: string;
     rankingDom: string;

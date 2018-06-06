@@ -50,9 +50,10 @@ import { PronoCdmKnockoutComponent } from './prono-cdm-knockout/prono-cdm-knocko
 import { PronoFormResultComponent } from './prono-form-result/prono-form-result.component';
 import { MyNavComponent } from './my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 const appRoutes: Routes = [
-  //{ path: '', component: PronoFormComponent },
+  { path: 'prono', component: PronoFormComponent },
   { path: '', redirectTo: '/cdm', pathMatch: 'full' },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
   { path: 'cdm', component: PronoCdmGroupComponent},
   { path: 'cdm/list', component: PronoCdmGroupListComponent},
   { path: 'cdm/knockout', component: PronoCdmKnockoutComponent},
-  { path: 'result', component: PronoFormResultComponent}
+  { path: 'result', component: PronoFormResultComponent},
+  { path: 'user/info', component: UserInfoComponent}
 ];
 
 @NgModule({
@@ -98,7 +100,8 @@ const appRoutes: Routes = [
     PronoCdmGroupListComponent,
     PronoCdmKnockoutComponent,
     PronoFormResultComponent,
-    MyNavComponent
+    MyNavComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

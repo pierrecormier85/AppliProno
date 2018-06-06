@@ -23,8 +23,10 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
+  
   ngOnInit() {
   }
+
   login() {
     if (this.form.valid) {
       this.http.post(API_URL.concat('user/'),this.form.value)
@@ -35,6 +37,8 @@ export class LoginComponent implements OnInit {
           this.authenticationFlag = false;
         }
       );
+    } else {
+      this.authenticationFlag = false;
     }
   }
 }

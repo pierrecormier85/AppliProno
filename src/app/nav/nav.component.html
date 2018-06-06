@@ -121,6 +121,10 @@
         <mat-icon>person_add</mat-icon>
         <span>S'enregistrer</span>
     </button>
+    <button mat-menu-item *ngIf="auth.isLoggednIn()" routerLink="/user/info">
+        <mat-icon>person</mat-icon>
+        <span>Mes infos</span>
+    </button>
     <button mat-menu-item *ngIf="auth.isLoggednIn()" (click)="auth.logout()">
         <mat-icon>person_outline</mat-icon>
         <span>Se deconnecter</span>

@@ -10,6 +10,7 @@ import { API_URL } from './../const/constants';
 
 import {Game} from './../models/game';
 import { Pronostic } from '../models/pronostic';
+import { Team } from '../models/team';
 
 @Component({
   selector: 'app-prono-form',
@@ -22,9 +23,12 @@ export class PronoFormComponent implements OnInit {
   matchday;
   games: Game[];
   form: FormGroup;
+  errorFlag: Boolean;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,
-     private router: Router, public dialog: MatDialog,private auth: AuthService) {}
+     private router: Router, public dialog: MatDialog,private auth: AuthService) {
+       this.errorFlag = false;
+     }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -44,11 +48,13 @@ export class PronoFormComponent implements OnInit {
 
     this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(data => {
-        this.matchday = Number(data);
+        //this.matchday = Number(data);
+        this.matchday = 38;
         this.form.controls['matchday'].setValue(this.matchday);
 
-        if(this.auth.isLoggednIn){
+        if(this.auth.isLoggednIn()){
           let pseudo = this.auth.getToken();
+          this.form.controls['pseudo'].disable();
           this.form.controls['pseudo'].setValue(pseudo);
           //get prono if already done
           this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
@@ -68,38 +74,51 @@ export class PronoFormComponent implements OnInit {
               //pas de prono enregistré donc on fais rien
             }
           );
+        }else {
+          this.form.controls['pseudo'].enable();
         }
       }
     );
 
-    this.http.get(API_URL.concat('fixtures/'))
-    .toPromise().then(data => {
-        // Read the result field from the JSON response.
-        this.games = [];
-        for (let i = 1; i < 11; i ++) {
-          const fixture = data[i-1];
-          const game: Game = {
-            dom: fixture['home'],
-            ext: fixture['away'],
-            id: i,
-            result: '',
-            rankingDom: fixture['rankingHome'],
-            rankingExt: fixture['rankingAway'],
-            resultHomeTeamJ1: fixture['previousResultHome'][0],
-            resultAwayTeamJ1: fixture['previousResultAway'][0],
-            resultHomeTeamJ2: fixture['previousResultHome'][1],
-            resultAwayTeamJ2: fixture['previousResultAway'][1],
-            resultHomeTeamJ3: fixture['previousResultHome'][2],
-            resultAwayTeamJ3: fixture['previousResultAway'][2],
-            resultHomeTeamJ4: fixture['previousResultHome'][3],
-            resultAwayTeamJ4: fixture['previousResultAway'][3],
-            resultHomeTeamJ5: fixture['previousResultHome'][4],
-            resultAwayTeamJ5: fixture['previousResultAway'][4],
-          };
-          this.games.push(game);
-        }
+    this.http.get("./assets/json/l1.json").toPromise().then(data => {
+      let teams:{ [name: string]: string }={};
+      
+      for (let index in data) {
+        let jsonTeam = data[index];
+        teams[jsonTeam['name']] = jsonTeam['logo'];
       }
-    );
+
+      this.http.get(API_URL.concat('fixtures/38'))
+      .toPromise().then(data => {
+          // Read the result field from the JSON response.
+          this.games = [];
+          for (let i = 1; i < 11; i ++) {
+            const fixture = data[i-1];
+            const game: Game = {
+              dom: fixture['home'],
+              logoDom: teams[fixture['home']],
+              ext: fixture['away'],
+              logoExt: teams[fixture['away']],
+              id: i,
+              result: '',
+              rankingDom: fixture['rankingHome'],
+              rankingExt: fixture['rankingAway'],
+              resultHomeTeamJ1: fixture['previousResultHome'][0],
+              resultAwayTeamJ1: fixture['previousResultAway'][0],
+              resultHomeTeamJ2: fixture['previousResultHome'][1],
+              resultAwayTeamJ2: fixture['previousResultAway'][1],
+              resultHomeTeamJ3: fixture['previousResultHome'][2],
+              resultAwayTeamJ3: fixture['previousResultAway'][2],
+              resultHomeTeamJ4: fixture['previousResultHome'][3],
+              resultAwayTeamJ4: fixture['previousResultAway'][3],
+              resultHomeTeamJ5: fixture['previousResultHome'][4],
+              resultAwayTeamJ5: fixture['previousResultAway'][4],
+            };
+            this.games.push(game);
+          }
+        }
+      );
+    });
   }
 
   get pseudo() { return this.form.get('pseudo'); }

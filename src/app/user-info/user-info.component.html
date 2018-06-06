@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="register()" class="form">
+        <div class="input-group mb-3 col-sm-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Pseudo</span>
+          </div>
+          <input type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" disabled />
+        </div> 
+
+        <div class="input-group mb-3 col-sm-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+          </div>
+          <input type="email" id="email" name="email" formControlName="email" class="form-control" required/>
+        </div> 
+
+        <div class="input-group mb-3 col-sm-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Mots de passe</span>
+          </div>
+          <input type="password" id="password" name="password" formControlName="password" class="form-control" />
+        </div> 
+
+        <div class="input-group mb-3 col-sm-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Mots de passe</span>
+            </div>
+            <input type="password" id="password2" name="password2" formControlName="password2" class="form-control" />
+          </div> 
+
+        <div *ngIf="!passwordMatch() || form.controls['email'].hasError('pattern')" class="alert alert-danger col-sm-12">
+            <div *ngIf="form.controls['email'].hasError('pattern')">
+                {{getErrorEmailMessage()}}
+            </div>
+            <div *ngIf="!passwordMatch()">
+                Les mots de passe ne correspondent pas.
+            </div>
+          </div>
+  
+        <div class="col-sm-12">
+            <button class="btn btn-primary" type="submit">Mettre à jour</button>
+        </div>
+      </form>
+   </mat-card-content>
+  </mat-card>

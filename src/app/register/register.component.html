@@ -13,17 +13,39 @@
             <span class="input-group-text" id="basic-addon1">Email</span>
           </div>
           <input type="email" id="email" name="email" formControlName="email" class="form-control" required />
+        </div>
+
+        <div class="input-group mb-3 col-sm-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Mots de passe</span>
+          </div>
+          <input type="password" id="password" name="password" formControlName="password" class="form-control" required />
         </div> 
 
         <div class="input-group mb-3 col-sm-12">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Password</span>
+            <span class="input-group-text" id="basic-addon1">Mots de passe</span>
           </div>
-          <input type="password" id="password" name="password" formControlName="password" class="form-control" required />
+          <input type="password" id="password2" name="password2" formControlName="password2" class="form-control" required />
         </div> 
-  
+
+        <br/>
+
+        <div *ngIf="form.invalid || !passwordMatch() || form.controls['email'].hasError('pattern')" class="alert alert-danger col-sm-12">
+          <div *ngIf="form.invalid">
+            Tous les champs sont obligatoires !
+          </div>
+          <div *ngIf="form.controls['email'].hasError('pattern')">
+              {{getErrorEmailMessage()}}
+          </div>
+          <div *ngIf="!passwordMatch()">
+              Les mots de passe ne correspondent pas.
+          </div>
+        </div>
+    
+
         <div class="col-sm-12">
-            <button class="btn btn-primary" type="submit">Register</button>
+            <button class="btn btn-primary" type="submit">S'inscrire</button>
         </div>
       </form>
    </mat-card-content>
