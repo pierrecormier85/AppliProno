@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.form.valid) {
-      this.http.post(API_URL.concat('user/'),this.form.value)
+      this.http.post(API_URL.concat('user/login'),this.form.value)
        .toPromise().then(response => {
           this.auth.sendToken(this.form.value.pseudo)
           this.myRoute.navigate([""]);
@@ -40,5 +40,9 @@ export class LoginComponent implements OnInit {
     } else {
       this.authenticationFlag = false;
     }
+  }
+
+  resetPassword() {
+    this.myRoute.navigate(["user/reset"]);
   }
 }

@@ -12,13 +12,20 @@
 
       <div class="input-group mb-3 col-sm-12">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Mots de passe</span>
+          <span class="input-group-text" id="basic-addon1">Mot de passe</span>
         </div>
         <input type="password" id="password" name="password" formControlName="password" class="form-control" required />
       </div> 
   
       <div class="col-sm-12">
           <button class="btn btn-primary" type="submit">Se connecter</button>
+      </div>
+
+      <br/>
+      <br/>
+      
+      <div class="col-sm-12">
+        <button class="btn btn-outline-info" (click)="resetPassword()">Mots de passe oublié ?</button>
       </div>
     </form>
   </mat-card-content>

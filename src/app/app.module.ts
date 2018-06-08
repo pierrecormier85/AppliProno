@@ -51,6 +51,8 @@ import { PronoFormResultComponent } from './prono-form-result/prono-form-result.
 import { MyNavComponent } from './my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { UserResetPasswordComponent } from './user-reset-password/user-reset-password.component';
+import { UserResetPasswordDialogComponent } from './user-reset-password.-dialog/user-reset-password-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'prono', component: PronoFormComponent },
@@ -74,7 +76,8 @@ const appRoutes: Routes = [
   { path: 'cdm/list', component: PronoCdmGroupListComponent},
   { path: 'cdm/knockout', component: PronoCdmKnockoutComponent},
   { path: 'result', component: PronoFormResultComponent},
-  { path: 'user/info', component: UserInfoComponent}
+  { path: 'user/info', component: UserInfoComponent},
+  { path: 'user/reset', component: UserResetPasswordComponent}
 ];
 
 @NgModule({
@@ -101,7 +104,9 @@ const appRoutes: Routes = [
     PronoCdmKnockoutComponent,
     PronoFormResultComponent,
     MyNavComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserResetPasswordComponent,
+    UserResetPasswordDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -131,7 +136,8 @@ const appRoutes: Routes = [
     MatListModule
   ],
   entryComponents: [
-    PronoDialogComponent
+    PronoDialogComponent,
+    UserResetPasswordDialogComponent
   ],
   exports: [],
   providers: [GooglePieChartService, AuthService, AuthGuard,
