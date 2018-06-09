@@ -24,6 +24,7 @@ export class PronoFormComponent implements OnInit {
   games: Game[];
   form: FormGroup;
   errorFlag: Boolean;
+  disable: Boolean = false;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,
      private router: Router, public dialog: MatDialog,private auth: AuthService) {
@@ -54,22 +55,23 @@ export class PronoFormComponent implements OnInit {
 
         if(this.auth.isLoggednIn()){
           let pseudo = this.auth.getToken();
-          this.form.controls['pseudo'].disable();
+          this.disable = true;
           this.form.controls['pseudo'].setValue(pseudo);
           //get prono if already done
           this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
           .toPromise().then(data => {
-              // Read the result field from the JSON response.
-              this.form.controls['m1'].setValue(data.m1);
-              this.form.controls['m2'].setValue(data.m2);
-              this.form.controls['m3'].setValue(data.m3);
-              this.form.controls['m4'].setValue(data.m4);
-              this.form.controls['m5'].setValue(data.m5);
-              this.form.controls['m6'].setValue(data.m6);
-              this.form.controls['m7'].setValue(data.m7);
-              this.form.controls['m8'].setValue(data.m8);
-              this.form.controls['m9'].setValue(data.m9);
-              this.form.controls['m10'].setValue(data.m10);
+              if(data != null){
+                this.form.controls['m1'].setValue(data.m1);
+                this.form.controls['m2'].setValue(data.m2);
+                this.form.controls['m3'].setValue(data.m3);
+                this.form.controls['m4'].setValue(data.m4);
+                this.form.controls['m5'].setValue(data.m5);
+                this.form.controls['m6'].setValue(data.m6);
+                this.form.controls['m7'].setValue(data.m7);
+                this.form.controls['m8'].setValue(data.m8);
+                this.form.controls['m9'].setValue(data.m9);
+                this.form.controls['m10'].setValue(data.m10);
+              }
             }, error => {
               //pas de prono enregistré donc on fais rien
             }
@@ -136,14 +138,29 @@ export class PronoFormComponent implements OnInit {
   }
 
   saveProno() {
-    this.form.setValue
-    this.http.post(API_URL.concat('pronostic'), this.form.value)
-    .toPromise().then(
-      d => {
-        this.router.navigate(['/pronostics']); 
-        this.openDialog();
-      }
-    );
+    this.form.setValue;
+    if(this.auth.isLoggednIn()){
+      this.http.post(API_URL.concat('pronostic/true'), this.form.value)
+      .toPromise().then(
+        d => {
+          this.router.navigate(['/pronostics']); 
+          this.openDialog();
+        }
+      );
+    } else {
+      this.http.post(API_URL.concat('pronostic/false'), this.form.value)
+      .toPromise().then(
+        d => {
+          this.router.navigate(['/pronostics']); 
+          this.openDialog();
+        },error => {
+          if(error.status == 401){
+            this.errorFlag = true;
+          }
+        }
+      );
+    }
+   
   }
 
   openDialog(): void {
