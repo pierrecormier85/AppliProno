@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material';
 import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
 import { AuthService } from '../auth.service';
 
+import {CalendarModule} from 'primeng/calendar';
+
 import { API_URL } from './../const/constants';
 
 import { Pronostic } from '../models/pronostic';
@@ -17,28 +19,52 @@ import { Pronostic } from '../models/pronostic';
 })
 export class PronoFormResultComponent implements OnInit {
 
+  
   title = 'app';
   matchday;
   games: GameResult[];
   form: FormGroup;
+  fr: any;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,
      private router: Router, public dialog: MatDialog,private auth: AuthService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      m1: new FormControl(''),
-      m2: new FormControl(''),
-      m3: new FormControl(''),
-      m4: new FormControl(''),
-      m5: new FormControl(''),
-      m6: new FormControl(''),
-      m7: new FormControl(''),
-      m8: new FormControl(''),
-      m9: new FormControl(''),
-      m10: new FormControl(''),
+      m1Result: new FormControl(''),
+      m2Result: new FormControl(''),
+      m3Result: new FormControl(''),
+      m4Result: new FormControl(''),
+      m5Result: new FormControl(''),
+      m6Result: new FormControl(''),
+      m7Result: new FormControl(''),
+      m8Result: new FormControl(''),
+      m9Result: new FormControl(''),
+      m10Result: new FormControl(''),
+      m1Date: new FormControl(''),
+      m2Date: new FormControl(''),
+      m3Date: new FormControl(''),
+      m4Date: new FormControl(''),
+      m5Date: new FormControl(''),
+      m6Date: new FormControl(''),
+      m7Date: new FormControl(''),
+      m8Date: new FormControl(''),
+      m9Date: new FormControl(''),
+      m10Date: new FormControl(''),
+      date: new FormControl(''),
       matchday: 0
     });
+
+    this.fr = {
+      firstDayOfWeek: 1,
+      dayNames: [ "Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi" ],
+      dayNamesShort: [ "dim","lun","mar","mer","jeu","ven","sam" ],
+      dayNamesMin: [ "D","L","M","M","J","V","S" ],
+      monthNames: [ "Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre" ],
+      monthNamesShort: [ "jan","fev","mar","avr","mai","jun","jui","aou","sep","oct","nov","dec" ],
+      today: 'Aujourd\'hui',
+      clear: 'Effacer'
+    }
 
     this.http.get(API_URL.concat('fixtures/current/'))
     .toPromise().then(data => {
@@ -57,6 +83,14 @@ export class PronoFormResultComponent implements OnInit {
                 result: data['m'.concat(i.toString()).concat('Result')]
               };
               this.games.push(game);
+              let result = data['m'.concat(i.toString()).concat('Result')];
+              if(result != null){
+                this.form.controls['m'.concat(i.toString()).concat('Result')].setValue(result);
+              }
+              let date = data['m'.concat(i.toString()).concat('Date')];
+              if(date != null){
+                this.form.controls['m'.concat(i.toString()).concat('Date')].setValue(new Date(date));
+              }
             }
           }
         );
@@ -65,7 +99,8 @@ export class PronoFormResultComponent implements OnInit {
   }
 
   saveResult() {
-    this.form.setValue
+    this.form.setValue;
+    
     this.http.post(API_URL.concat('matchday'), this.form.value)
     .toPromise().then(
       d => {

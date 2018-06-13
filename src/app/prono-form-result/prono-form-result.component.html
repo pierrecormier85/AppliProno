@@ -13,21 +13,25 @@
                 <div class="col-2">
                     <div id="fc-m{{game.id}}">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">1</label>
+                        <input class="form-check-input" name="m{{game.id}}Result" type="radio" value="1" formControlName="m{{game.id}}Result">
+                        <label class="form-check-label" for="m{{game.id}}Result">1</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">N</label>
+                        <input class="form-check-input" name="m{{game.id}}Result" type="radio" value="N" formControlName="m{{game.id}}Result">
+                        <label class="form-check-label" for="m{{game.id}}Result">N</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">2</label>
+                        <input class="form-check-input" name="m{{game.id}}Result" type="radio" value="2" formControlName="m{{game.id}}Result">
+                        <label class="form-check-label" for="m{{game.id}}Result">2</label>
                       </div>
                     </div>
                   </div>
                   <div class="col-5 col-form-label">
                     <h3><label for="fc-m{{game.id}}">{{game.ext}}</label></h3>
+                  </div>
+                  <div class="col-4"></div>
+                  <div class="col-4">
+                    <p-calendar [locale]="fr" dateFormat="dd/mm/yy" [showTime]="true" [monthNavigator]="true" [yearNavigator]="true" showButtonBar="true" formControlName="m{{game.id}}Date" yearRange="2018:2030"></p-calendar>
                   </div>
             </div>
       </div>
@@ -42,6 +46,7 @@
       
       <br/>
     </form>
+    
   </div>
 
   <script>

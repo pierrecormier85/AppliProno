@@ -53,6 +53,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserResetPasswordComponent } from './user-reset-password/user-reset-password.component';
 import { UserResetPasswordDialogComponent } from './user-reset-password.-dialog/user-reset-password-dialog.component';
+import {CalendarModule} from 'primeng/calendar';
+
 
 const appRoutes: Routes = [
   { path: 'prono', component: PronoFormComponent },
@@ -126,6 +128,7 @@ const appRoutes: Routes = [
     MatSortModule,
     MatCardModule,
     MatSnackBarModule,
+    CalendarModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
