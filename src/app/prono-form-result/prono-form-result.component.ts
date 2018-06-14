@@ -51,7 +51,6 @@ export class PronoFormResultComponent implements OnInit {
       m8Date: new FormControl(''),
       m9Date: new FormControl(''),
       m10Date: new FormControl(''),
-      date: new FormControl(''),
       matchday: 0
     });
 
@@ -83,10 +82,12 @@ export class PronoFormResultComponent implements OnInit {
                 result: data['m'.concat(i.toString()).concat('Result')]
               };
               this.games.push(game);
+              //use constant bordel de merde => game.result
               let result = data['m'.concat(i.toString()).concat('Result')];
               if(result != null){
                 this.form.controls['m'.concat(i.toString()).concat('Result')].setValue(result);
               }
+
               let date = data['m'.concat(i.toString()).concat('Date')];
               if(date != null){
                 this.form.controls['m'.concat(i.toString()).concat('Date')].setValue(new Date(date));

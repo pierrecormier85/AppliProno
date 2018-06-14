@@ -25,6 +25,17 @@ export class PronoFormComponent implements OnInit {
   form: FormGroup;
   errorFlag: Boolean;
   disable: Boolean = false;
+  disableM1: Boolean = false;
+  disableM2: Boolean = false;
+  disableM3: Boolean = false;
+  disableM4: Boolean = false;
+  disableM5: Boolean = false;
+  disableM6: Boolean = false;
+  disableM7: Boolean = false;
+  disableM8: Boolean = false;
+  disableM9: Boolean = false;
+  disableM10: Boolean = false;
+  showWarningMessage: Boolean = false;
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,
      private router: Router, public dialog: MatDialog,private auth: AuthService) {
@@ -121,6 +132,62 @@ export class PronoFormComponent implements OnInit {
         }
       );
     });
+
+    this.http.get(API_URL.concat('matchday/38'))
+      .toPromise().then(data => {
+          let today = Date.now();
+          if(today >= data['m1Date']){
+            this.disableM1 = true;
+            this.form.controls['m1'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m2Date']){
+            this.disableM2 = true;
+            this.form.controls['m2'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m3Date']){
+            this.disableM3 = true;
+            this.form.controls['m3'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m4Date']){
+            this.disableM4 = true;
+            this.form.controls['m4'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m5Date']){
+            this.disableM5 = true;
+            this.form.controls['m5'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m6Date']){
+            this.disableM6 = true;
+            this.form.controls['m6'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m7Date']){
+            this.disableM7 = true;
+            this.form.controls['m7'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m8Date']){
+            this.disableM8 = true;
+            this.form.controls['m8'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m9Date']){
+            this.disableM9 = true;
+            this.form.controls['m9'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m10Date']){
+            this.disableM10 = true;
+            this.form.controls['m10'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+        }
+      );
   }
 
   get pseudo() { return this.form.get('pseudo'); }
@@ -161,6 +228,24 @@ export class PronoFormComponent implements OnInit {
       );
     }
    
+  }
+
+  isDisable(id){
+    let disable: Boolean = false;
+    switch(id){
+      case 1: disable = this.disableM1; break;
+      case 2: disable = this.disableM2; break;
+      case 3: disable = this.disableM3; break;
+      case 4: disable = this.disableM4; break;
+      case 5: disable = this.disableM5; break;
+      case 6: disable = this.disableM6; break;
+      case 7: disable = this.disableM7; break;
+      case 8: disable = this.disableM8; break;
+      case 9: disable = this.disableM9; break;
+      case 10: disable = this.disableM10; break;
+    }
+
+    return disable? '' : null;
   }
 
   openDialog(): void {

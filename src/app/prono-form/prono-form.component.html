@@ -5,6 +5,9 @@
     <br/>
     
     <form [formGroup]="form" (ngSubmit)="saveProno()">
+      <div *ngIf="showWarningMessage" class="alert alert-warning col-sm-12">
+        Attention un match passé sera non saisissable !
+      </div>
       <div class="col-sm-12 container" *ngFor="let game of games">
           <div class="form-group row">
                 <div class="col-5 col-form-label">
@@ -23,15 +26,15 @@
                 <div class="col-2">
                     <div id="fc-m{{game.id}}">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
+                        <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
                         <label class="form-check-label" for="m{{game.id}}">1</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
+                        <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
                         <label class="form-check-label" for="m{{game.id}}">N</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
+                        <input [attr.disabled]="isDisable(game.id)"  class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
                         <label class="form-check-label" for="m{{game.id}}">2</label>
                       </div>
                     </div>
@@ -60,11 +63,11 @@
       </div> 
 
      <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
-        Tous les champs sont obligatoires !
+        Tous les champs saisissables sont obligatoires !
       </div>
 
       <div *ngIf="errorFlag" class="alert alert-danger col-sm-12">
-          Le pseudo saisi ne peut-être utilisé, car il est affilié à un compte. Si vous voulez utiliser ce pseudo, veuillez vous authentifier. Sinon, veuillez utiliser un autre pseudo.
+        Le pseudo saisi ne peut-être utilisé, car il est affilié à un compte. Si vous voulez utiliser ce pseudo, veuillez vous authentifier. Sinon, veuillez utiliser un autre pseudo.
       </div>
 
       <div class="col-sm-12">
