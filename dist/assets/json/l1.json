@@ -1,0 +1,111 @@
+[
+	{
+	  "id": 1,
+	  "name": "Angers SCO",
+	  "logo": "angers"
+	},
+	{
+	  "id": 2,
+	  "name": "Dijon FCO",
+	  "logo": "dijon"
+	},
+	{
+	  "id": 3,
+	  "name": "FC Metz",
+	  "logo": "metz"
+	},
+	{
+	  "id": 4,
+	  "name": "FC Girondins de Bordeaux",
+	  "logo": "bordeaux"
+	},
+	{
+	  "id": 5,
+	  "name": "FC Nantes",
+	  "logo": "nantes"
+	},
+	{
+	  "id": 6,
+	  "name": "RC Strasbourg Alsace",
+	  "logo": "strasbourg"
+	},
+	{
+	  "id": 7,
+	  "name": "Olympique Lyonnais",
+	  "logo": "lyon"
+	},
+	{
+	  "id": 8,
+	  "name": "Olympique de Marseille",
+	  "logo": "marseille"
+	},
+	{
+	  "id": 9,
+	  "name": "Amiens SC",
+	  "logo": "amiens"
+	},
+	{
+	  "id": 10,
+	  "name": "AS Saint-Étienne",
+	  "logo": "saint-etienne"
+	},
+	{
+	  "id": 11,
+	  "name": "Montpellier Hérault SC",
+	  "logo": "montpellier"
+	},
+	{
+	  "id": 12,
+	  "name": "OSC Lille",
+	  "logo": "lille"
+	},
+	{
+	  "id": 13,
+	  "name": "Toulouse FC",
+	  "logo": "toulouse"
+	},
+	{
+	  "id": 14,
+	  "name": "SM Caen",
+	  "logo": "caen"
+	},
+	{
+	  "id": 15,
+	  "name": "Paris Saint-Germain",
+	  "logo": "paris"
+	},
+	{
+	  "id": 16,
+	  "name": "ES Troyes AC",
+	  "logo": "troyes"
+	},
+	{
+	  "id": 17,
+	  "name": "AS Monaco FC",
+	  "logo": "monaco"
+	},
+	{
+	  "id": 18,
+	  "name": "EA Guingamp",
+	  "logo": "guingamp"
+	},
+	{
+	  "id": 19,
+	  "name": "Stade Rennais FC",
+	  "logo": "rennes"
+	},
+	{
+	  "id": 20,
+	  "name": "OGC Nice",
+	  "logo": "nice"
+	},{
+	  "id": 21,
+	  "name": "Nîmes Olympique",
+	  "logo": "nimes"
+	},
+	{
+	  "id": 22,
+	  "name": "Stade de Reims",
+	  "logo": "reims"
+	}
+]

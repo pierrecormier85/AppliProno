@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
     "material-design-icons": "^3.0.1",
     "primeicons": "^1.0.0-beta.7",
     "primeng": "^6.0.0-rc.1",
+    "typescript": "2.7.2",
     "rxjs": "^6.2.0",
     "zone.js": "^0.8.26"
   },
