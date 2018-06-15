@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="register()" class="form">
+          <div *ngIf="pseudoAlreadyUse" class="alert alert-danger">Pseudo déjà utilisé. Veuillez en utiliser un autre.</div>
         <div class="input-group mb-3 col-sm-12">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Pseudo</span>

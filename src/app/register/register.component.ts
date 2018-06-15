@@ -13,6 +13,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
+  pseudoAlreadyUse: Boolean = false;
   
   constructor(private fb: FormBuilder, private http: HttpClient,private myRoute: Router, private auth: AuthService,) {
     this.form = fb.group({
@@ -29,6 +30,10 @@ export class RegisterComponent implements OnInit {
         .toPromise().then(response => {
             this.auth.sendToken(this.form.value.pseudo)
             this.myRoute.navigate([""]);
+          }, error => {
+            if(error.status == 409){
+              this.pseudoAlreadyUse = true;
+            }
           }
         );
     }
