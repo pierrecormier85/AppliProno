@@ -1,6 +1,6 @@
 import { GoogleChartsBaseService } from './google-charts.base.service';
 import { Injectable } from '@angular/core';
-import { PieChartConfig } from './PieChartConfig';
+import { PieChartConfig } from './piechartconfig';
 
 declare var google: any;
 
