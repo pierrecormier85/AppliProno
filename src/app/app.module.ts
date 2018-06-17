@@ -58,7 +58,7 @@ import {CalendarModule} from 'primeng/calendar';
 
 const appRoutes: Routes = [
   { path: 'prono', component: PronoFormComponent },
-  { path: '', redirectTo: '/cdm', pathMatch: 'full' },
+  { path: '', redirectTo: '/cdm/list', pathMatch: 'full' },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },

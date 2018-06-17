@@ -30,11 +30,12 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.7",
     "css-toggle-switch": "^4.1.0",
+    "html2canvas": "^1.0.0-alpha.12",
     "material-design-icons": "^3.0.1",
     "primeicons": "^1.0.0-beta.7",
     "primeng": "^6.0.0-rc.1",
-    "typescript": "2.7.2",
     "rxjs": "^6.2.0",
+    "typescript": "2.7.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
