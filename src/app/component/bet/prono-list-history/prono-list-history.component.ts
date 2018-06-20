@@ -73,8 +73,8 @@ export class PronoListHistoryComponent implements OnInit {
   }
 
   findMe(){
-    this.applyFilter(this.auth.getToken());
-    this.search = this.auth.getToken();
+    this.applyFilter(this.auth.getDecodeToken());
+    this.search = this.auth.getDecodeToken();
   }
 
   ngAfterViewInit() {

@@ -7,11 +7,15 @@ export class AuthService {
   constructor(private myRoute: Router) { }
 
   sendToken(token: string) {
-    localStorage.setItem("LoggedInUser", token)
+    localStorage.setItem("LoggedInUser", btoa(token));
   }
 
   getToken() {
-    return localStorage.getItem("LoggedInUser")
+    return localStorage.getItem("LoggedInUser");
+  }
+
+  getDecodeToken() {
+    return atob(localStorage.getItem("LoggedInUser"));
   }
 
   isLoggednIn() {
@@ -24,7 +28,7 @@ export class AuthService {
   }
 
   isAdmin(){
-    return this.getToken() !== null && this.getToken() == "ol44470";
+    return this.getToken() !== null && this.getDecodeToken() == "ol44470";
   }
 
 

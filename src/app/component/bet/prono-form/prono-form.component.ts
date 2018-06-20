@@ -65,7 +65,7 @@ export class PronoFormComponent implements OnInit {
         this.form.controls['matchday'].setValue(this.matchday);
 
         if(this.auth.isLoggednIn()){
-          let pseudo = this.auth.getToken();
+          let pseudo = this.auth.getDecodeToken();
           this.disable = true;
           this.form.controls['pseudo'].setValue(pseudo);
           //get prono if already done
