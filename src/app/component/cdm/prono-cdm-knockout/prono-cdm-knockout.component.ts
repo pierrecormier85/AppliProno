@@ -4,7 +4,6 @@ import { Group } from '../../../models/group';
 import { HttpClient } from '@angular/common/http';
 import { Team } from '../../../models/team';
 import { Match } from '../../../models/match';
-import { API_URL } from '../../../const/constants';
 import { Router } from '@angular/router';
 
 @Component({

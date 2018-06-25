@@ -3,8 +3,8 @@ import { Moyenne } from '../../../models/moyenne';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-ranking-moyenne',
@@ -24,7 +24,7 @@ export class PronoRankingMoyenneComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
-    this.http.get<Moyenne[]>(API_URL.concat('participations/moyennes'))
+    this.http.get<Moyenne[]>(environment.apiUrl.concat('participations/moyennes'))
     .toPromise().then(data => {
         this.moyennes = [];
         let i = 1;

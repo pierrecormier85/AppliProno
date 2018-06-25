@@ -3,7 +3,8 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
-import { API_URL, GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION } from '../const/constants';
+import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION } from '../const/constants';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class NavComponent implements OnInit {
   }
 
   btnPreviousParticipationsClick(){
-    this.http.get(API_URL.concat('fixtures/current/'))
+    this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(m => {
         let matchday = Number(m) -1 ;
         this.router.navigate(['/pronostics/' + matchday ]);

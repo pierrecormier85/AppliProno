@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (this.form.valid && this.passwordMatch()) {
-     this.http.post(API_URL.concat('user/new/'),this.form.value)
+     this.http.post(environment.apiUrl.concat('user/new/'),this.form.value)
         .toPromise().then(response => {
             this.auth.sendToken(this.form.value.pseudo)
             this.myRoute.navigate([""]);

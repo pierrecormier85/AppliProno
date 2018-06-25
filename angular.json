@@ -48,6 +48,20 @@
                 }
               ],
               "serviceWorker": true
+            }, "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            }, "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -59,7 +73,11 @@
           "configurations": {
             "production": {
               "browserTarget": "appli-prono:build:production"
-            }
+            },"staging": {
+                "browserTarget": "appli-prono:build:staging"
+              },"dev": {
+                "browserTarget": "appli-prono:build:dev"
+              }
           }
         },
         "extract-i18n": {

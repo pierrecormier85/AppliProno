@@ -3,10 +3,11 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Ranking } from '../../../models/ranking';
 
-import { API_URL, GENERAL, MONTH, JOURNEY } from './../../../const/constants';
+import { GENERAL, MONTH, JOURNEY } from './../../../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-ranking',
@@ -29,7 +30,7 @@ export class PronoRankingComponent implements OnInit {
   ngOnInit() {
     this.url = this.route.routeConfig.path;
 
-    this.http.get<Ranking[]>(API_URL.concat(this.url))
+    this.http.get<Ranking[]>(environment.apiUrl.concat(this.url))
     .toPromise().then(data => {
         this.rankings = [];
         let i = 1;

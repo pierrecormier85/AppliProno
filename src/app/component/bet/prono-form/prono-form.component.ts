@@ -6,11 +6,10 @@ import { MatDialog } from '@angular/material';
 import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
 import { AuthService } from '../../../auth.service';
 
-import { API_URL } from './../../../const/constants';
-
 import {Game} from './../../../models/game';
 import { Pronostic } from '../../../models/pronostic';
 import { Team } from '../../../models/team';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-form',
@@ -58,7 +57,7 @@ export class PronoFormComponent implements OnInit {
       matchday: 0
     });
 
-    this.http.get(API_URL.concat('fixtures/current/'))
+    this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
         //this.matchday = Number(data);
         this.matchday = 38;
@@ -69,7 +68,7 @@ export class PronoFormComponent implements OnInit {
           this.disable = true;
           this.form.controls['pseudo'].setValue(pseudo);
           //get prono if already done
-          this.http.get<Pronostic>(API_URL.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
+          this.http.get<Pronostic>(environment.apiUrl.concat('pronostic/get/').concat(this.matchday).concat('&').concat(pseudo))
           .toPromise().then(data => {
               if(data != null){
                 this.form.controls['m1'].setValue(data.m1);
@@ -101,7 +100,7 @@ export class PronoFormComponent implements OnInit {
         teams[jsonTeam['name']] = jsonTeam['logo'];
       }
 
-      this.http.get(API_URL.concat('fixtures/38'))
+      this.http.get(environment.apiUrl.concat('fixtures/38'))
       .toPromise().then(data => {
           // Read the result field from the JSON response.
           this.games = [];
@@ -133,7 +132,7 @@ export class PronoFormComponent implements OnInit {
       );
     });
 
-    this.http.get(API_URL.concat('matchday/38'))
+    this.http.get(environment.apiUrl.concat('matchday/38'))
       .toPromise().then(data => {
           let today = Date.now();
           if(today >= data['m1Date']){
@@ -207,7 +206,7 @@ export class PronoFormComponent implements OnInit {
   saveProno() {
     this.form.setValue;
     if(this.auth.isLoggednIn()){
-      this.http.post(API_URL.concat('pronostic/true'), this.form.value)
+      this.http.post(environment.apiUrl.concat('pronostic/true'), this.form.value)
       .toPromise().then(
         d => {
           this.router.navigate(['/pronostics']); 
@@ -215,7 +214,7 @@ export class PronoFormComponent implements OnInit {
         }
       );
     } else {
-      this.http.post(API_URL.concat('pronostic/false'), this.form.value)
+      this.http.post(environment.apiUrl.concat('pronostic/false'), this.form.value)
       .toPromise().then(
         d => {
           this.router.navigate(['/pronostics']); 

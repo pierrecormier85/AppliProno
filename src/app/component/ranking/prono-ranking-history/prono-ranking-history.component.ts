@@ -3,10 +3,11 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Ranking } from '../../../models/ranking';
 
-import { API_URL, GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from './../../../const/constants';
+import { GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from './../../../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-ranking-history',
@@ -37,7 +38,7 @@ export class PronoRankingHistoryComponent implements OnInit {
       this.values = [8,9,10,11,12,1,2,3,4,5,6];
       this.selectedItem = 8;
     } else if(this.type == HISTORY_WEEK){
-      this.http.get(API_URL.concat('fixtures/current/'))
+      this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(m => {
         for(let i = 1; i <= Number(m); i++){
           if(i < 39){
@@ -68,7 +69,7 @@ export class PronoRankingHistoryComponent implements OnInit {
 
     url = url.concat(this.selectedItem.toString())
 
-    this.http.get<Ranking[]>(API_URL.concat(url))
+    this.http.get<Ranking[]>(environment.apiUrl.concat(url))
     .toPromise().then(data => {
         this.rankings = [];
         let i = 1;

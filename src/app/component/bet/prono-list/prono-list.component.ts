@@ -4,10 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Pronostic } from '../../../models/pronostic';
 import { Matchday } from '../../../models/matchday';
 
-import { API_URL } from './../../../const/constants';
-
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-list',
@@ -34,7 +33,7 @@ export class PronoListComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
 
-    this.http.get(API_URL.concat('fixtures/current/'))
+    this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(m => {
         this.matchday = Number(m);
         if(id != null){
@@ -42,7 +41,7 @@ export class PronoListComponent implements OnInit {
         }
       }
     ).then(r => {
-      this.http.get<Pronostic[]>(API_URL.concat('pronostic/').concat(this.matchday))
+      this.http.get<Pronostic[]>(environment.apiUrl.concat('pronostic/').concat(this.matchday))
       .toPromise().then(data => {
           // Read the result field from the JSON response.
           this.pronostics = data;
@@ -50,7 +49,7 @@ export class PronoListComponent implements OnInit {
         }
       );
 
-      this.http.get(API_URL.concat('fixtures/').concat(this.matchday))
+      this.http.get(environment.apiUrl.concat('fixtures/').concat(this.matchday))
         .toPromise().then(data => {
             // Read the result field from the JSON response.
             this.journey.matchday = [];

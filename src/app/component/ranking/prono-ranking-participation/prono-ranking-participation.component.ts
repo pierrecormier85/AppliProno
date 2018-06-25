@@ -3,8 +3,8 @@ import { Participation } from '../../../models/participation';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-ranking-participation',
@@ -24,7 +24,7 @@ export class PronoRankingParticipationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
-    this.http.get<Participation[]>(API_URL.concat('participations'))
+    this.http.get<Participation[]>(environment.apiUrl.concat('participations'))
     .toPromise().then(data => {
         this.participations = [];
         let i = 1;

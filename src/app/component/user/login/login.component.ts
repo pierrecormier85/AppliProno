@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
-import { API_URL } from '../../../const/constants';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.form.valid) {
-      this.http.post(API_URL.concat('user/login'),this.form.value)
+      this.http.post(environment.apiUrl.concat('user/login'),this.form.value)
        .toPromise().then(response => {
           this.auth.sendToken(this.form.value.pseudo)
           this.myRoute.navigate([""]);

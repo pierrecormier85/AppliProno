@@ -8,9 +8,8 @@ import { AuthService } from '../../../auth.service';
 
 import {CalendarModule} from 'primeng/calendar';
 
-import { API_URL } from './../../../const/constants';
-
 import { Pronostic } from '../../../models/pronostic';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-form',
@@ -65,13 +64,13 @@ export class PronoFormResultComponent implements OnInit {
       clear: 'Effacer'
     }
 
-    this.http.get(API_URL.concat('fixtures/current/'))
+    this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
         //this.matchday = Number(data);
         this.matchday = 38;
         this.form.controls['matchday'].setValue(this.matchday);
 
-        this.http.get(API_URL.concat('matchday/').concat(this.matchday))
+        this.http.get(environment.apiUrl.concat('matchday/').concat(this.matchday))
         .toPromise().then(data => {
             this.games = [];
             for (let i = 1; i < 11; i ++) {
@@ -102,7 +101,7 @@ export class PronoFormResultComponent implements OnInit {
   saveResult() {
     this.form.setValue;
     
-    this.http.post(API_URL.concat('matchday'), this.form.value)
+    this.http.post(environment.apiUrl.concat('matchday'), this.form.value)
     .toPromise().then(
       d => {
         this.router.navigate(['/result']); 

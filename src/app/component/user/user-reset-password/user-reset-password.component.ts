@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
 import { UserResetPasswordDialogComponent } from '../user-reset-password.-dialog/user-reset-password-dialog.component';
 import { MatDialog } from '@angular/material';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-user-reset-password',
@@ -29,7 +29,7 @@ export class UserResetPasswordComponent implements OnInit {
 
   resetPassword() {
     if (this.form.valid) {
-      this.http.post(API_URL.concat('user/password'),this.form.value.pseudo)
+      this.http.post(environment.apiUrl.concat('user/password'),this.form.value.pseudo)
       .toPromise().then(response => {
         this.router.navigate(['/']); 
         this.openDialog();

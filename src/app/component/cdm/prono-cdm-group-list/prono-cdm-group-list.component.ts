@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { AuthService } from '../../../auth.service';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-cdm-group-list',
@@ -22,7 +22,7 @@ export class PronoCdmGroupListComponent implements OnInit {
   constructor(private http: HttpClient, public auth: AuthService) { }
 
   ngOnInit() {
-    this.http.get(API_URL.concat('prono/cdm/group/all'))
+    this.http.get(environment.apiUrl.concat('prono/cdm/group/all'))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.pronostics = []

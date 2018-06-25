@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '../../../const/constants';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-user-info',
@@ -30,7 +30,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   register() {
-    this.http.post(API_URL.concat('user/update/'),this.form.value)
+    this.http.post(environment.apiUrl.concat('user/update/'),this.form.value)
        .toPromise().then(response => {
           this.myRoute.navigate([""]);
         }
@@ -38,7 +38,7 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.post(API_URL.concat('user/'),this.form.value)
+    this.http.post(environment.apiUrl.concat('user/'),this.form.value)
       .toPromise().then(response => {
           this.form.controls['email'].setValue(response['email']);
           console.log(response);

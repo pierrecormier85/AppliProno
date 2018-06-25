@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { PieChartConfig } from '../../../chart/piechartconfig';
 import { Statistique } from '../../../models/statistique';
-
-import { API_URL } from './../../../const/constants';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-stats-history',
@@ -61,7 +60,7 @@ export class PronoStatsHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(API_URL.concat('fixtures/current/'))
+    this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(m => {
         for(let i = 1; i <= Number(m); i++){
           this.values.push(i);
@@ -79,7 +78,7 @@ export class PronoStatsHistoryComponent implements OnInit {
    changeStats(){
     this.init();
 
-    this.http.get(API_URL.concat('statistique/').concat(this.selectedItem.toString()))
+    this.http.get(environment.apiUrl.concat('statistique/').concat(this.selectedItem.toString()))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.statistique = new Statistique();

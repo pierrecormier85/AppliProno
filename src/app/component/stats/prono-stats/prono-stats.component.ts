@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { PieChartConfig } from '../../../chart/piechartconfig';
 import { Statistique } from '../../../models/statistique';
+import { environment } from '../../../../environments/environment';
 
-import { API_URL } from './../../../const/constants';
 
 @Component({
   selector: 'app-prono-stats',
@@ -58,7 +58,7 @@ export class PronoStatsComponent implements OnInit {
   ngOnInit() {
     this.init();
 
-    this.http.get(API_URL.concat('statistique'))
+    this.http.get(environment.apiUrl.concat('statistique'))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.statistique = new Statistique();

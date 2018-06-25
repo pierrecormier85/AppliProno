@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Group } from '../../../models/group';
-import { API_URL } from '../../../const/constants';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-prono-cdm-group',
@@ -81,7 +81,7 @@ export class PronoCdmGroupComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       this.form.setValue;
-      this.http.post(API_URL.concat('prono/cdm/group'), this.form.value)
+      this.http.post(environment.apiUrl.concat('prono/cdm/group'), this.form.value)
     .toPromise().then(
       d => {
         //TODO redirection mais d'abord liste des participations
