@@ -54,11 +54,12 @@ import { UserInfoComponent } from './component/user/user-info/user-info.componen
 import { UserResetPasswordComponent } from './component/user/user-reset-password/user-reset-password.component';
 import { UserResetPasswordDialogComponent } from './component/user/user-reset-password.-dialog/user-reset-password-dialog.component';
 import {CalendarModule} from 'primeng/calendar';
+import { PronoCdmRankingComponent } from './component/cdm/prono-cdm-ranking/prono-cdm-ranking.component';
 
 
 const appRoutes: Routes = [
   { path: 'prono', component: PronoFormComponent },
-  { path: '', redirectTo: '/cdm/list', pathMatch: 'full' },
+  { path: '', redirectTo: '/cdm/knockout', pathMatch: 'full' },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
   { path: 'cdm', component: PronoCdmGroupComponent},
   { path: 'cdm/list', component: PronoCdmGroupListComponent},
   { path: 'cdm/knockout', component: PronoCdmKnockoutComponent},
+  { path: 'cdm/rank', component: PronoCdmRankingComponent},
   { path: 'result', component: PronoFormResultComponent},
   { path: 'user/info', component: UserInfoComponent},
   { path: 'user/reset', component: UserResetPasswordComponent}
@@ -104,6 +106,7 @@ const appRoutes: Routes = [
     PronoCdmGroupComponent,
     PronoCdmGroupListComponent,
     PronoCdmKnockoutComponent,
+    PronoCdmRankingComponent,
     PronoFormResultComponent,
     MyNavComponent,
     UserInfoComponent,

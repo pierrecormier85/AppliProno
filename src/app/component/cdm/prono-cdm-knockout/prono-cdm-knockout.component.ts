@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Team } from '../../../models/team';
 import { Match } from '../../../models/match';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'prono-cdm-knockout',
@@ -30,7 +31,7 @@ export class PronoCdmKnockoutComponent implements OnInit {
       m7: new FormControl('', Validators.required),
       m8: new FormControl('', Validators.required),
       pseudo: new FormControl('', Validators.required),
-      knockout: this.current_knockout
+      round: this.current_knockout
     });
   }
 
@@ -66,23 +67,27 @@ export class PronoCdmKnockoutComponent implements OnInit {
             let jsonMatch = jsonMatchs[index];
 
             let match = new Match();
-            //match.id = jsonMatch['name'];
+            match.id = jsonMatch['name'];
             match.id = idMatch;
             idMatch++;
 
-            //match.home = this.teams[jsonMatch['home_team'] - 1];
-            let home_team = new Team();
-            home_team.id = 0;
-            home_team.name = jsonMatch['home_team'];
-            home_team.flag = 'fr';
-            match.home = home_team;
-
-             // match.away = this.teams[jsonMatch['away_team'] - 1];
-            let away_team = new Team();
-            away_team.id = 0;
-            away_team.name = jsonMatch['away_team'];
-            away_team.flag = 'fr';
-            match.away = away_team;
+            match.home = this.teams[jsonMatch['home_team'] - 1];
+            if(match.home == null){
+              let home_team = new Team();
+              home_team.id = 0;
+              home_team.name = jsonMatch['home_team'];
+              home_team.flag = 'fr';
+              match.home = home_team;  
+            }
+            
+            match.away = this.teams[jsonMatch['away_team'] - 1];
+            if(match.away == null){
+              let away_team = new Team();
+              away_team.id = 0;
+              away_team.name = jsonMatch['away_team'];
+              away_team.flag = 'fr';
+              match.away = away_team;  
+            }
 
             match.group = name;
   
@@ -123,12 +128,12 @@ export class PronoCdmKnockoutComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       this.form.setValue;
-      /*this.http.post(API_URL.concat('prono/cdm/knockout'), this.form.value)
+      this.http.post(environment.apiUrl.concat('prono/cdm/knockout'), this.form.value)
     .toPromise().then(
       d => {
         this.router.navigate(['/cdm/list']); 
       }
-    );*/
+    );
     }
   }
   

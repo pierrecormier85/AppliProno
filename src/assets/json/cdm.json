@@ -490,8 +490,8 @@
         {
           "name": 49,
           "type": "qualified",
-          "home_team": "1er A",
-          "away_team": "2e B"
+          "home_team": 4,
+          "away_team": 5
         },
         {
           "name": 50,
@@ -502,8 +502,8 @@
         {
           "name": 51,
           "type": "qualified",
-          "home_team": "1er B",
-          "away_team": "2e A"
+          "home_team": 6,
+          "away_team": 1
         },
         {
           "name": 52,

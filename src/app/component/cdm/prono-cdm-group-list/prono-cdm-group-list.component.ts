@@ -12,6 +12,7 @@ import { environment } from '../../../../environments/environment';
 export class PronoCdmGroupListComponent implements OnInit {
   pronostics: String[];
   search: String;
+  current_knockout: string;
 
   displayedColumns = ['pseudo'];
   dataSource = new MatTableDataSource(this.pronostics);
@@ -19,10 +20,12 @@ export class PronoCdmGroupListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  constructor(private http: HttpClient, public auth: AuthService) { }
+  constructor(private http: HttpClient, public auth: AuthService) { 
+    this.current_knockout = 'round_16';
+  }
 
   ngOnInit() {
-    this.http.get(environment.apiUrl.concat('prono/cdm/group/all'))
+    this.http.get(environment.apiUrl.concat('prono/cdm/knockout/').concat(this.current_knockout))
     .toPromise().then(data => {
         // Read the result field from the JSON response.
         this.pronostics = []
