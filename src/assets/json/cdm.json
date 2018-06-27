@@ -6,16 +6,6 @@
       "iso2": "ru"
     },
     {
-      "id": 2,
-      "name": "Arabie Saoudite",
-      "iso2": "sa"
-    },
-    {
-      "id": 3,
-      "name": "Egypte",
-      "iso2": "eg"
-    },
-    {
       "id": 4,
       "name": "Uruguay",
       "iso2": "uy"
@@ -31,29 +21,9 @@
       "iso2": "es"
     },
     {
-      "id": 7,
-      "name": "Maroc",
-      "iso2": "ma"
-    },
-    {
-      "id": 8,
-      "name": "Iran",
-      "iso2": "ir"
-    },
-    {
       "id": 9,
       "name": "France",
       "iso2": "fr"
-    },
-    {
-      "id": 10,
-      "name": "Australia",
-      "iso2": "au"
-    },
-    {
-      "id": 11,
-      "name": "Perou",
-      "iso2": "pe"
     },
     {
       "id": 12,
@@ -66,19 +36,9 @@
       "iso2": "ar"
     },
     {
-      "id": 14,
-      "name": "Island",
-      "iso2": "is"
-    },
-    {
       "id": 15,
       "name": "Croatie",
       "iso2": "hr"
-    },
-    {
-      "id": 16,
-      "name": "Nigeria",
-      "iso2": "ng"
     },
     {
       "id": 17,
@@ -89,11 +49,6 @@
       "id": 18,
       "name": "Suisse",
       "iso2": "ch"
-    },
-    {
-      "id": 19,
-      "name": "Costa Rica",
-      "iso2": "cr"
     },
     {
       "id": 20,
@@ -116,34 +71,14 @@
       "iso2": "se"
     },
     {
-      "id": 24,
-      "name": "Corée du Sud",
-      "iso2": "kr"
-    },
-    {
       "id": 25,
       "name": "Belgique",
       "iso2": "be"
     },
     {
-      "id": 26,
-      "name": "Panama",
-      "iso2": "pa"
-    },
-    {
-      "id": 27,
-      "name": "Tunisie",
-      "iso2": "tn"
-    },
-    {
       "id": 28,
       "name": "Angleterre",
       "iso2": "gb-eng"
-    },
-    {
-      "id": 29,
-      "name": "Pologne",
-      "iso2": "pl"
     },
     {
       "id": 30,
@@ -161,328 +96,6 @@
       "iso2": "jp"
     }
   ],
-  "groups": {
-    "a": {
-      "matches": [
-        {
-          "name": 1,
-          "type": "group",
-          "home_team": 1,
-          "away_team": 2
-        },
-        {
-          "name": 2,
-          "type": "group",
-          "home_team": 3,
-          "away_team": 4
-        },
-        {
-          "name": 17,
-          "type": "group",
-          "home_team": 1,
-          "away_team": 3
-        },
-        {
-          "name": 18,
-          "type": "group",
-          "home_team": 4,
-          "away_team": 2
-        },
-        {
-          "name": 33,
-          "type": "group",
-          "home_team": 4,
-          "away_team": 1
-        },
-        {
-          "name": 34,
-          "type": "group",
-          "home_team": 2,
-          "away_team": 3
-        }
-      ]
-    },
-    "b": {
-      "matches": [
-        {
-          "name": 3,
-          "type": "group",
-          "home_team": 5,
-          "away_team": 6
-        },
-        {
-          "name": 4,
-          "type": "group",
-          "home_team": 7,
-          "away_team": 8
-        },
-        {
-          "name": 19,
-          "type": "group",
-          "home_team": 5,
-          "away_team": 7
-        },
-        {
-          "name": 20,
-          "type": "group",
-          "home_team": 8,
-          "away_team": 6
-        },
-        {
-          "name": 35,
-          "type": "group",
-          "home_team": 8,
-          "away_team": 5
-        },
-        {
-          "name": 36,
-          "type": "group",
-          "home_team": 6,
-          "away_team": 7
-        }
-      ]
-    },
-    "c": {
-      "matches": [
-        {
-          "name": 5,
-          "type": "group",
-          "home_team": 9,
-          "away_team": 10
-        },
-        {
-          "name": 6,
-          "type": "group",
-          "home_team": 11,
-          "away_team": 12
-        },
-        {
-          "name": 21,
-          "type": "group",
-          "home_team": 9,
-          "away_team": 11
-        },
-        {
-          "name": 22,
-          "type": "group",
-          "home_team": 12,
-          "away_team": 10
-        },
-        {
-          "name": 37,
-          "type": "group",
-          "home_team": 12,
-          "away_team": 9
-        },
-        {
-          "name": 38,
-          "type": "group",
-          "home_team": 10,
-          "away_team": 11
-        }
-      ]
-    },
-    "d": {
-      "matches": [
-        {
-          "name": 7,
-          "type": "group",
-          "home_team": 13,
-          "away_team": 14
-        },
-        {
-          "name": 8,
-          "type": "group",
-          "home_team": 15,
-          "away_team": 16
-        },
-        {
-          "name": 23,
-          "type": "group",
-          "home_team": 13,
-          "away_team": 15
-        },
-        {
-          "name": 24,
-          "type": "group",
-          "home_team": 16,
-          "away_team": 14
-        },
-        {
-          "name": 39,
-          "type": "group",
-          "home_team": 16,
-          "away_team": 13
-        },
-        {
-          "name": 40,
-          "type": "group",
-          "home_team": 14,
-          "away_team": 15
-        }
-      ]
-    },
-    "e": {
-      "matches": [
-        {
-          "name": 9,
-          "type": "group",
-          "home_team": 17,
-          "away_team": 18
-        },
-        {
-          "name": 10,
-          "type": "group",
-          "home_team": 19,
-          "away_team": 20
-        },
-        {
-          "name": 25,
-          "type": "group",
-          "home_team": 17,
-          "away_team": 19
-        },
-        {
-          "name": 26,
-          "type": "group",
-          "home_team": 20,
-          "away_team": 18
-        },
-        {
-          "name": 41,
-          "type": "group",
-          "home_team": 20,
-          "away_team": 17
-        },
-        {
-          "name": 42,
-          "type": "group",
-          "home_team": 18,
-          "away_team": 19
-        }
-      ]
-    },
-    "f": {
-      "matches": [
-        {
-          "name": 11,
-          "type": "group",
-          "home_team": 21,
-          "away_team": 22
-        },
-        {
-          "name": 12,
-          "type": "group",
-          "home_team": 23,
-          "away_team": 24
-        },
-        {
-          "name": 27,
-          "type": "group",
-          "home_team": 21,
-          "away_team": 23
-        },
-        {
-          "name": 28,
-          "type": "group",
-          "home_team": 24,
-          "away_team": 22
-        },
-        {
-          "name": 43,
-          "type": "group",
-          "home_team": 24,
-          "away_team": 21
-        },
-        {
-          "name": 44,
-          "type": "group",
-          "home_team": 22,
-          "away_team": 23
-        }
-      ]
-    },
-    "g": {
-      "matches": [
-        {
-          "name": 13,
-          "type": "group",
-          "home_team": 25,
-          "away_team": 26
-        },
-        {
-          "name": 14,
-          "type": "group",
-          "home_team": 27,
-          "away_team": 28
-        },
-        {
-          "name": 29,
-          "type": "group",
-          "home_team": 25,
-          "away_team": 27
-        },
-        {
-          "name": 30,
-          "type": "group",
-          "home_team": 28,
-          "away_team": 26
-        },
-        {
-          "name": 45,
-          "type": "group",
-          "home_team": 28,
-          "away_team": 25
-        },
-        {
-          "name": 46,
-          "type": "group",
-          "home_team": 26,
-          "away_team": 27
-        }
-      ]
-    },
-    "h": {
-      "matches": [
-        {
-          "name": 15,
-          "type": "group",
-          "home_team": 29,
-          "away_team": 30
-        },
-        {
-          "name": 16,
-          "type": "group",
-          "home_team": 31,
-          "away_team": 32
-        },
-        {
-          "name": 31,
-          "type": "group",
-          "home_team": 29,
-          "away_team": 31
-        },
-        {
-          "name": 32,
-          "type": "group",
-          "home_team": 32,
-          "away_team": 30
-        },
-        {
-          "name": 47,
-          "type": "group",
-          "home_team": 32,
-          "away_team": 29
-        },
-        {
-          "name": 48,
-          "type": "group",
-          "home_team": 30,
-          "away_team": 31
-        }
-      ]
-    }
-  },
   "knockout": {
     "round_16": {
       "name": "Huitièmes de finale",
@@ -496,8 +109,8 @@
         {
           "name": 50,
           "type": "qualified",
-          "home_team": "1er C",
-          "away_team": "2e D"
+          "home_team": 9,
+          "away_team": 13
         },
         {
           "name": 51,
@@ -508,8 +121,8 @@
         {
           "name": 52,
           "type": "qualified",
-          "home_team": "1er D",
-          "away_team": "2e C"
+          "home_team": 15,
+          "away_team": 12
         },
         {
           "name": 53,

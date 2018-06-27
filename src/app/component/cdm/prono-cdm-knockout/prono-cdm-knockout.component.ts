@@ -6,6 +6,7 @@ import { Team } from '../../../models/team';
 import { Match } from '../../../models/match';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
+import { CURRENT_KNOCKOUT } from '../../../const/constants';
 
 @Component({
   selector: 'prono-cdm-knockout',
@@ -17,10 +18,8 @@ export class PronoCdmKnockoutComponent implements OnInit {
   teams : Team[];
   matchs: Match[];
   form: FormGroup;
-  current_knockout: String;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { 
-    this.current_knockout = 'round_16';
     this.form = this.fb.group({
       m1: new FormControl('', Validators.required),
       m2: new FormControl('', Validators.required),
@@ -31,7 +30,7 @@ export class PronoCdmKnockoutComponent implements OnInit {
       m7: new FormControl('', Validators.required),
       m8: new FormControl('', Validators.required),
       pseudo: new FormControl('', Validators.required),
-      round: this.current_knockout
+      round: CURRENT_KNOCKOUT
     });
   }
 
@@ -57,7 +56,7 @@ export class PronoCdmKnockoutComponent implements OnInit {
       let jsonknockout = data['knockout'];
       for(let round in jsonknockout){
         
-        if(round == this.current_knockout){
+        if(round == CURRENT_KNOCKOUT){
           let jsonRound = jsonknockout[round];
           let name = jsonRound['name'];
           let jsonMatchs = jsonRound['matches'];
@@ -103,19 +102,19 @@ export class PronoCdmKnockoutComponent implements OnInit {
   }
 
   initValidators(){
-    if(this.current_knockout == 'round_8') {
+    if(CURRENT_KNOCKOUT == 'round_8') {
       this.form.controls['m5'].setValidators(null);
       this.form.controls['m6'].setValidators(null);
       this.form.controls['m7'].setValidators(null);
       this.form.controls['m8'].setValidators(null);
-    } else if(this.current_knockout == 'round_4') {
+    } else if(CURRENT_KNOCKOUT == 'round_4') {
       this.form.controls['m3'].setValidators(null);
       this.form.controls['m4'].setValidators(null);
       this.form.controls['m5'].setValidators(null);
       this.form.controls['m6'].setValidators(null);
       this.form.controls['m7'].setValidators(null);
       this.form.controls['m8'].setValidators(null);
-    } else if(this.current_knockout == 'round_2') {
+    } else if(CURRENT_KNOCKOUT == 'round_2') {
       this.form.controls['m3'].setValidators(null);
       this.form.controls['m4'].setValidators(null);
       this.form.controls['m5'].setValidators(null);

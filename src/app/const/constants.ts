@@ -8,3 +8,5 @@ export const HISTORY_MONTH: string = 'history/month';
 export const HISTORY_WEEK: string = 'history/week';
 export const HISTORY_STATS: string = 'history/stats';
 export const HISTORY_PRONO: string = 'history/pronostics';
+
+export const CURRENT_KNOCKOUT: string = 'round_16';
