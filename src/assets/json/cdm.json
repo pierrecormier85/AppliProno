@@ -56,11 +56,6 @@
       "iso2": "rs"
     },
     {
-      "id": 21,
-      "name": "Allemagne",
-      "iso2": "de"
-    },
-    {
       "id": 22,
       "name": "Mexique",
       "iso2": "mx"
@@ -128,7 +123,7 @@
           "name": 53,
           "type": "qualified",
           "home_team": "1er E",
-          "away_team": "2e F"
+          "away_team": 22
         },
         {
           "name": 54,
@@ -139,7 +134,7 @@
         {
           "name": 55,
           "type": "qualified",
-          "home_team": "1er F",
+          "home_team": 23,
           "away_team": "2e E"
         },
         {
