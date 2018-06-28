@@ -5,4 +5,5 @@ export class Match {
     away: Team;
     id: number;
     group: String;
+    disable: boolean;
   }

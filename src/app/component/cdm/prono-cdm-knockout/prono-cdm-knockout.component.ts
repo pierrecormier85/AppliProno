@@ -18,6 +18,8 @@ export class PronoCdmKnockoutComponent implements OnInit {
   teams : Team[];
   matchs: Match[];
   form: FormGroup;
+  showWarning: boolean;
+  name: string;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { 
     this.form = this.fb.group({
@@ -32,10 +34,12 @@ export class PronoCdmKnockoutComponent implements OnInit {
       pseudo: new FormControl('', Validators.required),
       round: CURRENT_KNOCKOUT
     });
+    this.showWarning = false;
   }
 
   ngOnInit() {
     this.initValidators();
+    let today = Date.now();
 
     this.http.get("./assets/json/cdm.json").toPromise().then(data => {
       let jsonTeams = data['teams'];
@@ -58,7 +62,7 @@ export class PronoCdmKnockoutComponent implements OnInit {
         
         if(round == CURRENT_KNOCKOUT){
           let jsonRound = jsonknockout[round];
-          let name = jsonRound['name'];
+          this.name = jsonRound['name'];
           let jsonMatchs = jsonRound['matches'];
           let idMatch = 1;
 
@@ -66,9 +70,7 @@ export class PronoCdmKnockoutComponent implements OnInit {
             let jsonMatch = jsonMatchs[index];
 
             let match = new Match();
-            match.id = jsonMatch['name'];
             match.id = idMatch;
-            idMatch++;
 
             match.home = this.teams[jsonMatch['home_team'] - 1];
             if(match.home == null){
@@ -88,9 +90,19 @@ export class PronoCdmKnockoutComponent implements OnInit {
               match.away = away_team;  
             }
 
-            match.group = name;
+            match.group = jsonMatch['name'];;
+
+            if(today >= new Date(jsonMatch['date']).getTime()){
+              match.disable = true;
+              this.showWarning = true;
+              this.deleteValidators(idMatch);
+            } else {
+              match.disable = false;
+            }
   
             this.matchs.push(match);
+
+            idMatch++;
           }
           break;
         }
@@ -99,6 +111,19 @@ export class PronoCdmKnockoutComponent implements OnInit {
 
       
     });
+  }
+
+  deleteValidators(id){
+    switch(id){
+      case 1: this.form.controls['m1'].setValidators(null); break;
+      case 2: this.form.controls['m2'].setValidators(null); break;
+      case 3: this.form.controls['m3'].setValidators(null); break;
+      case 4: this.form.controls['m4'].setValidators(null); break;
+      case 5: this.form.controls['m5'].setValidators(null); break;
+      case 6: this.form.controls['m6'].setValidators(null); break;
+      case 7: this.form.controls['m7'].setValidators(null); break;
+      case 8: this.form.controls['m8'].setValidators(null); break;  
+    }
   }
 
   initValidators(){
@@ -122,6 +147,10 @@ export class PronoCdmKnockoutComponent implements OnInit {
       this.form.controls['m7'].setValidators(null);
       this.form.controls['m8'].setValidators(null);
     }
+  }
+
+  getTitle(){
+    return "Pronostics des ".concat(this.name).concat(" de la CDM");
   }
 
   submit() {

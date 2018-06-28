@@ -1,12 +1,16 @@
 <h1 style="text-align:center">
-  Pronostics des phases finales de la CDM
+  {{getTitle()}}
 </h1>
 <br/>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="row marge center">
+
+    <div *ngIf="showWarning" class="alert alert-warning col-sm-12">
+      Attention seuls les matchs non commencés sont affichés !
+    </div>
     
-    <div class="col-md-6 example-card" *ngFor="let match of matchs">
+    <div class="col-md-6 example-card" *ngFor="let match of matchs" [attr.hidden]="match.disable? '' : null">
       <div class="card bg-light">
         <h5 class="card-header text-center">{{match.group.toUpperCase()}}</h5>
         <div class="card-body">
@@ -19,15 +23,15 @@
               </div>
               <div class="col-sm-6">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="1" formControlName="m{{match.id}}">
+                    <input [attr.disabled]="match.disable? '' : null" class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="1" formControlName="m{{match.id}}">
                     <label class="form-check-label" for="m{{match.id}}">1</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="N" formControlName="m{{match.id}}">
+                    <input [attr.disabled]="match.disable? '' : null" class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="N" formControlName="m{{match.id}}">
                     <label class="form-check-label" for="m{{match.id}}">N</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="2" formControlName="m{{match.id}}">
+                    <input [attr.disabled]="match.disable? '' : null" class="form-check-input" name="m{{match.id}}" name="m{{match.id}}" type="radio" value="2" formControlName="m{{match.id}}">
                     <label class="form-check-label" for="m{{match.id}}">2</label>
                   </div>
               </div>

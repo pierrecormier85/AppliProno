@@ -76,12 +76,12 @@
       "iso2": "sn"
     },
     {
-      "id": 31,
+      "id": 15,
       "name": "Colombie",
       "iso2": "co"
     },
     {
-      "id": 32,
+      "id": 16,
       "name": "Japon",
       "iso2": "jp"
     }
@@ -91,50 +91,58 @@
       "name": "Huitièmes de finale",
       "matches": [
         {
-          "name": 49,
+          "name": "A1 - B2",
           "type": "qualified",
+		      "date": "2018-06-30T20:00:00+02:00",
           "home_team": 2,
           "away_team": 3
         },
         {
-          "name": 50,
+          "name": "C1 - D2",
           "type": "qualified",
+		      "date": "2018-06-30T16:00:00+02:00",
           "home_team": 5,
           "away_team": 7
         },
         {
-          "name": 51,
+          "name": "B1 - A2",
           "type": "qualified",
+		      "date": "2018-07-01T16:00:00+02:00",
           "home_team": 4,
           "away_team": 1
         },
         {
-          "name": 52,
+          "name": "D1 - C2",
           "type": "qualified",
+		      "date": "2018-07-01T20:00:00+02:00",
           "home_team": 8,
           "away_team": 6
         },
         {
-          "name": 53,
+          "name": "E1 - F2",
           "type": "qualified",
+		      "date": "2018-07-02T16:00:00+02:00",
           "home_team": 9,
           "away_team": 11
         },
         {
-          "name": 54,
+          "name": "G1 - H2",
           "type": "qualified",
+		      "date": "2018-07-02T20:00:00+02:00",
           "home_team": "1er G",
           "away_team": "2e H"
         },
         {
-          "name": 55,
+          "name": "F1 - E2",
           "type": "qualified",
+		      "date": "2018-07-03T16:00:00+02:00",
           "home_team": 12,
           "away_team": 10
         },
         {
-          "name": 56,
+          "name": "H1 - G2",
           "type": "qualified",
+		      "date": "2018-07-03T20:00:00+02:00",
           "home_team": "1er H",
           "away_team": "2e G"
         }
@@ -144,60 +152,68 @@
       "name": "Quarts de finale",
       "matches": [
         {
-          "name": 57,
+          "name": "W49 - W50",
           "type": "winner",
+		      "date": "2018-07-06T16:00:00+02:00",
           "home_team": 49,
           "away_team": 50
         },
         {
-          "name": 58,
+          "name": "W53 - W54",
           "type": "winner",
+		      "date": "2018-07-06T20:00:00+02:00",
           "home_team": 53,
           "away_team": 54
         },
         {
-          "name": 59,
+          "name": "W55 - W56",
           "type": "winner",
+		      "date": "2018-07-07T20:00:00+02:00",
           "home_team": 51,
           "away_team": 52
         },
         {
-          "name": 60,
+          "name": "W51 - W52",
           "type": "winner",
+		      "date": "2018-07-07T18:00:00+04:00",
           "home_team": 55,
           "away_team": 56
         }
       ]
     },
     "round_4": {
-      "name": "Demi finales",
+      "name": "Demi finale",
       "matches": [
         {
-          "name": 61,
+          "name": "W57 - W58",
           "type": "winner",
+		      "date": "2018-07-10T20:00:00+02:00",
           "home_team": 57,
           "away_team": 58
         },
         {
-          "name": 62,
+          "name": "W59 - W60",
           "type": "winner",
+		      "date": "2018-07-11T20:00:00+02:00",
           "home_team": 59,
           "away_team": 60
         }
       ]
     },
     "round_2": {
-      "name": "Final",
+      "name": "Finales",
       "matches": [
         {
-          "name": 63,
+          "name": "Match pour la troisième place",
           "type": "loser",
+		      "date": "2018-07-14T16:00:00+02:00",
           "home_team": 61,
           "away_team": 62
         },
         {
-          "name": 64,
+          "name": "Finale",
           "type": "winner",
+		      "date": "2018-07-15T18:00:00+02:00",
           "home_team": 61,
           "away_team": 62
         }
