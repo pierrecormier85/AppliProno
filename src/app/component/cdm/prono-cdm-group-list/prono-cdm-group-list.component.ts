@@ -35,6 +35,23 @@ export class PronoCdmGroupListComponent implements OnInit {
     );
   }
 
+
+  getTitle(){
+    let phase: string;
+
+    if(CURRENT_KNOCKOUT == 'round_16'){
+      phase = 'huitièmes de finale'
+    } else if(CURRENT_KNOCKOUT == 'round_8'){
+      phase = 'quarts de finale'
+    } else if(CURRENT_KNOCKOUT == 'round_4'){
+      phase = 'demi de finale'
+    } else if(CURRENT_KNOCKOUT == 'round_2'){
+      phase = 'finales'
+    }
+
+    return "Participations aux pronostics des ".concat(phase).concat(" de la CDM");
+  }
+
   findMe(){
     this.applyFilter(this.auth.getDecodeToken());
     this.search = this.auth.getDecodeToken();

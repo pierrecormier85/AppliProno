@@ -71,11 +71,6 @@
       "iso2": "gb-eng"
     },
     {
-      "id": 30,
-      "name": "Senegal",
-      "iso2": "sn"
-    },
-    {
       "id": 15,
       "name": "Colombie",
       "iso2": "co"
@@ -129,8 +124,8 @@
           "name": "G1 - H2",
           "type": "qualified",
 		      "date": "2018-07-02T20:00:00+02:00",
-          "home_team": "1er G",
-          "away_team": "2e H"
+          "home_team": 13,
+          "away_team": 16
         },
         {
           "name": "F1 - E2",
@@ -143,8 +138,8 @@
           "name": "H1 - G2",
           "type": "qualified",
 		      "date": "2018-07-03T20:00:00+02:00",
-          "home_team": "1er H",
-          "away_team": "2e G"
+          "home_team": 15,
+          "away_team": 14
         }
       ]
     },
