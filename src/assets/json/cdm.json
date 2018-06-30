@@ -150,8 +150,8 @@
           "name": "W49 - W50",
           "type": "winner",
 		      "date": "2018-07-06T16:00:00+02:00",
-          "home_team": 49,
-          "away_team": 50
+          "home_team": 2,
+          "away_team": 5
         },
         {
           "name": "W53 - W54",
