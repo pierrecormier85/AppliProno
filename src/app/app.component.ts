@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     iconRegistry.addSvgIcon('journey', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/journey.svg'));
     iconRegistry.addSvgIcon('moyenne', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/moyenne.svg'));
     iconRegistry.addSvgIcon('participation', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/participation.svg'));
+    iconRegistry.addSvgIcon('halloffame', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/hall-of-fame.svg'));
   }
 
   ngOnInit(): void {

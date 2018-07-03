@@ -5,76 +5,132 @@
     <br/>
     
     <form [formGroup]="form" (ngSubmit)="saveProno()">
-      <div *ngIf="showWarningMessage" class="alert alert-warning col-sm-12">
-        Attention un match passé sera non saisissable !
-      </div>
-      <div class="col-sm-12 container" *ngFor="let game of games">
-          <div class="form-group row">
-                <div class="col-5 col-form-label">
-                  <div class="row">
-                    <span class="flag-icon flag-icon-{{game.logoDom}} flag-icon-squared col-3"></span>
-                    <div class="col-9">
-                      <h3><label for="fc-m{{game.id}}">{{game.dom}} ({{game.rankingDom}})</label></h3>
-                      <span class="{{getClassForResult(game.resultHomeTeamJ1)}}">{{game.resultHomeTeamJ1}}</span>
-                      <span class="{{getClassForResult(game.resultHomeTeamJ2)}}">{{game.resultHomeTeamJ2}}</span>
-                      <span class="{{getClassForResult(game.resultHomeTeamJ3)}}">{{game.resultHomeTeamJ3}}</span>
-                      <span class="{{getClassForResult(game.resultHomeTeamJ4)}}">{{game.resultHomeTeamJ4}}</span>
-                      <span class="{{getClassForResult(game.resultHomeTeamJ5)}}">{{game.resultHomeTeamJ5}}</span>
-                    </div>
-                </div>
-                </div>
-                <div class="col-2">
-                    <div id="fc-m{{game.id}}">
-                      <div class="form-check form-check-inline">
-                        <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">1</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">N</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input [attr.disabled]="isDisable(game.id)"  class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
-                        <label class="form-check-label" for="m{{game.id}}">2</label>
-                      </div>
-                    </div>
-                  </div>
+      <div class="row marge center2">
+        <div *ngIf="showWarningMessage" class="alert alert-warning col-sm-12">
+          Attention un match passé sera non saisissable !
+        </div>
+        <!--<div class="col-sm-12 container" *ngFor="let game of games">
+            <div class="form-group row">
                   <div class="col-5 col-form-label">
                     <div class="row">
+                      <span class="flag-icon flag-icon-{{game.logoDom}} flag-icon-squared col-3"></span>
                       <div class="col-9">
-                        <h3><label for="fc-m{{game.id}}">{{game.ext}} ({{game.rankingExt}})</label></h3>
+                        <h3><label for="fc-m{{game.id}}">{{game.dom}} ({{game.rankingDom}})</label></h3>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ1)}}">{{game.resultHomeTeamJ1}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ2)}}">{{game.resultHomeTeamJ2}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ3)}}">{{game.resultHomeTeamJ3}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ4)}}">{{game.resultHomeTeamJ4}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ5)}}">{{game.resultHomeTeamJ5}}</span>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="col-2">
+                      <div id="fc-m{{game.id}}">
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">N</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)"  class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">2</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-5 col-form-label">
+                      <div class="row">
+                        <div class="col-9">
+                          <h3><label for="fc-m{{game.id}}">{{game.ext}} ({{game.rankingExt}})</label></h3>
+                          <span class="{{getClassForResult(game.resultAwayTeamJ1)}}">{{game.resultAwayTeamJ1}}</span>
+                          <span class="{{getClassForResult(game.resultAwayTeamJ2)}}">{{game.resultAwayTeamJ2}}</span>
+                          <span class="{{getClassForResult(game.resultAwayTeamJ3)}}">{{game.resultAwayTeamJ3}}</span>
+                          <span class="{{getClassForResult(game.resultAwayTeamJ4)}}">{{game.resultAwayTeamJ4}}</span>
+                          <span class="{{getClassForResult(game.resultAwayTeamJ5)}}">{{game.resultAwayTeamJ5}}</span>
+                        </div>
+                        <span class="flag-icon flag-icon-{{game.logoExt}} flag-icon-squared col-3"></span>
+                      </div>
+                    </div>
+              </div>
+        </div>-->
+        <div class="col-md-6 example-card" *ngFor="let game of games">
+            <div class="card bg-light">
+              <div class="card-body">
+                <div class="row">
+                    
+                    <div class="col-sm-3">
+                      <div>
+                        <h3>{{game.dom}} ({{game.rankingDom}})</h3>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ1)}}">{{game.resultHomeTeamJ1}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ2)}}">{{game.resultHomeTeamJ2}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ3)}}">{{game.resultHomeTeamJ3}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ4)}}">{{game.resultHomeTeamJ4}}</span>
+                        <span class="{{getClassForResult(game.resultHomeTeamJ5)}}">{{game.resultHomeTeamJ5}}</span>
+                      </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <div>
+                          <span class="flag-icon flag-icon-{{game.logoDom}} flag-icon-squared "></span>
+                        </div>
+                      </div>
+                    <div class="col-sm-4 vertical-center">
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="1" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)" class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="N" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">N</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input [attr.disabled]="isDisable(game.id)"  class="form-check-input" name="m{{game.id}}" name="m{{game.id}}" type="radio" value="2" formControlName="m{{game.id}}">
+                          <label class="form-check-label" for="m{{game.id}}">2</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <div>
+                          <span class="flag-icon flag-icon-{{game.logoExt}} flag-icon-squared "></span>
+                        </div>
+                      </div>
+                    <div class="col-sm-3">
+                      <div>
+                        <h3>{{game.ext}} ({{game.rankingExt}})</h3>
                         <span class="{{getClassForResult(game.resultAwayTeamJ1)}}">{{game.resultAwayTeamJ1}}</span>
                         <span class="{{getClassForResult(game.resultAwayTeamJ2)}}">{{game.resultAwayTeamJ2}}</span>
                         <span class="{{getClassForResult(game.resultAwayTeamJ3)}}">{{game.resultAwayTeamJ3}}</span>
                         <span class="{{getClassForResult(game.resultAwayTeamJ4)}}">{{game.resultAwayTeamJ4}}</span>
                         <span class="{{getClassForResult(game.resultAwayTeamJ5)}}">{{game.resultAwayTeamJ5}}</span>
                       </div>
-                      <span class="flag-icon flag-icon-{{game.logoExt}} flag-icon-squared col-3"></span>
                     </div>
-                  </div>
+                    
+                </div>      
+              </div>
             </div>
-      </div>
+          </div>
 
-      <div class="input-group mb-3 col-sm-12">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Pseudo</span>
+        <div class="input-group mb-3 col-sm-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Pseudo</span>
+          </div>
+          <input [attr.disabled]="disable? '' : null" type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" required/>
+        </div> 
+
+      <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
+          Tous les champs saisissables sont obligatoires !
         </div>
-        <input [attr.disabled]="disable? '' : null" type="text" id="pseudo" name="pseudo" formControlName="pseudo" class="form-control" placeholder="Pseudo" required/>
-      </div> 
 
-     <div *ngIf="form.invalid" class="alert alert-danger col-sm-12">
-        Tous les champs saisissables sont obligatoires !
-      </div>
+        <div *ngIf="errorFlag" class="alert alert-danger col-sm-12">
+          Le pseudo saisi ne peut-être utilisé, car il est affilié à un compte. Si vous voulez utiliser ce pseudo, veuillez vous authentifier. Sinon, veuillez utiliser un autre pseudo.
+        </div>
 
-      <div *ngIf="errorFlag" class="alert alert-danger col-sm-12">
-        Le pseudo saisi ne peut-être utilisé, car il est affilié à un compte. Si vous voulez utiliser ce pseudo, veuillez vous authentifier. Sinon, veuillez utiliser un autre pseudo.
+        <div class="col-sm-12">
+            <button class="btn btn-primary"  [disabled]="form.invalid" type="submit">Valider</button>
+        </div>
+        
+        <br/>
       </div>
-
-      <div class="col-sm-12">
-          <button class="btn btn-primary"  [disabled]="form.invalid" type="submit">Valider</button>
-      </div>
-      
-      <br/>
     </form>
   </div>
 

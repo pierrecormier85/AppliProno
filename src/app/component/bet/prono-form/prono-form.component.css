@@ -50,3 +50,23 @@ h3 {
     height: 45px;
   }
 }
+
+.example-card {
+  margin-bottom: 10px;
+}
+
+.center2{
+  text-align: center;
+}
+
+.marge {
+  margin: 10px;
+}
+
+.result-marge {
+  margin: 2px;
+}
+
+.vertical-center {
+  padding-top: 25px;
+}

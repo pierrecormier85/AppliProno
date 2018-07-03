@@ -54,7 +54,11 @@ import { UserInfoComponent } from './component/user/user-info/user-info.componen
 import { UserResetPasswordComponent } from './component/user/user-reset-password/user-reset-password.component';
 import { UserResetPasswordDialogComponent } from './component/user/user-reset-password.-dialog/user-reset-password-dialog.component';
 import {CalendarModule} from 'primeng/calendar';
+import {OrderListModule} from 'primeng/orderlist';
+import {OrganizationChartModule} from 'primeng/organizationchart';
 import { PronoCdmRankingComponent } from './component/cdm/prono-cdm-ranking/prono-cdm-ranking.component';
+import { AdminLeagueRankingComponent } from './component/admin/admin-league-ranking/admin-league-ranking.component';
+import { PronoHallOfFameComponent } from './component/other/prono-hall-of-fame/prono-hall-of-fame.component';
 
 
 const appRoutes: Routes = [
@@ -64,6 +68,7 @@ const appRoutes: Routes = [
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },
   { path: 'infos', component: PronoInfoComponent },
+  { path: 'halloffame', component: PronoHallOfFameComponent },
   { path: GENERAL, component: PronoRankingComponent },
   { path: MONTH, component: PronoRankingComponent },
   { path: JOURNEY, component: PronoRankingComponent },
@@ -81,7 +86,8 @@ const appRoutes: Routes = [
   { path: 'cdm/rank', component: PronoCdmRankingComponent},
   { path: 'result', component: PronoFormResultComponent},
   { path: 'user/info', component: UserInfoComponent},
-  { path: 'user/reset', component: UserResetPasswordComponent}
+  { path: 'user/reset', component: UserResetPasswordComponent},
+  { path: 'admin/ranking', component: AdminLeagueRankingComponent}
 ];
 
 @NgModule({
@@ -111,7 +117,9 @@ const appRoutes: Routes = [
     MyNavComponent,
     UserInfoComponent,
     UserResetPasswordComponent,
-    UserResetPasswordDialogComponent
+    UserResetPasswordDialogComponent,
+    AdminLeagueRankingComponent,
+    PronoHallOfFameComponent
   ],
   imports: [
     BrowserModule,
@@ -132,6 +140,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatSnackBarModule,
     CalendarModule,
+    OrderListModule,
+    OrganizationChartModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only

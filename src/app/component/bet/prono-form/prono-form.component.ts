@@ -194,11 +194,11 @@ export class PronoFormComponent implements OnInit {
 
   getClassForResult(value){
     if(value == 'V'){
-      return 'badge badge-pill badge-success';
+      return 'badge badge-pill badge-success result-marge';
     } else if(value == 'N'){
-      return 'badge badge-pill badge-warning';
+      return 'badge badge-pill badge-warning result-marge';
     } else {
-      return 'badge badge-pill badge-danger';
+      return 'badge badge-pill badge-danger result-marge';
     }
     
   }
