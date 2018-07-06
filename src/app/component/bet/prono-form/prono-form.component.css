@@ -44,7 +44,7 @@ h3 {
   font-size: 1rem;
 }
 
-@media(max-width: 750px){
+@media(max-width: 1500px){
   .flag-icon {
     width: 45px;
     height: 45px;

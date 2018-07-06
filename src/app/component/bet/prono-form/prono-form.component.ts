@@ -23,6 +23,7 @@ export class PronoFormComponent implements OnInit {
   games: Game[];
   form: FormGroup;
   errorFlag: Boolean;
+  conflictFlag: Boolean;
   disable: Boolean = false;
   disableM1: Boolean = false;
   disableM2: Boolean = false;
@@ -222,6 +223,8 @@ export class PronoFormComponent implements OnInit {
         },error => {
           if(error.status == 401){
             this.errorFlag = true;
+          } else if(error.status == 409){
+            this.conflictFlag = true;
           }
         }
       );
