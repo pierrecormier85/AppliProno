@@ -163,14 +163,14 @@
         {
           "name": "W55 - W56",
           "type": "winner",
-		      "date": "2018-07-07T20:00:00+02:00",
+		      "date": "2018-07-07T16:00:00+02:00",
           "home_team": 12,
           "away_team": 14
         },
         {
           "name": "W51 - W52",
           "type": "winner",
-		      "date": "2018-07-07T18:00:00+04:00",
+		      "date": "2018-07-07T20:00:00+02:00",
           "home_team": 1,
           "away_team": 8
         }
@@ -183,8 +183,8 @@
           "name": "W57 - W58",
           "type": "winner",
 		      "date": "2018-07-10T20:00:00+02:00",
-          "home_team": 57,
-          "away_team": 58
+          "home_team": 5,
+          "away_team": 13
         },
         {
           "name": "W59 - W60",
