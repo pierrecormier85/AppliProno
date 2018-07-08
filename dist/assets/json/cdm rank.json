@@ -1,122 +1,130 @@
 [
-    {
-      "pseudo": "Alo",
-      "score": 28
-    },
-    {
-      "pseudo": "Grosniais",
-      "score": 15
-    },
-    {
-      "pseudo": "HITCH PRAMHEDA",
-      "score": 21
-    },
-    {
-      "pseudo": "Jensairien",
-      "score": 28
-    },
-    {
-      "pseudo": "Kaspei",
-      "score": 17
-    },
-    {
-      "pseudo": "Kick",
-      "score": 26
-    },
-    {
-      "pseudo": "LacazOL",
-      "score": 24
-    },
-    {
-      "pseudo": "LeBedi",
-      "score": 18
-    },
-    {
-      "pseudo": "Lolo",
-      "score": 22
-    },
-    {
-      "pseudo": "Mathieu",
-      "score": 28
-    },
-    {
-      "pseudo": "Mir69",
-      "score": 21
-    },
-    {
-      "pseudo": "Mistoof",
-      "score": 17
-    },
-    {
-      "pseudo": "moi",
-      "score": 18
-    },
-    {
-      "pseudo": "MrSpad69",
-      "score": 28
-    },
-    {
-      "pseudo": "NSOL",
-      "score": 25
-    },
-    {
-      "pseudo": "Ohpack",
-      "score": 30
-    },
-    {
-      "pseudo": "ol44470",
-      "score": 21
-    },
-    {
-      "pseudo": "olforever",
-      "score": 18
-    },
-    {
-      "pseudo": "Raoru",
-      "score": 20
-    },
-    {
-      "pseudo": "Rocé Léon",
-      "score": 22
-    },
-    {
-      "pseudo": "RoiDesPronos",
-      "score": 23
-    },
-    {
-      "pseudo": "SMFC",
-      "score": 27
-    },
-    {
-      "pseudo": "spooky",
-      "score": 15
-    },
-    {
-      "pseudo": "TYBALT",
-      "score": 17
-    },
-    {
-      "pseudo": "w ASAB i",
-      "score": 23
-    },
-    {
-      "pseudo": "Yaman",
-      "score": 26
-    },
-    {
-      "pseudo": "Barbituriques",
-      "score": 6
-    },
-    {
-      "pseudo": "Charlol17",
-      "score": 6
-    },
-    {
-      "pseudo": "jamesmarty",
-      "score": 6
-    },
-    {
-      "pseudo": "Yoko",
-      "score": 6
-    }
-  ]
+  {
+    "pseudo": "Jensairien",
+    "score": 32
+  },
+  {
+    "pseudo": "MrSpad69",
+    "score": 32
+  },
+  {
+    "pseudo": "Ohpack",
+    "score": 32
+  },
+  {
+    "pseudo": "SMFC",
+    "score": 32
+  },
+  {
+    "pseudo": "Alo",
+    "score": 30
+  },
+  {
+    "pseudo": "Kick",
+    "score": 30
+  },
+  {
+    "pseudo": "Mathieu",
+    "score": 30
+  },
+  {
+    "pseudo": "Yaman",
+    "score": 28
+  },
+  {
+    "pseudo": "HITCH PRAMHEDA",
+    "score": 27
+  },
+  {
+    "pseudo": "NSOL",
+    "score": 27
+  },
+  {
+    "pseudo": "w ASAB i",
+    "score": 27
+  },
+  {
+    "pseudo": "LacazOL",
+    "score": 26
+  },
+  {
+    "pseudo": "RoiDesPronos",
+    "score": 25
+  },
+  {
+    "pseudo": "Lolo",
+    "score": 24
+  },
+  {
+    "pseudo": "Rocé Léon",
+    "score": 24
+  },
+  {
+    "pseudo": "ol44470",
+    "score": 23
+  },
+  {
+    "pseudo": "Mir69",
+    "score": 21
+  },
+  {
+    "pseudo": "moi",
+    "score": 20
+  },
+  {
+    "pseudo": "Raoru",
+    "score": 20
+  },
+  {
+    "pseudo": "LeBedi",
+    "score": 18
+  },
+  {
+    "pseudo": "olforever",
+    "score": 18
+  },
+  {
+    "pseudo": "Kaspei",
+    "score": 17
+  },
+  {
+    "pseudo": "Mistoof",
+    "score": 17
+  },
+  {
+    "pseudo": "TYBALT",
+    "score": 17
+  },
+  {
+    "pseudo": "Grosniais",
+    "score": 15
+  },
+  {
+    "pseudo": "spooky",
+    "score": 15
+  },
+  {
+    "pseudo": "Charlol17",
+    "score": 10
+  },
+  {
+    "pseudo": "Barbituriques",
+    "score": 8
+  },
+  {
+    "pseudo": "jamesmarty",
+    "score": 6
+  },
+  {
+    "pseudo": "Yoko",
+    "score": 6
+  },
+  {
+    "pseudo": "Eléfant de Lyon",
+    "score": 6
+  },
+  {
+    "pseudo": "a",
+    "score": 4
+  }
+]

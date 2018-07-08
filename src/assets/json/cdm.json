@@ -190,8 +190,8 @@
           "name": "W59 - W60",
           "type": "winner",
 		      "date": "2018-07-11T20:00:00+02:00",
-          "home_team": 59,
-          "away_team": 60
+          "home_team": 8,
+          "away_team": 14
         }
       ]
     },
