@@ -61,7 +61,7 @@ export class PronoFormComponent implements OnInit {
     this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
         //this.matchday = Number(data);
-        this.matchday = 38;
+        this.matchday = 1;
         this.form.controls['matchday'].setValue(this.matchday);
 
         if(this.auth.isLoggednIn()){
@@ -101,32 +101,67 @@ export class PronoFormComponent implements OnInit {
         teams[jsonTeam['name']] = jsonTeam['logo'];
       }
 
-      this.http.get(environment.apiUrl.concat('fixtures/38'))
+      this.http.get(environment.apiUrl.concat('fixtures/1'))
       .toPromise().then(data => {
           // Read the result field from the JSON response.
           this.games = [];
           for (let i = 1; i < 11; i ++) {
             const fixture = data[i-1];
-            const game: Game = {
-              dom: fixture['home'],
-              logoDom: teams[fixture['home']],
-              ext: fixture['away'],
-              logoExt: teams[fixture['away']],
-              id: i,
-              result: '',
-              rankingDom: fixture['rankingHome'],
-              rankingExt: fixture['rankingAway'],
-              resultHomeTeamJ1: fixture['previousResultHome'][0],
-              resultAwayTeamJ1: fixture['previousResultAway'][0],
-              resultHomeTeamJ2: fixture['previousResultHome'][1],
-              resultAwayTeamJ2: fixture['previousResultAway'][1],
-              resultHomeTeamJ3: fixture['previousResultHome'][2],
-              resultAwayTeamJ3: fixture['previousResultAway'][2],
-              resultHomeTeamJ4: fixture['previousResultHome'][3],
-              resultAwayTeamJ4: fixture['previousResultAway'][3],
-              resultHomeTeamJ5: fixture['previousResultHome'][4],
-              resultAwayTeamJ5: fixture['previousResultAway'][4],
-            };
+
+            const game = new Game();
+            game.dom = fixture['home'];
+            game.logoDom = teams[fixture['home']];
+            game.ext = fixture['away'];
+            game.logoExt = teams[fixture['away']];
+            game.id = i;
+            game.result = '';
+            game.rankingDom = fixture['rankingHome'];
+            game.rankingExt = fixture['rankingAway'];
+
+            if(fixture['previousResultHome'] != null){
+              if(fixture['previousResultHome'].length >= 1){
+                game.resultHomeTeamJ1 = fixture['previousResultHome'][0];
+              }
+
+              if(fixture['previousResultHome'].length >= 2){
+                game.resultHomeTeamJ2 = fixture['previousResultHome'][1];
+              }
+
+              if(fixture['previousResultHome'].length >= 3){
+                game.resultHomeTeamJ3 = fixture['previousResultHome'][2];
+              }
+
+              if(fixture['previousResultHome'].length >= 4){
+                game.resultHomeTeamJ4 = fixture['previousResultHome'][3];
+              }
+
+              if(fixture['previousResultHome'].length >= 5){
+                game.resultHomeTeamJ5 = fixture['previousResultHome'][4];
+              }
+            }
+
+            if(fixture['previousResultAway'] != null){
+              if(fixture['previousResultAway'].length >= 1){
+                game.resultAwayTeamJ1 = fixture['previousResultAway'][0];
+              }
+
+              if(fixture['previousResultAway'].length >= 2){
+                game.resultAwayTeamJ2 = fixture['previousResultAway'][1];
+              }
+
+              if(fixture['previousResultAway'].length >= 3){
+                game.resultAwayTeamJ3 = fixture['previousResultAway'][2];
+              }
+
+              if(fixture['previousResultAway'].length >= 4){
+                game.resultAwayTeamJ4 = fixture['previousResultAway'][3];
+              }
+
+              if(fixture['previousResultAway'].length >= 5){
+                game.resultAwayTeamJ5 = fixture['previousResultAway'][4];
+              }
+            }
+
             this.games.push(game);
           }
         }

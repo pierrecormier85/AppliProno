@@ -202,15 +202,15 @@
           "name": "Match pour la troisième place",
           "type": "loser",
 		      "date": "2018-07-14T16:00:00+02:00",
-          "home_team": 61,
-          "away_team": 62
+          "home_team": 13,
+          "away_team": 14
         },
         {
           "name": "Finale",
           "type": "winner",
 		      "date": "2018-07-15T18:00:00+02:00",
-          "home_team": 61,
-          "away_team": 62
+          "home_team": 5,
+          "away_team": 8
         }
       ]
     }

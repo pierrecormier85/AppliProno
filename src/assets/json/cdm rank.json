@@ -1,42 +1,54 @@
 [
   {
-    "pseudo": "Jensairien",
-    "score": 32
+    "pseudo": "MrSpad69",
+    "score": 36
   },
   {
-    "pseudo": "MrSpad69",
-    "score": 32
+    "pseudo": "Jensairien",
+    "score": 34
   },
   {
     "pseudo": "Ohpack",
-    "score": 32
+    "score": 34
   },
   {
     "pseudo": "SMFC",
-    "score": 32
+    "score": 34
   },
   {
     "pseudo": "Alo",
-    "score": 30
+    "score": 32
   },
   {
     "pseudo": "Kick",
-    "score": 30
+    "score": 32
   },
   {
     "pseudo": "Mathieu",
-    "score": 30
+    "score": 32
   },
   {
     "pseudo": "Yaman",
-    "score": 28
+    "score": 30
   },
   {
     "pseudo": "HITCH PRAMHEDA",
-    "score": 27
+    "score": 29
   },
   {
     "pseudo": "NSOL",
+    "score": 29
+  },
+  {
+    "pseudo": "LacazOL",
+    "score": 28
+  },
+  {
+    "pseudo": "Lolo",
+    "score": 28
+  },
+  {
+    "pseudo": "RoiDesPronos",
     "score": 27
   },
   {
@@ -44,32 +56,20 @@
     "score": 27
   },
   {
-    "pseudo": "LacazOL",
-    "score": 26
-  },
-  {
-    "pseudo": "RoiDesPronos",
-    "score": 25
-  },
-  {
-    "pseudo": "Lolo",
-    "score": 24
-  },
-  {
     "pseudo": "Rocé Léon",
-    "score": 24
+    "score": 26
   },
   {
     "pseudo": "ol44470",
     "score": 23
   },
   {
-    "pseudo": "Mir69",
-    "score": 21
+    "pseudo": "moi",
+    "score": 22
   },
   {
-    "pseudo": "moi",
-    "score": 20
+    "pseudo": "Mir69",
+    "score": 21
   },
   {
     "pseudo": "Raoru",
@@ -92,6 +92,10 @@
     "score": 17
   },
   {
+    "pseudo": "spooky",
+    "score": 17
+  },
+  {
     "pseudo": "TYBALT",
     "score": 17
   },
@@ -100,16 +104,16 @@
     "score": 15
   },
   {
-    "pseudo": "spooky",
-    "score": 15
-  },
-  {
     "pseudo": "Charlol17",
-    "score": 10
+    "score": 14
   },
   {
     "pseudo": "Barbituriques",
     "score": 8
+  },
+  {
+    "pseudo": "Eléfant de Lyon",
+    "score": 6
   },
   {
     "pseudo": "jamesmarty",
@@ -120,11 +124,11 @@
     "score": 6
   },
   {
-    "pseudo": "Eléfant de Lyon",
-    "score": 6
-  },
-  {
     "pseudo": "a",
     "score": 4
+  },
+  {
+    "pseudo": "goji",
+    "score": 0
   }
 ]

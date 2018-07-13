@@ -6,7 +6,7 @@
 	},
 	{
 	  "id": 2,
-	  "name": "Dijon FCO",
+	  "name": "Dijon Football Côte d'Or",
 	  "logo": "dijon"
 	},
 	{
@@ -51,12 +51,12 @@
 	},
 	{
 	  "id": 11,
-	  "name": "Montpellier Hérault SC",
+	  "name": "Montpellier HSC",
 	  "logo": "montpellier"
 	},
 	{
 	  "id": 12,
-	  "name": "OSC Lille",
+	  "name": "Lille OSC",
 	  "logo": "lille"
 	},
 	{
@@ -71,7 +71,7 @@
 	},
 	{
 	  "id": 15,
-	  "name": "Paris Saint-Germain",
+	  "name": "Paris Saint-Germain FC",
 	  "logo": "paris"
 	},
 	{
@@ -86,17 +86,17 @@
 	},
 	{
 	  "id": 18,
-	  "name": "EA Guingamp",
+	  "name": "En Avant Guingamp",
 	  "logo": "guingamp"
 	},
 	{
 	  "id": 19,
-	  "name": "Stade Rennais FC",
+	  "name": "Stade Rennais FC 1901",
 	  "logo": "rennes"
 	},
 	{
 	  "id": 20,
-	  "name": "OGC Nice",
+	  "name": "OGC de Nice Côte d'Azur",
 	  "logo": "nice"
 	},{
 	  "id": 21,
