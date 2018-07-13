@@ -1,111 +1,133 @@
 [
 	{
 	  "id": 1,
-	  "name": "Angers SCO",
+		"name": "Angers SCO",
+		"display": "Angers",
 	  "logo": "angers"
 	},
 	{
 	  "id": 2,
-	  "name": "Dijon Football Côte d'Or",
+		"name": "Dijon Football Côte d'Or",
+		"display": "Dijon",
 	  "logo": "dijon"
 	},
 	{
 	  "id": 3,
-	  "name": "FC Metz",
+		"name": "FC Metz",
+		"display": "Metz",
 	  "logo": "metz"
 	},
 	{
 	  "id": 4,
-	  "name": "FC Girondins de Bordeaux",
+		"name": "FC Girondins de Bordeaux",
+		"display": "Bordeaux",
 	  "logo": "bordeaux"
 	},
 	{
 	  "id": 5,
-	  "name": "FC Nantes",
+		"name": "FC Nantes",
+		"display": "Nantes",
 	  "logo": "nantes"
 	},
 	{
 	  "id": 6,
-	  "name": "RC Strasbourg Alsace",
+		"name": "RC Strasbourg Alsace",
+		"display": "Strasbourg",
 	  "logo": "strasbourg"
 	},
 	{
 	  "id": 7,
-	  "name": "Olympique Lyonnais",
+		"name": "Olympique Lyonnais",
+		"display": "Lyon",
 	  "logo": "lyon"
 	},
 	{
 	  "id": 8,
-	  "name": "Olympique de Marseille",
+		"name": "Olympique de Marseille",
+		"display": "Marseille",
 	  "logo": "marseille"
 	},
 	{
 	  "id": 9,
-	  "name": "Amiens SC",
+		"name": "Amiens SC",
+		"display": "Amiens",
 	  "logo": "amiens"
 	},
 	{
 	  "id": 10,
-	  "name": "AS Saint-Étienne",
+		"name": "AS Saint-Étienne",
+		"display": "Saint-Étienne",
 	  "logo": "saint-etienne"
 	},
 	{
 	  "id": 11,
-	  "name": "Montpellier HSC",
+		"name": "Montpellier HSC",
+		"display": "Montpellier",
 	  "logo": "montpellier"
 	},
 	{
 	  "id": 12,
-	  "name": "Lille OSC",
+		"name": "Lille OSC",
+		"display": "Lille",
 	  "logo": "lille"
 	},
 	{
 	  "id": 13,
-	  "name": "Toulouse FC",
+		"name": "Toulouse FC",
+		"display": "Toulouse",
 	  "logo": "toulouse"
 	},
 	{
 	  "id": 14,
-	  "name": "SM Caen",
+		"name": "SM Caen",
+		"display": "Caen",
 	  "logo": "caen"
 	},
 	{
 	  "id": 15,
-	  "name": "Paris Saint-Germain FC",
+		"name": "Paris Saint-Germain FC",
+		"display": "Paris",
 	  "logo": "paris"
 	},
 	{
 	  "id": 16,
-	  "name": "ES Troyes AC",
+		"name": "ES Troyes AC",
+		"display": "Troyes",
 	  "logo": "troyes"
 	},
 	{
 	  "id": 17,
-	  "name": "AS Monaco FC",
+		"name": "AS Monaco FC",
+		"display": "Monaco",
 	  "logo": "monaco"
 	},
 	{
 	  "id": 18,
-	  "name": "En Avant Guingamp",
+		"name": "En Avant Guingamp",
+		"display": "Guingamp",
 	  "logo": "guingamp"
 	},
 	{
 	  "id": 19,
-	  "name": "Stade Rennais FC 1901",
+		"name": "Stade Rennais FC 1901",
+		"display": "Rennes",
 	  "logo": "rennes"
 	},
 	{
 	  "id": 20,
-	  "name": "OGC de Nice Côte d'Azur",
+		"name": "OGC de Nice Côte d'Azur",
+		"display": "Nice",
 	  "logo": "nice"
 	},{
 	  "id": 21,
-	  "name": "Nîmes Olympique",
+		"name": "Nîmes Olympique",
+		"display": "Nîmes",
 	  "logo": "nimes"
 	},
 	{
 	  "id": 22,
-	  "name": "Stade de Reims",
+		"name": "Stade de Reims",
+		"display": "Reims",
 	  "logo": "reims"
 	}
 ]

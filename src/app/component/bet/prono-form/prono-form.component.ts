@@ -8,7 +8,6 @@ import { AuthService } from '../../../auth.service';
 
 import {Game} from './../../../models/game';
 import { Pronostic } from '../../../models/pronostic';
-import { Team } from '../../../models/team';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -94,11 +93,15 @@ export class PronoFormComponent implements OnInit {
     );
 
     this.http.get("./assets/json/l1.json").toPromise().then(data => {
-      let teams:{ [name: string]: string }={};
+      let teams:{ [name: string]: Team }={};
       
       for (let index in data) {
         let jsonTeam = data[index];
-        teams[jsonTeam['name']] = jsonTeam['logo'];
+        let team = new Team();
+        team.logo = jsonTeam['logo'];
+        team.display = jsonTeam['display'];
+
+        teams[jsonTeam['name']] = team;
       }
 
       this.http.get(environment.apiUrl.concat('fixtures/1'))
@@ -109,10 +112,10 @@ export class PronoFormComponent implements OnInit {
             const fixture = data[i-1];
 
             const game = new Game();
-            game.dom = fixture['home'];
-            game.logoDom = teams[fixture['home']];
-            game.ext = fixture['away'];
-            game.logoExt = teams[fixture['away']];
+            game.dom = teams[fixture['home']].display;
+            game.logoDom = teams[fixture['home']].logo;
+            game.ext = teams[fixture['away']].display;
+            game.logoExt = teams[fixture['away']].logo;
             game.id = i;
             game.result = '';
             game.rankingDom = fixture['rankingHome'];
@@ -293,3 +296,7 @@ export class PronoFormComponent implements OnInit {
 
 }
 
+export class Team {
+  display: string;
+  logo: String;
+}
