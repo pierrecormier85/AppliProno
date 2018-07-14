@@ -4,6 +4,7 @@ export class Game {
     ext: string;
     logoExt: String;
     id: number;
+    date: number;
     result: string;
     rankingDom: string;
     rankingExt: string;

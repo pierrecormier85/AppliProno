@@ -119,6 +119,7 @@ export class PronoFormComponent implements OnInit {
             game.result = '';
             game.rankingDom = fixture['rankingHome'];
             game.rankingExt = fixture['rankingAway'];
+            game.date = fixture['date'];
 
             if(fixture['previousResultHome'] != null){
               if(fixture['previousResultHome'].length >= 1){
@@ -166,6 +167,7 @@ export class PronoFormComponent implements OnInit {
 
             this.games.push(game);
           }
+          this.games.sort((a, b) => a.date - b.date);
         }
       );
     });
