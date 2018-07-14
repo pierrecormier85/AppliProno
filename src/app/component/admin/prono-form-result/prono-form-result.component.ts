@@ -77,7 +77,8 @@ export class PronoFormResultComponent implements OnInit {
                 dom: data['m'.concat(i.toString()).concat('Home')],
                 ext: data['m'.concat(i.toString()).concat('Away')],
                 id: i,
-                result: data['m'.concat(i.toString()).concat('Result')]
+                result: data['m'.concat(i.toString()).concat('Result')],
+                date: data['m'.concat(i.toString()).concat('Date')]
               };
               this.games.push(game);
 
@@ -91,6 +92,7 @@ export class PronoFormResultComponent implements OnInit {
                 this.form.controls['m'.concat(i.toString()).concat('Date')].setValue(new Date(date));
               }
             }
+            this.games.sort((a, b) => a.date - b.date);
           }
         );
       }
@@ -115,5 +117,6 @@ export class GameResult {
   ext: string;
   id: number;
   result: string;
+  date:number;
 }
 
