@@ -58,15 +58,29 @@ export class PronoListHistoryComponent implements OnInit {
       }
     );
 
-    this.http.get(environment.apiUrl.concat('fixtures/').concat(this.selectedItem.toString()))
-      .toPromise().then(data => {
-          // Read the result field from the JSON response.
-          this.journey.matchday = [];
-          for (let i = 1; i < 11; i ++) {
-            const fixture = data[i-1];
-            const j = fixture['home'] + ' - ' + fixture['away'];
-            this.journey.matchday.push(j);
-          }
+    this.http.get("./assets/json/l1.json").toPromise().then(data => {
+      let teams:{ [name: string]: Team }={};
+      
+      for (let index in data) {
+        let jsonTeam = data[index];
+        let team = new Team();
+        team.logo = jsonTeam['logo'];
+        team.display = jsonTeam['display'];
+
+        teams[jsonTeam['name']] = team;
+      }
+
+        this.http.get(environment.apiUrl.concat('fixtures/').concat(this.selectedItem.toString()))
+          .toPromise().then(data => {
+              // Read the result field from the JSON response.
+              this.journey.matchday = [];
+              for (let i = 1; i < 11; i ++) {
+                const fixture = data[i-1];
+                const j = teams[fixture['home']].display + ' - ' + teams[fixture['away']].display;
+                this.journey.matchday.push(j);
+              }
+            }
+          );
         }
       );
   }
@@ -87,4 +101,9 @@ export class PronoListHistoryComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+}
+
+export class Team {
+  display: string;
+  logo: String;
 }

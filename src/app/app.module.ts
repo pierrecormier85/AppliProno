@@ -62,8 +62,7 @@ import { PronoHallOfFameComponent } from './component/other/prono-hall-of-fame/p
 
 
 const appRoutes: Routes = [
-  { path: 'prono', component: PronoFormComponent },
-  { path: '', redirectTo: '/cdm/knockout', pathMatch: 'full' },
+  { path: '', component: PronoFormComponent },
   { path: 'pronostics', component: PronoListComponent },
   { path: 'pronostics/:id', component: PronoListComponent },
   { path: 'stats', component: PronoStatsComponent },

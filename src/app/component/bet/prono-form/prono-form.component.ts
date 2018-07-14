@@ -59,8 +59,7 @@ export class PronoFormComponent implements OnInit {
 
     this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
-        //this.matchday = Number(data);
-        this.matchday = 1;
+        this.matchday = Number(data);
         this.form.controls['matchday'].setValue(this.matchday);
 
         if(this.auth.isLoggednIn()){
@@ -104,7 +103,7 @@ export class PronoFormComponent implements OnInit {
         teams[jsonTeam['name']] = team;
       }
 
-      this.http.get(environment.apiUrl.concat('fixtures/1'))
+      this.http.get(environment.apiUrl.concat('fixtures'))
       .toPromise().then(data => {
           // Read the result field from the JSON response.
           this.games = [];
@@ -171,7 +170,7 @@ export class PronoFormComponent implements OnInit {
       );
     });
 
-    this.http.get(environment.apiUrl.concat('matchday/38'))
+    this.http.get(environment.apiUrl.concat('matchday/').concat(this.matchday))
       .toPromise().then(data => {
           let today = Date.now();
           if(today >= data['m1Date']){

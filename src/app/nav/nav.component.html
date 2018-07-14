@@ -3,18 +3,18 @@
       <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-      <!--<button mat-menu-item routerLink="/">
+      <button mat-menu-item routerLink="/">
           <mat-icon svgIcon="results"></mat-icon>
           <span>Pronos</span>
-      </button>-->
+      </button>
       <button mat-menu-item [matMenuTriggerFor]="cdm"> 
         <mat-icon svgIcon="general"></mat-icon>
         <span>Pronos CDM</span>
       </button>
-     <!-- <button mat-menu-item [matMenuTriggerFor]="participations"> 
+     <button mat-menu-item [matMenuTriggerFor]="participations"> 
           <mat-icon svgIcon="list"></mat-icon>
           <span>Participations</span>
-      </button>-->
+      </button>
       <button mat-menu-item [matMenuTriggerFor]="ranking"> 
           <mat-icon svgIcon="ranking"></mat-icon>
           <span>Classement</span>
@@ -45,10 +45,10 @@
           <mat-icon svgIcon="list"></mat-icon>
           <span>Actuelle</span>
       </button>
-      <button mat-menu-item (click)="btnPreviousParticipationsClick()">
+     <!-- <button mat-menu-item (click)="btnPreviousParticipationsClick()">
           <mat-icon svgIcon="list"></mat-icon>
           <span>Précédente</span>
-      </button>
+      </button>-->
   </mat-menu>
   <mat-menu #ranking="matMenu">
       <button mat-menu-item (click)="btnGeneralRankingClick()">
@@ -93,18 +93,6 @@
   </mat-menu>
 
   <mat-menu #cdm="matMenu">
-      <!--<button mat-menu-item routerLink="cdm">
-        <mat-icon svgIcon="general"></mat-icon>
-        <span>Pronos des groupes</span>
-    </button>-->
-    <button mat-menu-item routerLink="cdm/knockout">
-        <mat-icon svgIcon="general"></mat-icon>
-        <span>Pronos des phases finales</span>
-    </button>
-    <button mat-menu-item routerLink="cdm/list">
-        <mat-icon svgIcon="list"></mat-icon>
-        <span>Participations</span>
-    </button>
     <button mat-menu-item routerLink="cdm/rank">
         <mat-icon svgIcon="general"></mat-icon>
         <span>Classement</span>

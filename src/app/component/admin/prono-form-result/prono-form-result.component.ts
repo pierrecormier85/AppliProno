@@ -66,8 +66,7 @@ export class PronoFormResultComponent implements OnInit {
 
     this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
-        //this.matchday = Number(data);
-        this.matchday = 38;
+        this.matchday = Number(data);
         this.form.controls['matchday'].setValue(this.matchday);
 
         this.http.get(environment.apiUrl.concat('matchday/').concat(this.matchday))
@@ -81,7 +80,7 @@ export class PronoFormResultComponent implements OnInit {
                 result: data['m'.concat(i.toString()).concat('Result')]
               };
               this.games.push(game);
-              //use constant bordel de merde => game.result
+
               let result = data['m'.concat(i.toString()).concat('Result')];
               if(result != null){
                 this.form.controls['m'.concat(i.toString()).concat('Result')].setValue(result);
