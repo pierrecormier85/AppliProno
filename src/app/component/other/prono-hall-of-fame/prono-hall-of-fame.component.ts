@@ -50,7 +50,7 @@ export class PronoHallOfFameComponent implements OnInit {
               label: 'CDM 2018',
               type: 'person',
               styleClass: 'ui-person',
-              data: {name:'En Cours !'}
+              data: {name:'MrSpad69'}
             }]
           }
       ]
