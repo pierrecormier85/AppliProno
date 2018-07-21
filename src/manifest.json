@@ -1,6 +1,6 @@
 {
-  "name": "appli-prono",
-  "short_name": "appli-prono",
+  "name": "pronoDV",
+  "short_name": "pronoDV",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
