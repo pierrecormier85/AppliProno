@@ -59,6 +59,7 @@ import {OrganizationChartModule} from 'primeng/organizationchart';
 import { PronoCdmRankingComponent } from './component/cdm/prono-cdm-ranking/prono-cdm-ranking.component';
 import { AdminLeagueRankingComponent } from './component/admin/admin-league-ranking/admin-league-ranking.component';
 import { PronoHallOfFameComponent } from './component/other/prono-hall-of-fame/prono-hall-of-fame.component';
+import { DVOrgaComponent } from './component/other/dv-orga/dv-orga.component';
 
 
 const appRoutes: Routes = [
@@ -86,7 +87,8 @@ const appRoutes: Routes = [
   { path: 'result', component: PronoFormResultComponent},
   { path: 'user/info', component: UserInfoComponent},
   { path: 'user/reset', component: UserResetPasswordComponent},
-  { path: 'admin/ranking', component: AdminLeagueRankingComponent}
+  { path: 'admin/ranking', component: AdminLeagueRankingComponent},
+  { path: 'dv', component: DVOrgaComponent}
 ];
 
 @NgModule({
@@ -118,7 +120,8 @@ const appRoutes: Routes = [
     UserResetPasswordComponent,
     UserResetPasswordDialogComponent,
     AdminLeagueRankingComponent,
-    PronoHallOfFameComponent
+    PronoHallOfFameComponent,
+    DVOrgaComponent
   ],
   imports: [
     BrowserModule,

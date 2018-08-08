@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Ranking } from '../../../models/ranking';
 
-import { GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from './../../../const/constants';
+import { GENERAL, MONTH, JOURNEY, HISTORY_MONTH, HISTORY_WEEK } from '../../../const/constants';
 
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 import { AuthService } from '../../../auth.service';

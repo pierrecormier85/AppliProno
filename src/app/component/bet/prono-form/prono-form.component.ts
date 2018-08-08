@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { PronoDialogComponent } from './../prono-dialog/prono-dialog.component';
+import { PronoDialogComponent } from '../prono-dialog/prono-dialog.component';
 import { AuthService } from '../../../auth.service';
 
-import {Game} from './../../../models/game';
+import {Game} from '../../../models/game';
 import { Pronostic } from '../../../models/pronostic';
 import { environment } from '../../../../environments/environment';
 
