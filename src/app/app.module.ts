@@ -29,7 +29,7 @@ import {MatPaginatorIntl, MatSidenavModule, MatListModule} from '@angular/materi
 
 import { GooglePieChartService } from './chart/google-pie-chart.service';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 import { PronoRankingComponent } from './component/ranking/prono-ranking/prono-ranking.component';
 import { PronoInfoComponent } from './component/other/prono-info/prono-info.component';
 import { GENERAL, MONTH, JOURNEY, MOYENNE, PARTICIPATION, HISTORY_WEEK, HISTORY_MONTH, HISTORY_STATS, HISTORY_PRONO } from './const/constants';
@@ -60,6 +60,8 @@ import { PronoCdmRankingComponent } from './component/cdm/prono-cdm-ranking/pron
 import { AdminLeagueRankingComponent } from './component/admin/admin-league-ranking/admin-league-ranking.component';
 import { PronoHallOfFameComponent } from './component/other/prono-hall-of-fame/prono-hall-of-fame.component';
 import { DVOrgaComponent } from './component/other/dv-orga/dv-orga.component';
+import { AdminGuard } from './guard/admin.guard';
+import { GuestGuard } from './guard/guest.guard';
 
 
 const appRoutes: Routes = [
@@ -74,8 +76,8 @@ const appRoutes: Routes = [
   { path: JOURNEY, component: PronoRankingComponent },
   { path: 'moyenne', component: PronoRankingMoyenneComponent },
   { path: 'participation', component: PronoRankingParticipationComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard]},
+  { path: 'register', component: RegisterComponent, canActivate: [GuestGuard]},
   { path: HISTORY_MONTH, component: PronoRankingHistoryComponent},
   { path: HISTORY_WEEK, component: PronoRankingHistoryComponent},
   { path: HISTORY_STATS, component: PronoStatsHistoryComponent},
@@ -84,10 +86,10 @@ const appRoutes: Routes = [
   { path: 'cdm/list', component: PronoCdmGroupListComponent},
   { path: 'cdm/knockout', component: PronoCdmKnockoutComponent},
   { path: 'cdm/rank', component: PronoCdmRankingComponent},
-  { path: 'result', component: PronoFormResultComponent},
-  { path: 'user/info', component: UserInfoComponent},
+  { path: 'admin/result', component: PronoFormResultComponent, canActivate: [AdminGuard]},
+  { path: 'user/info', component: UserInfoComponent, canActivate: [AuthGuard]},
   { path: 'user/reset', component: UserResetPasswordComponent},
-  { path: 'admin/ranking', component: AdminLeagueRankingComponent},
+  { path: 'admin/ranking', component: AdminLeagueRankingComponent, canActivate: [AdminGuard]},
   { path: 'dv', component: DVOrgaComponent}
 ];
 
@@ -158,7 +160,7 @@ const appRoutes: Routes = [
     UserResetPasswordDialogComponent
   ],
   exports: [],
-  providers: [GooglePieChartService, AuthService, AuthGuard,
+  providers: [GooglePieChartService, AuthService, AuthGuard, AdminGuard, GuestGuard,
               { provide: MatPaginatorIntl, useValue: getFrenchPaginatorIntl() }],
   bootstrap: [AppComponent]
 })
