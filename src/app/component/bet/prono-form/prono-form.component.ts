@@ -88,6 +88,61 @@ export class PronoFormComponent implements OnInit {
         }else {
           this.form.controls['pseudo'].enable();
         }
+      
+      this.http.get(environment.apiUrl.concat('matchday/').concat(this.matchday))
+      .toPromise().then(data => {
+          let today = Date.now();
+          if(today >= data['m1Date']){
+            this.disableM1 = true;
+            this.form.controls['m1'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m2Date']){
+            this.disableM2 = true;
+            this.form.controls['m2'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m3Date']){
+            this.disableM3 = true;
+            this.form.controls['m3'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m4Date']){
+            this.disableM4 = true;
+            this.form.controls['m4'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m5Date']){
+            this.disableM5 = true;
+            this.form.controls['m5'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m6Date']){
+            this.disableM6 = true;
+            this.form.controls['m6'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m7Date']){
+            this.disableM7 = true;
+            this.form.controls['m7'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m8Date']){
+            this.disableM8 = true;
+            this.form.controls['m8'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m9Date']){
+            this.disableM9 = true;
+            this.form.controls['m9'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+          if(today >= data['m10Date']){
+            this.disableM10 = true;
+            this.form.controls['m10'].setValidators(null);
+            this.showWarningMessage = true;
+          }
+        });
       }
     );
 
@@ -171,62 +226,6 @@ export class PronoFormComponent implements OnInit {
         }
       );
     });
-
-    this.http.get(environment.apiUrl.concat('matchday/').concat(this.matchday))
-      .toPromise().then(data => {
-          let today = Date.now();
-          if(today >= data['m1Date']){
-            this.disableM1 = true;
-            this.form.controls['m1'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m2Date']){
-            this.disableM2 = true;
-            this.form.controls['m2'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m3Date']){
-            this.disableM3 = true;
-            this.form.controls['m3'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m4Date']){
-            this.disableM4 = true;
-            this.form.controls['m4'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m5Date']){
-            this.disableM5 = true;
-            this.form.controls['m5'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m6Date']){
-            this.disableM6 = true;
-            this.form.controls['m6'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m7Date']){
-            this.disableM7 = true;
-            this.form.controls['m7'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m8Date']){
-            this.disableM8 = true;
-            this.form.controls['m8'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m9Date']){
-            this.disableM9 = true;
-            this.form.controls['m9'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-          if(today >= data['m10Date']){
-            this.disableM10 = true;
-            this.form.controls['m10'].setValidators(null);
-            this.showWarningMessage = true;
-          }
-        }
-      );
   }
 
   get pseudo() { return this.form.get('pseudo'); }
