@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://dvapitest.herokuapp.com/api/'
+  apiUrl: 'https://pronorest.herokuapp.com/api/'
 };
 
 //'https://pronorest.herokuapp.com/api/';

@@ -35,6 +35,7 @@ export class PronoFormComponent implements OnInit {
   disableM9: Boolean = false;
   disableM10: Boolean = false;
   showWarningMessage: Boolean = false;
+  teams:{ [name: string]: Team } = {};
 
   constructor(private http: HttpClient, private formBuilder: FormBuilder,
      private router: Router, public dialog: MatDialog,private auth: AuthService) {
@@ -56,6 +57,27 @@ export class PronoFormComponent implements OnInit {
       pseudo: new FormControl('', Validators.required),
       matchday: 0
     });
+
+    this.teams['Angers SCO'] = { display: 'Angers', logo: 'angers'};
+    this.teams['Dijon Football Côte d\'Or'] = { display: 'Dijon', logo: 'dijon'};
+    this.teams['Nîmes Olympique'] = { display: 'Nîmes', logo: 'nimes'};
+    this.teams['FC Girondins de Bordeaux'] = { display: 'Bordeaux', logo: 'bordeaux'};
+    this.teams['FC Nantes'] = { display: 'Nantes', logo: 'nantes'};
+    this.teams['RC Strasbourg Alsace'] = { display: 'Strasbourg', logo: 'strasbourg'};
+    this.teams['Olympique Lyonnais'] = { display: 'Lyon', logo: 'lyon'};
+    this.teams['Olympique de Marseille'] = { display: 'Marseille', logo: 'marseille'};
+    this.teams['Amiens SC'] = { display: 'Amiens', logo: 'amiens'};
+    this.teams['AS Saint-Étienne'] = { display: 'Saint-Étienne', logo: 'saint-etienne'};
+    this.teams['Montpellier HSC'] = { display: 'Montpellier', logo: 'montpellier'};
+    this.teams['Lille OSC'] = { display: 'Lille', logo: 'lille'};
+    this.teams['Toulouse FC'] = { display: 'Toulouse', logo: 'toulouse'};
+    this.teams['SM Caen'] = { display: 'Caen', logo: 'caen'};
+    this.teams['Paris Saint-Germain FC'] = { display: 'Paris', logo: 'paris'};
+    this.teams['Stade de Reims'] = { display: 'Reims', logo: 'reims'};
+    this.teams['AS Monaco FC'] = { display: 'Monaco', logo: 'monaco'};
+    this.teams['En Avant Guingamp'] = { display: 'Guingamp', logo: 'guingamp'};
+    this.teams['Stade Rennais FC 1901'] = { display: 'Rennes', logo: 'rennes'};
+    this.teams['OGC de Nice Côte d\'Azur'] = { display: 'Nice', logo: 'nice'};
 
     this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(data => {
@@ -146,19 +168,7 @@ export class PronoFormComponent implements OnInit {
       }
     );
 
-    this.http.get("./assets/json/l1.json").toPromise().then(data => {
-      let teams:{ [name: string]: Team }={};
-      
-      for (let index in data) {
-        let jsonTeam = data[index];
-        let team = new Team();
-        team.logo = jsonTeam['logo'];
-        team.display = jsonTeam['display'];
-
-        teams[jsonTeam['name']] = team;
-      }
-
-      this.http.get(environment.apiUrl.concat('fixtures'))
+    this.http.get(environment.apiUrl.concat('fixtures'))
       .toPromise().then(data => {
           // Read the result field from the JSON response.
           this.games = [];
@@ -166,10 +176,28 @@ export class PronoFormComponent implements OnInit {
             const fixture = data[i-1];
 
             const game = new Game();
-            game.dom = teams[fixture['home']].display;
-            game.logoDom = teams[fixture['home']].logo;
-            game.ext = teams[fixture['away']].display;
-            game.logoExt = teams[fixture['away']].logo;
+            if(this.teams[fixture['home']]){
+              game.dom = this.teams[fixture['home']].display;
+              game.logoDom = this.teams[fixture['home']].logo;
+            } else {
+              game.dom = fixture['home'];
+              game.logoDom = '';
+
+              console.log(fixture['home']);
+              console.log(this.teams);
+            }
+
+            if(this.teams[fixture['away']]){
+              game.ext = this.teams[fixture['away']].display;
+              game.logoExt = this.teams[fixture['away']].logo;
+            } else {
+              game.ext = fixture['away'];
+              game.logoExt = '';
+
+              console.log(fixture['away']);
+              console.log(this.teams);
+            }
+            
             game.id = i;
             game.result = '';
             game.rankingDom = fixture['rankingHome'];
@@ -225,7 +253,6 @@ export class PronoFormComponent implements OnInit {
           this.games.sort((a, b) => a.date - b.date);
         }
       );
-    });
   }
 
   get pseudo() { return this.form.get('pseudo'); }
