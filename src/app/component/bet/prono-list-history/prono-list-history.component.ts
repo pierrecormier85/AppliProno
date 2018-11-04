@@ -35,7 +35,7 @@ export class PronoListHistoryComponent implements OnInit {
   ngOnInit() {
     this.http.get(environment.apiUrl.concat('fixtures/current/'))
     .toPromise().then(m => {
-        for(let i = 1; i <= Number(m); i++){
+        for(let i = 1; i <= Number(m) - 1; i++){
           this.values.push(i);
         }
       });
