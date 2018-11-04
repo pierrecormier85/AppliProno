@@ -17,56 +17,6 @@
 
   <mat-table #table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="m1">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[0]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m1}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m2">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[1]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m2}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m3">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[2]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m3}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m4">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[3]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m4}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m5">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[4]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m5}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m6">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[5]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m6}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m7">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[6]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m7}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m8">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[7]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m8}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m9">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[8]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m9}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="m10">
-      <mat-header-cell *matHeaderCellDef> {{journey.matchday[9]}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.m10}} </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="pseudo">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Pseudo </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.pseudo}} </mat-cell>
