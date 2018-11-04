@@ -18,6 +18,7 @@ export class PronoListComponent implements OnInit {
   matchday;
   journey: Matchday;
   search: String;
+  previous: Boolean = false;
 
   displayedColumns = ['pseudo'];
   dataSource = new MatTableDataSource(this.pronostics);
@@ -40,6 +41,7 @@ export class PronoListComponent implements OnInit {
           this.matchday = Number(id);
           this.displayedColumns = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9','m10', 'pseudo'];
           this.journey.matchday = ['','','','','','','','','',''];
+          this.previous = true;
         }
       }
     ).then(r => {
