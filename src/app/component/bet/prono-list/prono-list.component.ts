@@ -19,7 +19,7 @@ export class PronoListComponent implements OnInit {
   journey: Matchday;
   search: String;
 
-  displayedColumns = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9','m10', 'pseudo'];
+  displayedColumns = ['pseudo'];
   dataSource = new MatTableDataSource(this.pronostics);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,7 +27,7 @@ export class PronoListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient, public auth: AuthService) { 
     this.journey = new Matchday();
-    this.journey.matchday = ['','','','','','','','','',''];
+    this.journey.matchday = [''];
   }
 
   ngOnInit() {
