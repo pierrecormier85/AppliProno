@@ -263,8 +263,10 @@ export class PronoFormComponent implements OnInit {
       return 'badge badge-pill badge-success result-marge';
     } else if(value == 'N'){
       return 'badge badge-pill badge-warning result-marge';
-    } else {
+    } else if(value == 'D') {
       return 'badge badge-pill badge-danger result-marge';
+    } else {
+      return 'd-none';
     }
     
   }
