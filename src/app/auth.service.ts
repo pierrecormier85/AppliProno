@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   isAdmin(){
-    return this.getToken() !== null && this.getDecodeToken() == "ol44470";
+    return this.getToken() !== null && this.getDecodeToken() == "Pierre";
   }
 
 
