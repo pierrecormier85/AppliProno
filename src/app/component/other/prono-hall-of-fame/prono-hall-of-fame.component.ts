@@ -38,7 +38,7 @@ export class PronoHallOfFameComponent implements OnInit {
                 label: '2018 - 2019',
                 type: 'person',
                 styleClass: 'ui-person',
-                data: {name:'Maybe you !'}
+                data: {name:'MrSpad69'}
               }
             ],
           },

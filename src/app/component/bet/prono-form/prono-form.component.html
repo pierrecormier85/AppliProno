@@ -1,4 +1,4 @@
-<div style="text-align:center">
+<div style="text-align:center" *ngIf="matchday < 38">
     <h1>
       Journée {{matchday}}
     </h1>
@@ -91,6 +91,11 @@
       </div>
     </form>
   </div>
+
+<div style="text-align:center" *ngIf="matchday == 39">
+  <h1>La saison est fini !</h1>
+  <h3>A bientot, pour une nouvelle saison.</h3>
+</div>
 
   <script>
     $().button('toggle');
